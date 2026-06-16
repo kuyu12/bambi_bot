@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bambi-knowledge-agent"
+version = "0.1.0"
+description = "Local Dockerized knowledge agent for Bambi course data."
+requires-python = ">=3.12"
+dependencies = [
+  "beautifulsoup4>=4.12.3",
+  "fastapi>=0.115.0",
+  "google-api-python-client>=2.156.0",
+  "google-auth>=2.37.0",
+  "google-auth-httplib2>=0.2.0",
+  "httpx>=0.28.1",
+  "jinja2>=3.1.5",
+  "lxml>=5.3.0",
+  "openai>=1.93.0",
+  "openai-agents>=0.2.0",
+  "pydantic-settings>=2.7.1",
+  "pypdf>=5.1.0",
+  "qdrant-client>=1.12.1",
+  "uvicorn[standard]>=0.34.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.4",
+  "pytest-asyncio>=0.25.0",
+  "respx>=0.22.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
