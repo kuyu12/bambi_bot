@@ -291,105 +291,42 @@ class AgentService:
 
     def _build_tools(self) -> list[Any]:
         service = self
+        tools: list[Any] = []
 
-        @function_tool
-        async def driving_and_transportation_courses() -> dict[str, Any]:
-            """Return the full local text file for Bambi driving and transportation courses."""
-            return service._read_knowledge_tool("driving_and_transportation_courses")
+        for spec in service.knowledge_files.tool_specs():
+            if spec.tool_id == "customer_info":
 
-        @function_tool
-        async def safety_courses() -> dict[str, Any]:
-            """Return the full local text file for Bambi safety courses."""
-            return service._read_knowledge_tool("safety_courses")
+                async def customer_info(identifier: str | None = None) -> dict[str, Any]:
+                    """Customer information tool. Placeholder for myBusiness; currently returns no local match."""
+                    payload = service.knowledge_files.read_tool_file("customer_info")
+                    payload["identifier"] = identifier
+                    service.db.log_tool_call(None, "customer_info", {"identifier": identifier}, payload, False)
+                    return payload
 
-        @function_tool
-        async def general_safety_at_work() -> dict[str, Any]:
-            """Return the full local FAQ text file for general safety at work."""
-            return service._read_knowledge_tool("general_safety_at_work")
+                tools.append(
+                    function_tool(
+                        customer_info,
+                        name_override=spec.tool_id,
+                        description_override=spec.description,
+                    )
+                )
+                continue
 
-        @function_tool
-        async def safety_trustee_course() -> dict[str, Any]:
-            """Return the full local FAQ text file for the safety trustee course."""
-            return service._read_knowledge_tool("safety_trustee_course")
+            def build_reader(tool_id: str):
+                async def read_knowledge_file() -> dict[str, Any]:
+                    return service._read_knowledge_tool(tool_id)
 
-        @function_tool
-        async def mobile_machine_license() -> dict[str, Any]:
-            """Return the full local FAQ text file for mobile machine license."""
-            return service._read_knowledge_tool("mobile_machine_license")
+                return read_knowledge_file
 
-        @function_tool
-        async def personal_protective_equipment() -> dict[str, Any]:
-            """Return the full local FAQ text file for personal protective equipment."""
-            return service._read_knowledge_tool("personal_protective_equipment")
+            read_knowledge_file = build_reader(spec.tool_id)
 
-        @function_tool
-        async def forklift_instructor_course() -> dict[str, Any]:
-            """Return the full local FAQ text file for the forklift instructor course."""
-            return service._read_knowledge_tool("forklift_instructor_course")
+            read_knowledge_file.__name__ = spec.tool_id
+            tools.append(
+                function_tool(
+                    read_knowledge_file,
+                    name_override=spec.tool_id,
+                    description_override=spec.description,
+                )
+            )
 
-        @function_tool
-        async def work_at_height_instructor_course() -> dict[str, Any]:
-            """Return the full local FAQ text file for work at height instructor course."""
-            return service._read_knowledge_tool("work_at_height_instructor_course")
-
-        @function_tool
-        async def tractor_course() -> dict[str, Any]:
-            """Return the full local FAQ text file for tractor course."""
-            return service._read_knowledge_tool("tractor_course")
-
-        @function_tool
-        async def self_loading_crane_course() -> dict[str, Any]:
-            """Return the full local FAQ text file for self-loading crane course."""
-            return service._read_knowledge_tool("self_loading_crane_course")
-
-        @function_tool
-        async def regulation_168() -> dict[str, Any]:
-            """Return the full local text file for regulation 168."""
-            return service._read_knowledge_tool("regulation_168")
-
-        @function_tool
-        async def laws_and_regulations() -> dict[str, Any]:
-            """Return the full local text file for laws and regulations."""
-            return service._read_knowledge_tool("laws_and_regulations")
-
-        @function_tool
-        async def about_the_college() -> dict[str, Any]:
-            """Return the full local text file about Bambi College."""
-            return service._read_knowledge_tool("about_the_college")
-
-        @function_tool
-        async def directions_to_bambi_college() -> dict[str, Any]:
-            """Return the full local text file with directions to Bambi College."""
-            return service._read_knowledge_tool("directions_to_bambi_college")
-
-        @function_tool
-        async def contacting_bambi_college() -> dict[str, Any]:
-            """Return the full local text file with Bambi College contact information."""
-            return service._read_knowledge_tool("contacting_bambi_college")
-
-        @function_tool
-        async def customer_info(identifier: str | None = None) -> dict[str, Any]:
-            """Customer information tool. Placeholder for myBusiness; currently returns no local match."""
-            payload = service.knowledge_files.read_tool_file("customer_info")
-            payload["identifier"] = identifier
-            service.db.log_tool_call(None, "customer_info", {"identifier": identifier}, payload, False)
-            return payload
-
-        return [
-            driving_and_transportation_courses,
-            safety_courses,
-            general_safety_at_work,
-            safety_trustee_course,
-            mobile_machine_license,
-            personal_protective_equipment,
-            forklift_instructor_course,
-            work_at_height_instructor_course,
-            tractor_course,
-            self_loading_crane_course,
-            regulation_168,
-            laws_and_regulations,
-            about_the_college,
-            directions_to_bambi_college,
-            contacting_bambi_college,
-            customer_info,
-        ]
+        return tools

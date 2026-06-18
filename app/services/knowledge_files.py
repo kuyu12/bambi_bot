@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -13,6 +14,7 @@ class KnowledgeToolSpec:
 
 
 KNOWLEDGE_DIR = Path(__file__).resolve().parents[1] / "tools-knowleage"
+GENERATED_TOOLS_MANIFEST = KNOWLEDGE_DIR / "generated_tools_manifest.json"
 
 KNOWLEDGE_TOOLS: dict[str, KnowledgeToolSpec] = {
     "driving_and_transportation_courses": KnowledgeToolSpec(
@@ -115,8 +117,32 @@ KNOWLEDGE_TOOLS: dict[str, KnowledgeToolSpec] = {
 
 
 class KnowledgeFileService:
+    def __init__(self) -> None:
+        self._tools = self._load_tools()
+
+    def _load_tools(self) -> dict[str, KnowledgeToolSpec]:
+        if not GENERATED_TOOLS_MANIFEST.exists():
+            return KNOWLEDGE_TOOLS
+
+        payload = json.loads(GENERATED_TOOLS_MANIFEST.read_text(encoding="utf-8"))
+        tools: dict[str, KnowledgeToolSpec] = {}
+        for item in payload.get("tools", []):
+            tool_id = str(item["tool_id"])
+            tools[tool_id] = KnowledgeToolSpec(
+                tool_id=tool_id,
+                display_name=str(item["display_name"]),
+                description=str(item["description"]),
+                file_name=str(item["file_name"]),
+            )
+
+        tools["customer_info"] = KNOWLEDGE_TOOLS["customer_info"]
+        return tools or KNOWLEDGE_TOOLS
+
+    def tool_specs(self) -> list[KnowledgeToolSpec]:
+        return list(self._tools.values())
+
     def read_tool_file(self, tool_id: str) -> dict[str, object]:
-        spec = KNOWLEDGE_TOOLS[tool_id]
+        spec = self._tools[tool_id]
         if spec.file_name is None:
             return {
                 "tool_id": spec.tool_id,
@@ -156,5 +182,5 @@ class KnowledgeFileService:
                 "description": spec.description,
                 "file_name": spec.file_name,
             }
-            for spec in KNOWLEDGE_TOOLS.values()
+            for spec in self._tools.values()
         ]
