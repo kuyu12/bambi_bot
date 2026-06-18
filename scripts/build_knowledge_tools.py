@@ -23,8 +23,10 @@ DEFAULT_RAW_DIR = Path("data/website_raw")
 DEFAULT_TOOLS_DIR = Path("app/tools-knowleage")
 GENERATED_DIR_NAME = "generated"
 GENERATED_MANIFEST_NAME = "generated_tools_manifest.json"
-MAX_CATEGORY_CONTENT_CHARS = 35_000
-MAX_PAGE_TEXT_CHARS = 28_000
+MAX_CATEGORY_SNAPSHOT_CHARS = 1_200
+MAX_PAGE_TEXT_CHARS = 10_000
+MAX_SUMMARY_OUTPUT_TOKENS = 3_500
+GENERATED_CONTENT_MARKER = "## תוכן מסוכם לסוכן"
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -39,6 +41,10 @@ class KnowledgeBuildDecision(BaseModel):
     summary_document: str = Field(description="Updated Hebrew knowledge document for this category.")
     reason: str = Field(description="Short explanation of the decision.")
     confidence: Literal["low", "medium", "high"]
+
+
+class NonRetryableLLMError(RuntimeError):
+    pass
 
 
 @dataclass
@@ -89,6 +95,8 @@ SEED_CATEGORIES = [
         "description": "מידע על חוקים, תקנות ודרישות רגולטוריות הרלוונטיות לקורסים ולהכשרות.",
     },
 ]
+SEED_TOOL_IDS = {item["tool_id"] for item in SEED_CATEGORIES}
+NEW_COURSE_TOOL_PREFIX = "course_"
 
 
 def latest_raw_dir(base_dir: Path) -> Path:
@@ -127,6 +135,14 @@ def extract_page_text(raw: dict) -> str:
     return body[:MAX_PAGE_TEXT_CHARS]
 
 
+def unwrap_generated_content(content: str) -> str:
+    """Keep only the knowledge body from generated tool files, even after repeated resume writes."""
+    body = content.strip()
+    while GENERATED_CONTENT_MARKER in body and body.lstrip().startswith("#"):
+        body = body.split(GENERATED_CONTENT_MARKER, 1)[1].strip()
+    return body
+
+
 def normalize_tool_id(value: str) -> str:
     value = value.lower().strip()
     value = re.sub(r"[^a-z0-9_]+", "_", value)
@@ -136,6 +152,10 @@ def normalize_tool_id(value: str) -> str:
     if value[0].isdigit():
         value = f"tool_{value}"
     return value[:64]
+
+
+def is_allowed_tool_id(tool_id: str) -> bool:
+    return tool_id in SEED_TOOL_IDS or tool_id.startswith(NEW_COURSE_TOOL_PREFIX)
 
 
 def load_manifest(raw_dir: Path) -> list[dict]:
@@ -167,17 +187,18 @@ def seed_categories() -> dict[str, CategoryState]:
 def category_list_for_prompt(categories: dict[str, CategoryState]) -> str:
     lines = []
     for category in categories.values():
+        snapshot = category.content.strip()[:MAX_CATEGORY_SNAPSHOT_CHARS] or "No existing content yet."
         lines.append(
             f"- tool_id: {category.tool_id}\n"
             f"  display_name: {category.display_name}\n"
             f"  description: {category.description}\n"
-            f"  source_count: {category.source_count}"
+            f"  source_count: {category.source_count}\n"
+            f"  existing_summary_snapshot: {snapshot}"
         )
     return "\n".join(lines) or "No categories yet."
 
 
-def build_prompt(item: dict, page_text: str, categories: dict[str, CategoryState], existing_content: str | None = None) -> str:
-    existing_block = existing_content or "אין עדיין מסמך קיים לקטגוריה שנבחרה."
+def build_prompt(item: dict, page_text: str, categories: dict[str, CategoryState]) -> str:
     return f"""
 אתה בונה knowledge tools עבור צ'אטבוט של מכללת במבי.
 המטרה: להפוך תוכן עמוד WordPress למסמך ידע תמציתי וברור לסוכן.
@@ -185,11 +206,16 @@ def build_prompt(item: dict, page_text: str, categories: dict[str, CategoryState
 כללי עבודה:
 1. השתמש רק בתוכן העמוד שסופק. אל תנחש ואל תוסיף מידע חיצוני.
 2. אם העמוד לא מועיל לבוט, החזר has_bot_value=false ו-category_action=skip.
-3. אם יש קטגוריה קיימת מתאימה, בחר אותה ועדכן את summary_document כך שיכלול את המסמך הקיים + המידע החדש, בלי כפילויות.
-4. אם אין קטגוריה מתאימה, צור category חדשה עם tool_id באנגלית snake_case, display_name בעברית, ו-tool_description בעברית.
-5. המסמך לסוכן חייב להיות בעברית, מאורגן בכותרות קצרות, ולהכיל פרטים שימושיים כמו תנאי קבלה, משך, מחירים, מועדים, קישורים, כתובת, דרכי קשר או FAQ רק אם הם מופיעים בתוכן.
-6. אל תשמור רעשי אתר, טקסטים של כפתורים חוזרים, פירורי ניווט, טפסים ריקים, JavaScript, CSS או מידע לא רלוונטי.
-7. tool_description צריך להסביר מתי הסוכן צריך להשתמש בכלי הזה.
+3. עבור עמוד שעוסק בקורס ספציפי, צור כלי חדש ונפרד לקורס עם category_action=new ו-tool_id באנגלית שמתחיל תמיד ב-course_.
+4. עבור עמוד אינדקס או עמוד כללי, השתמש באחת מהקטגוריות הקיימות שמתאימה.
+5. אם העמוד לא עוסק בקורס/הכשרה/הסמכה או מידע שירותי חשוב למכללה, החזר has_bot_value=false ו-category_action=skip.
+6. אל תיצור tools חדשים לנגישות, תודה, טפסים, המלצות, חדשות כלליות, מאמרים שיווקיים כלליים או עמודים ללא מידע עובדתי על קורס.
+7. המסמך לסוכן חייב להיות בעברית, מאורגן בכותרות קצרות, ולהכיל פרטים שימושיים כמו תנאי קבלה, משך, מחירים, מועדים, קישורים, כתובת, דרכי קשר או FAQ רק אם הם מופיעים בתוכן.
+8. אל תשמור רעשי אתר, טקסטים של כפתורים חוזרים, פירורי ניווט, טפסים ריקים, JavaScript, CSS או מידע לא רלוונטי.
+9. tool_description צריך להסביר מתי הסוכן צריך להשתמש בכלי הזה.
+10. summary_document חייב להיות מסמך מרוכז ותמציתי עד 2,500 תווים. אם יש מידע כפול או פחות חשוב, מחק אותו במקום להאריך את המסמך.
+11. אל תנסה לשכתב את כל המסמך הקיים בקטגוריה קיימת. המערכת תשמור את התוכן הקיים ותצרף אליו את הסיכום החדש.
+12. tool_id חדש לקורס חייב להיות snake_case באנגלית ולהתחיל ב-course_, לדוגמה course_forklift, course_work_at_height, course_mobile_machine.
 
 קטגוריות קיימות:
 {category_list_for_prompt(categories)}
@@ -202,33 +228,68 @@ link: {item.get("link")}
 modified_gmt: {item.get("modified_gmt")}
 raw_file: {item.get("file")}
 
-מסמך קיים בקטגוריה שנבחרה, אם רלוונטי:
-{existing_block[:MAX_CATEGORY_CONTENT_CHARS]}
-
 תוכן העמוד הנקי:
 {page_text}
 """.strip()
 
 
-def call_llm(client: OpenAI, model: str, prompt: str, reasoning_effort: str) -> KnowledgeBuildDecision:
-    response = client.responses.parse(
-        model=model,
-        instructions=(
-            "Return only the structured decision. Keep Hebrew summaries factual, concise, and useful for a customer service bot."
-        ),
-        input=prompt,
-        text_format=KnowledgeBuildDecision,
-        reasoning={"effort": reasoning_effort},
-        max_output_tokens=6000,
+def call_llm(client: OpenAI, model: str, prompt: str, reasoning_effort: str, timeout: float) -> KnowledgeBuildDecision:
+    last_error: Exception | None = None
+    for attempt in range(1, 4):
+        try:
+            response = client.responses.parse(
+                model=model,
+                instructions=(
+                    "Return only the structured decision. Keep Hebrew summaries factual, concise, and useful for a customer service bot."
+                ),
+                input=prompt,
+                text_format=KnowledgeBuildDecision,
+                reasoning={"effort": reasoning_effort},
+                max_output_tokens=MAX_SUMMARY_OUTPUT_TOKENS,
+                timeout=timeout,
+            )
+            return response.output_parsed
+        except Exception as exc:  # noqa: BLE001 - batch job should retry parse/API failures.
+            last_error = exc
+            if "insufficient_quota" in str(exc):
+                raise NonRetryableLLMError(f"LLM quota is exhausted: {exc}") from exc
+            print(f"LLM call failed on attempt {attempt}/3: {type(exc).__name__}: {exc}", flush=True)
+            time.sleep(2 * attempt)
+    raise RuntimeError(f"LLM call failed after retries: {last_error}") from last_error
+
+
+def load_existing_state(tools_dir: Path, raw_dir: Path) -> tuple[dict[str, CategoryState], list[dict], list[dict]]:
+    manifest_path = tools_dir / GENERATED_MANIFEST_NAME
+    if not manifest_path.exists():
+        return seed_categories(), [], []
+
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    categories = seed_categories()
+    for item in manifest.get("tools", []):
+        tool_id = normalize_tool_id(str(item["tool_id"]))
+        if not is_allowed_tool_id(tool_id):
+            continue
+        file_name = str(item["file_name"])
+        content_path = tools_dir / file_name
+        content = unwrap_generated_content(content_path.read_text(encoding="utf-8")) if content_path.exists() else ""
+        categories[tool_id] = CategoryState(
+            tool_id=tool_id,
+            display_name=str(item.get("display_name") or tool_id),
+            description=str(item.get("description") or ""),
+            file_name=file_name,
+            content=content,
+            source_count=int(item.get("source_count") or 0),
+            source_files=[str(value) for value in item.get("source_files", [])],
+        )
+
+    processed = list(manifest.get("processed", []))
+    skipped = list(manifest.get("skipped", []))
+    print(
+        f"Resuming from {manifest_path}: done={len(processed) + len(skipped)} "
+        f"processed={len(processed)} skipped={len(skipped)} tools={len(manifest.get('tools', []))}",
+        flush=True,
     )
-    return response.output_parsed
-
-
-def choose_existing_content(categories: dict[str, CategoryState], decision: KnowledgeBuildDecision) -> str | None:
-    if decision.category_action != "existing" or not decision.category_tool_id:
-        return None
-    category = categories.get(normalize_tool_id(decision.category_tool_id))
-    return category.content if category else None
+    return categories, processed, skipped
 
 
 def apply_decision(categories: dict[str, CategoryState], item: dict, decision: KnowledgeBuildDecision) -> None:
@@ -238,12 +299,15 @@ def apply_decision(categories: dict[str, CategoryState], item: dict, decision: K
     tool_id = normalize_tool_id(decision.category_tool_id or "")
     if not tool_id:
         raise ValueError(f"LLM returned missing tool_id for useful page {item.get('file')}")
+    if not is_allowed_tool_id(tool_id):
+        return
 
+    has_existing_content = tool_id in categories and bool(categories[tool_id].content.strip())
     if tool_id not in categories:
         categories[tool_id] = CategoryState(
             tool_id=tool_id,
             display_name=decision.display_name or tool_id,
-            description=decision.tool_description or f"מידע בנושא {decision.display_name or tool_id}.",
+            description=decision.tool_description or f"מידע על {decision.display_name or tool_id}.",
             file_name=f"{GENERATED_DIR_NAME}/{tool_id}.txt",
         )
 
@@ -252,9 +316,35 @@ def apply_decision(categories: dict[str, CategoryState], item: dict, decision: K
         category.display_name = decision.display_name
     if decision.tool_description:
         category.description = decision.tool_description
-    category.content = decision.summary_document.strip()
+    new_summary = decision.summary_document.strip()
+    if has_existing_content and decision.category_action == "existing":
+        source_title = html_to_text(str(item.get("title") or "")).strip() or str(item.get("file") or "מקור נוסף")
+        source_link = str(item.get("link") or "").strip()
+        source_header = f"## מידע נוסף: {source_title}"
+        if source_link:
+            source_header += f"\nמקור: {source_link}"
+        category.content = f"{category.content.rstrip()}\n\n{source_header}\n\n{new_summary}".strip()
+    else:
+        category.content = new_summary
     category.source_count += 1
     category.source_files.append(str(item.get("file")))
+
+
+def constrain_decision_to_allowed_tools(decision: KnowledgeBuildDecision) -> KnowledgeBuildDecision:
+    if not decision.has_bot_value or decision.category_action == "skip":
+        return decision
+    tool_id = normalize_tool_id(decision.category_tool_id or "")
+    if not is_allowed_tool_id(tool_id):
+        decision.has_bot_value = False
+        decision.category_action = "skip"
+        decision.category_tool_id = None
+        decision.summary_document = ""
+        decision.reason = f"{decision.reason} | skipped because new dynamic tools must be course-specific and start with {NEW_COURSE_TOOL_PREFIX}"
+        return decision
+    if decision.category_action == "new" and tool_id in SEED_TOOL_IDS:
+        decision.category_action = "existing"
+    decision.category_tool_id = tool_id
+    return decision
 
 
 def write_outputs(categories: dict[str, CategoryState], tools_dir: Path, raw_dir: Path, processed: list[dict], skipped: list[dict]) -> None:
@@ -265,17 +355,21 @@ def write_outputs(categories: dict[str, CategoryState], tools_dir: Path, raw_dir
 
     tools = []
     for category in categories.values():
-        if not category.content.strip():
+        is_seed_category = category.tool_id in SEED_TOOL_IDS
+        if not category.content.strip() and not is_seed_category:
             continue
         path = tools_dir / category.file_name
         path.parent.mkdir(parents=True, exist_ok=True)
+        body = unwrap_generated_content(category.content)
+        if not body:
+            body = "אין מידע מאומת עדיין עבור כלי זה. אם המשתמש שואל בנושא זה, יש להשיב שחסר מידע ולבקש בדיקה אנושית."
         header = (
             f"# {category.display_name}\n\n"
             f"תיאור כלי: {category.description}\n\n"
             f"מספר מקורות: {category.source_count}\n\n"
             "## תוכן מסוכם לסוכן\n\n"
         )
-        path.write_text(header + category.content.strip() + "\n", encoding="utf-8")
+        path.write_text(header + body + "\n", encoding="utf-8")
         tools.append(
             {
                 "tool_id": category.tool_id,
@@ -305,7 +399,10 @@ def main() -> None:
     parser.add_argument("--model", default=os.getenv("OPENAI_MODEL", "gpt-5.5"))
     parser.add_argument("--reasoning-effort", default=os.getenv("OPENAI_REASONING_EFFORT", "low"))
     parser.add_argument("--sleep", type=float, default=1.0)
+    parser.add_argument("--llm-timeout", type=float, default=120.0)
     parser.add_argument("--max-documents", type=int, default=0, help="Limit documents for testing. 0 means all.")
+    parser.add_argument("--checkpoint-every", type=int, default=1, help="Write generated tool files every N processed documents.")
+    parser.add_argument("--resume", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
@@ -316,14 +413,24 @@ def main() -> None:
     if args.max_documents:
         items = items[: args.max_documents]
 
-    categories = seed_categories()
-    processed: list[dict] = []
-    skipped: list[dict] = []
+    if args.resume and not args.dry_run:
+        categories, processed, skipped = load_existing_state(tools_dir, raw_dir)
+    else:
+        categories = seed_categories()
+        processed = []
+        skipped = []
+    completed_files = {str(item.get("file")) for item in processed + skipped}
 
     client = OpenAI()
     for index, item in enumerate(items, start=1):
+        if str(item.get("file")) in completed_files:
+            print(f"[{index}/{len(items)}] resume skip already done {item.get('file')}", flush=True)
+            continue
+
         if not raw_record_exists(raw_dir, item):
-            skipped.append({"file": item.get("file"), "reason": "raw file missing"})
+            record = {"file": item.get("file"), "reason": "raw file missing"}
+            skipped.append(record)
+            completed_files.add(str(item.get("file")))
             print(f"[{index}/{len(items)}] skip missing {item.get('file')}", flush=True)
             continue
 
@@ -335,12 +442,27 @@ def main() -> None:
 
         first_prompt = build_prompt(item, page_text, categories)
         print(f"[{index}/{len(items)}] classify {item.get('type')} {item.get('id')} {item.get('title')}", flush=True)
-        decision = call_llm(client, args.model, first_prompt, args.reasoning_effort)
-
-        existing_content = choose_existing_content(categories, decision)
-        if existing_content:
-            second_prompt = build_prompt(item, page_text, categories, existing_content)
-            decision = call_llm(client, args.model, second_prompt, args.reasoning_effort)
+        try:
+            decision = call_llm(client, args.model, first_prompt, args.reasoning_effort, args.llm_timeout)
+            decision = constrain_decision_to_allowed_tools(decision)
+        except NonRetryableLLMError as exc:
+            print(f"Stopping build without marking current file as skipped: {exc}", flush=True)
+            if not args.dry_run:
+                write_outputs(categories, tools_dir, raw_dir, processed, skipped)
+            raise SystemExit(2) from exc
+        except Exception as exc:  # noqa: BLE001 - continue the offline batch and record the failure.
+            record = {
+                "file": item.get("file"),
+                "id": item.get("id"),
+                "title": item.get("title"),
+                "link": item.get("link"),
+                "reason": f"llm_error: {type(exc).__name__}: {exc}",
+            }
+            skipped.append(record)
+            completed_files.add(str(item.get("file")))
+            if not args.dry_run:
+                write_outputs(categories, tools_dir, raw_dir, processed, skipped)
+            continue
 
         if args.dry_run:
             print(decision.model_dump_json(indent=2), flush=True)
@@ -362,6 +484,14 @@ def main() -> None:
             processed.append(record)
         else:
             skipped.append(record)
+        completed_files.add(str(item.get("file")))
+
+        if not args.dry_run and args.checkpoint_every > 0 and (len(processed) + len(skipped)) % args.checkpoint_every == 0:
+            write_outputs(categories, tools_dir, raw_dir, processed, skipped)
+            print(
+                f"Checkpoint written: processed={len(processed)} skipped={len(skipped)} tools={sum(1 for c in categories.values() if c.content.strip())}",
+                flush=True,
+            )
 
         time.sleep(args.sleep)
 

@@ -40,6 +40,11 @@ class Settings(BaseSettings):
     google_shared_doc_export_url: str = Field(default="", alias="GOOGLE_SHARED_DOC_EXPORT_URL")
     google_shared_doc_source_id: str = Field(default="shared-course-doc", alias="GOOGLE_SHARED_DOC_SOURCE_ID")
 
+    mybusiness_base_url: str = Field(default="https://api.mbapps.co.il/parse", alias="MYBUSINESS_BASE_URL")
+    mybusiness_app_id: str = Field(default="", alias="MYBUSINESS_APP_ID")
+    mybusiness_master_key: str = Field(default="", alias="MYBUSINESS_MASTER_KEY")
+    mybusiness_timeout_seconds: float = Field(default=20.0, alias="MYBUSINESS_TIMEOUT_SECONDS")
+
     ingest_on_startup: bool = Field(default=False, alias="INGEST_ON_STARTUP")
 
     def model_post_init(self, __context: object) -> None:

@@ -1,0 +1,2678 @@
+{
+  "generated_at": "2026-06-18T23:15:35.847797+00:00",
+  "raw_dir": "data\\website_raw\\20260618T214803Z",
+  "generator": "scripts/build_knowledge_tools.py",
+  "tools": [
+    {
+      "tool_id": "driving_and_transportation_courses",
+      "display_name": "קורסי נהיגה ותחבורה",
+      "description": "מידע על קורסי נהיגה ותחבורה במכללת במבי, כולל רשימת קורסים זמינים, מועדים קרובים, שעות, מתכונת ומה להביא כאשר מופיע בעמוד.",
+      "file_name": "generated/driving_and_transportation_courses.txt",
+      "source_count": 4,
+      "source_files": [
+        "raw/pages/325-d7-a7-d7-95-d7-a8-d7-a1-d7-99--d7-a0-d7-94-d7-99-d7-92-d7-94.json",
+        "raw/posts/738-d7-9b-d7-9c--d7-94-d7-a7-d7-95-d7-a8-d7-a1-d7-99-d7-9d.json",
+        "raw/posts/1641-d7-a7-d7-95-d7-a8-d7-a1-d7-99-d7-9d--d7-a7-d7-a8-d7-95-d7-91-d7-99-d7-9d.json",
+        "raw/posts/1271-d7-94-d7-94-d7-91-d7-93-d7-9c-d7-99-d7-9d--d7-91-d7-99-d7-9f--d7-98-d7-a8-d7-a7-d7-98-d7-95-d7-a8--d7-9c-d7-a9-d7-95-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "safety_courses",
+      "display_name": "קורסי בטיחות",
+      "description": "מידע על קורסי בטיחות במכללת במבי, כולל רשימת קורסים, מתכונת, תנאי קבלה/הסמכה ותעודות כאשר מופיעים בעמוד.",
+      "file_name": "generated/safety_courses.txt",
+      "source_count": 2,
+      "source_files": [
+        "raw/pages/22-d7-a7-d7-95-d7-a8-d7-a1-d7-99--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa.json",
+        "raw/posts/2391-d7-94-d7-99-d7-aa-d7-a8--d7-9c-d7-a2-d7-92-d7-95-d7-a8-d7-9f.json"
+      ]
+    },
+    {
+      "tool_id": "faq",
+      "display_name": "שאלות נפוצות",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על מבחן תיאוריה, שפות שבהן ניתן להיבחן, מבנה מבחן התיאוריה או ציון עובר.",
+      "file_name": "generated/faq.txt",
+      "source_count": 6,
+      "source_files": [
+        "raw/posts/1342-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-98-d7-95-d7-a4-d7-a1--d7-99-d7-a8-d7-95-d7-a7.json",
+        "raw/posts/1431-d7-98-d7-95-d7-a4-d7-a1--d7-99-d7-a8-d7-95-d7-a7.json",
+        "raw/posts/1367-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1-d7-99-d7-9d--d7-9e-d7-a9-d7-.json",
+        "raw/posts/871-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa.json",
+        "raw/posts/986-d7-9c-d7-94-d7-a9-d7-99-d7-92--d7-94-d7-a4-d7-a0-d7-99-d7-99-d7-94--d7-9e-d7-9e-d7-a9-d7-a8-d7-93--d7-94-d7-aa-d7-97-d7-.json",
+        "raw/posts/1180-d7-a1-d7-95-d7-a3--d7-a1-d7-95-d7-a3--d7-99-d7-a9--d7-aa-d7-99-d7-90-d7-95-d7-a8-d7-99-d7-94--d7-91-d7-a9-d7-a4-d7-94--d.json"
+      ]
+    },
+    {
+      "tool_id": "about_the_college",
+      "display_name": "אודות המכללה",
+      "description": "יש להשתמש בכלי זה כשמשתמש מבקש מידע כללי על מכללת במבי, תחומי פעילות, רקע על המכללה, שירותי בטיחות לארגונים וסוגי הקורסים שהיא מציעה.",
+      "file_name": "generated/about_the_college.txt",
+      "source_count": 8,
+      "source_files": [
+        "raw/pages/53-home.json",
+        "raw/posts/4531-d7-a0-d7-99-d7-94-d7-95-d7-9c--d7-94-d7-95-d7-a8-d7-90-d7-95-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-90-d7-.json",
+        "raw/posts/4007-d7-9e-d7-94--d7-9b-d7-95-d7-9c-d7-9c--d7-a9-d7-99-d7-a8-d7-95-d7-aa-d7-99--d7-9e-d7-9e-d7-95-d7-a0-d7-94--d7-91-d7-98-d7.json",
+        "raw/posts/1185-d7-9e-d7-9e-d7-95-d7-a0-d7-94--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-a2-d7-9c--d7.json",
+        "raw/posts/2373-d7-a9-d7-99-d7-a8-d7-95-d7-aa-d7-99--d7-97-d7-95-d7-a5--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa.json",
+        "raw/posts/1174-d7-a0-d7-99-d7-94-d7-95-d7-9c--d7-a1-d7-99-d7-9b-d7-95-d7-a0-d7-99-d7-9d--d7-91-d7-9e-d7-a7-d7-95-d7-9d--d7-94-d7-a2-d7-.json",
+        "raw/posts/862-d7-9e-d7-99-d7-93-d7-a2--d7-9e-d7-a7-d7-a6-d7-95-d7-a2-d7-99.json",
+        "raw/posts/859-d7-90-d7-95-d7-93-d7-95-d7-aa--d7-94-d7-9e-d7-9b-d7-9c-d7-9c-d7-94--d7-9c-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-95-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "directions_to_bambi_college",
+      "display_name": "דרכי הגעה למכללה",
+      "description": "כתובת, דרכי הגעה, מיקום ומידע לוגיסטי על הגעה למכללת במבי.",
+      "file_name": "generated/directions_to_bambi_college.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/860-d7-93-d7-a8-d7-9b-d7-99--d7-94-d7-92-d7-a2-d7-94.json"
+      ]
+    },
+    {
+      "tool_id": "contacting_bambi_college",
+      "display_name": "יצירת קשר עם מכללת במבי",
+      "description": "יש להשתמש בכלי זה כאשר משתמש מבקש טלפון, וואטסאפ לפי סוג קורס, פקס, אימייל, כתובת משרדית, כתובת למשלוח דואר או פרטי יצירת קשר עם מכללת במבי.",
+      "file_name": "generated/contacting_bambi_college.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/pages/34-d7-99-d7-a6-d7-99-d7-a8-d7-aa--d7-a7-d7-a9-d7-a8.json"
+      ]
+    },
+    {
+      "tool_id": "laws_and_regulations",
+      "display_name": "חוקים ותקנות",
+      "description": "מידע על חוקים, תקנות ודרישות רגולטוריות הרלוונטיות לקורסים ולהכשרות.",
+      "file_name": "generated/laws_and_regulations.txt",
+      "source_count": 4,
+      "source_files": [
+        "raw/posts/869-d7-90-d7-aa-d7-a8-d7-99-d7-9d--d7-97-d7-a9-d7-95-d7-91-d7-99-d7-9d.json",
+        "raw/posts/1412-d7-aa-d7-a7-d7-a0-d7-94-168--d7-a9-d7-a2-d7-95-d7-aa--d7-a0-d7-94-d7-99-d7-92-d7-94--d7-95-d7-9e-d7-a0-d7-95-d7-97-d7-94.json",
+        "raw/posts/870-d7-97-d7-95-d7-a7-d7-99-d7-9d--d7-95-d7-aa-d7-a7-d7-a0-d7-95-d7-aa.json",
+        "raw/posts/1082-d7-94-d7-90-d7-9d--d7-90-d7-aa-d7-9d--d7-a2-d7-95-d7-91-d7-a8-d7-99-d7-9d--d7-a2-d7-9c--d7-94-d7-97-d7-95-d7-a7--d7-9e-d.json"
+      ]
+    },
+    {
+      "tool_id": "course_heavy_vehicle",
+      "display_name": "קורס משא כבד",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס משא כבד או רישיון נהיגה למשאית מעל 12 טון / רישיון C במכללת במבי, כולל תנאי קבלה, מתכונת לימוד ופרטי הרשמה.",
+      "file_name": "generated/course_heavy_vehicle.txt",
+      "source_count": 15,
+      "source_files": [
+        "raw/pages/3697-heavy-vehicle.json",
+        "raw/posts/4723-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9e-d7-a2-d7-9c-15--d7-98-d7-95-d7-9f--d7-9e-d7-97-d7-99-d7-a8--d7-a2-d7-9c-d7-95.json",
+        "raw/posts/4534-d7-94-d7-aa-d7-9e-d7-95-d7-93-d7-93-d7-95-d7-aa--d7-a2-d7-9d--d7-9e-d7-a9-d7-a8-d7-93--d7-94-d7-a8-d7-99-d7-a9-d7-95-d7-.json",
+        "raw/posts/4538-d7-a9-d7-93-d7-a8-d7-95-d7-92--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-9e-d7-a2-d7-.json",
+        "raw/posts/784-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-a9-d7-90--d7-9b-d7-91-d7-93.json",
+        "raw/posts/3360-d7-a2-d7-9e-d7-95-d7-93--d7-a0-d7-97-d7-99-d7-aa-d7-94--d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-a9-d7-90--d7-9b-d7-91-d7-93.json",
+        "raw/posts/4006-d7-a9-d7-9c-d7-91-d7-99-d7-9d--d7-9c-d7-a7-d7-91-d7-9c-d7-aa--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-a0-d7-94-d7-99-d7-.json",
+        "raw/posts/3204-d7-94-d7-9b-d7-a9-d7-a8-d7-94--d7-9c-d7-a0-d7-94-d7-99-d7-92-d7-94--d7-a2-d7-9c--d7-9e-d7-a9-d7-90-d7-99-d7-aa.json",
+        "raw/posts/2843-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-9e-d7-a2-d7-9c-15--d7-98-d7-95-d7-9f.json",
+        "raw/posts/2822-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-91-d7-93-d7-a8-d7-95-d7-9d.json",
+        "raw/posts/2423-d7-9b-d7-9e-d7-94--d7-a2-d7-95-d7-9c-d7-94--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa.json",
+        "raw/posts/2100-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-a0-d7-94-d7-99-d7-92-d7-94--d7-9e-d7-a2-d7-9c-12--d7-98-d7-95-d7-9f.json",
+        "raw/posts/2095-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-a9-d7-90--d7-9b-d7-91-d7-93-2.json",
+        "raw/posts/2090-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa-c.json",
+        "raw/posts/2085-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-a9-d7-a8-d7-93--d7-94-d7-aa-d7-a2-d7-a1-d7-95-d7-a7-d7-94--d7-a8-d7-99-d7-a9-d7-99-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_forklift_instructor_refresher",
+      "display_name": "רענון מדריך מלגזה",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על רענון מדריך מלגזה במכללת במבי, כולל מתכונת, תנאי קבלה, תנאי הסמכה, נושאי לימוד ופרטי הרשמה.",
+      "file_name": "generated/course_forklift_instructor_refresher.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/4868-d7-a8-d7-a2-d7-a0-d7-95-d7-9f--d7-9e-d7-93-d7-a8-d7-99-d7-9a--d7-9e-d7-9c-d7-92-d7-96-d7-94.json"
+      ]
+    },
+    {
+      "tool_id": "course_forklift_instructor",
+      "display_name": "קורס מדריך מלגזה",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס מדריך מלגזה במכללת במבי, כולל נושאי לימוד, אפשרויות תעסוקה, דרישות קבלה, הפניה ממשרד הרישוי, ועדת קבלה, משך הקורס ומבחני הסמכה.",
+      "file_name": "generated/course_forklift_instructor.txt",
+      "source_count": 2,
+      "source_files": [
+        "raw/posts/766-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-93-d7-a8-d7-99-d7-9a--d7-9e-d7-9c-d7-92-d7-96-d7-94.json",
+        "raw/posts/1387-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-93-d7-a8-d7-99-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_crane_certificate_renewal",
+      "display_name": "חידוש תעודת עגורן",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על חידוש תעודת עגורן/עגורנאי או אתת במכללת במבי, כולל דרישות לפי משך פקיעת הרישיון, זמני טיפול ופרטי קשר.",
+      "file_name": "generated/course_crane_certificate_renewal.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/758-d7-97-d7-99-d7-93-d7-95-d7-a9--d7-aa-d7-a2-d7-95-d7-93-d7-aa--d7-a2-d7-92-d7-95-d7-a8-d7-9f.json"
+      ]
+    },
+    {
+      "tool_id": "course_driving_instructor",
+      "display_name": "קורס הוראת נהיגה",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס הוראת נהיגה / מורה נהיגה לרכב במכללת במבי, כולל מתכונת, תנאי קבלה, שלבי רישוי, משך, נושאי לימוד, תעודה ופרטי הרשמה.",
+      "file_name": "generated/course_driving_instructor.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/4391-d7-a7-d7-95-d7-a8-d7-a1--d7-94-d7-95-d7-a8-d7-90-d7-aa--d7-a0-d7-94-d7-99-d7-92-d7-94.json"
+      ]
+    },
+    {
+      "tool_id": "course_workplace_safety_training",
+      "display_name": "הדרכות בטיחות",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על הדרכת בטיחות כללית לעובדים בעבודה, תדירות ההדרכה, התאמה למקום העבודה, מי מעביר אותה, אישור/תעודה בסיום ונושאים שנכללים בהדרכה.",
+      "file_name": "generated/course_workplace_safety_training.txt",
+      "source_count": 4,
+      "source_files": [
+        "raw/posts/744-d7-94-d7-93-d7-a8-d7-9b-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-9b-d7-9c-d7-9c-d7-99-d7-aa--d7-91-d7-a2-d7-91-d7-.json",
+        "raw/posts/2824-d7-94-d7-93-d7-a8-d7-9b-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-9c-d7-a2-d7-95-d7-91-d7-93-d7-99-d7-9d.json",
+        "raw/posts/1362-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-9b-d7-9c-d7-.json",
+        "raw/posts/2397-d7-94-d7-95-d7-a8-d7-90-d7-95-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a2-d7-91-d7-95-d7-93-d7-94.json"
+      ]
+    },
+    {
+      "tool_id": "course_annual_forklift_refresher",
+      "display_name": "רענון שנתי למלגזה",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על רענון שנתי למלגזה במכללת במבי, כולל חובת הרענון, תדירות, אחריות המעסיק, מתכונת, נושאים, מבחן בקיאות ואפשרות לרענון מעשי.",
+      "file_name": "generated/course_annual_forklift_refresher.txt",
+      "source_count": 2,
+      "source_files": [
+        "raw/posts/797-d7-a8-d7-a2-d7-a0-d7-95-d7-9f--d7-a9-d7-a0-d7-aa-d7-99--d7-9c-d7-9e-d7-9c-d7-92-d7-96-d7-94.json",
+        "raw/posts/1201-d7-a8-d7-99-d7-a2-d7-a0-d7-95-d7-9f--d7-9e-d7-9c-d7-92-d7-96-d7-94--d7-9e-d7-94--d7-96-d7-94--d7-9c-d7-9e-d7-94--d7-96-d.json"
+      ]
+    },
+    {
+      "tool_id": "course_signalman",
+      "display_name": "קורס אתתים",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס אתתים במכללת במבי, כולל תנאי קבלה והסמכה, משך, מתכונת, מיקום, שפת לימוד, חידוש הסמכה, נושאי לימוד ופרטי הרשמה.",
+      "file_name": "generated/course_signalman.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/2912-d7-a7-d7-95-d7-a8-d7-a1--d7-90-d7-aa-d7-aa-d7-99-d7-9d.json"
+      ]
+    },
+    {
+      "tool_id": "course_bridge_crane",
+      "display_name": "קורס עגורן גשר",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס עגורן גשר במכללת במבי, כולל מתכונת, תנאי קבלה, תעודה, מיקום, שפת לימוד, נושאי לימוד, אפשרות לקבוצות ופרטי הרשמה.",
+      "file_name": "generated/course_bridge_crane.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/4308-d7-a7-d7-95-d7-a8-d7-a1--d7-a2-d7-92-d7-95-d7-a8-d7-9f--d7-92-d7-a9-d7-a8.json"
+      ]
+    },
+    {
+      "tool_id": "course_forklift",
+      "display_name": "קורס מלגזה",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס מלגזה/רישיון למלגזה במכללת במבי, כולל מלגזה טלסקופית, תנאי קבלה בסיסיים, מה כוללת ההכשרה, טופס ירוק, הוצאת הרישיון וסיוע ראשוני במציאת עבודה כמלגזן.",
+      "file_name": "generated/course_forklift.txt",
+      "source_count": 7,
+      "source_files": [
+        "raw/posts/780-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-9c-d7-92-d7-96-d7-94.json",
+        "raw/posts/818-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-9c-d7-92-d7-96-d7-94--d7-a7-d7-95-d7-a8-d7-a1--d7-9c-d7-99-d7-9e-d7-.json",
+        "raw/posts/4004-d7-90-d7-99-d7-9a--d7-9e-d7-aa-d7-91-d7-a6-d7-a2--d7-97-d7-99-d7-93-d7-95-d7-a9--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7.json",
+        "raw/posts/1372-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-99-d7-a9-d7-99-d7-.json",
+        "raw/posts/2833-d7-9e-d7-9c-d7-92-d7-96-d7-94--d7-98-d7-9c-d7-a1-d7-a7-d7-95-d7-a4-d7-99-d7-aa.json",
+        "raw/posts/2381-d7-a8-d7-99-d7-a9-d7-95-d7-99--d7-9e-d7-9c-d7-92-d7-96-d7-94.json",
+        "raw/posts/1262-d7-9e-d7-97-d7-a4-d7-a9--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-aa-d7-95-d7-a8--d7-9e-d7-9c-d7-92-d7-96-d7-9f--d7-9c-d7.json"
+      ]
+    },
+    {
+      "tool_id": "course_work_at_height",
+      "display_name": "קורס עבודה בגובה",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס עבודה בגובה, הדרכת עבודות בגובה, הדרכות בטיחות לעבודה בגובה, אישור/רענון עבודה בגובה, או ציוד מגן אישי לעבודה בגובה.",
+      "file_name": "generated/course_work_at_height.txt",
+      "source_count": 10,
+      "source_files": [
+        "raw/posts/753-d7-a7-d7-95-d7-a8-d7-a1--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+        "raw/posts/4724-d7-a7-d7-95-d7-a8-d7-a1--d7-92-d7-95-d7-91-d7-94--d7-94-d7-a1-d7-9e-d7-9b-d7-94--d7-9c-d7-a2-d7-91-d7-95-d7-93-d7-94--d7.json",
+        "raw/posts/3103-d7-94-d7-a1-d7-9e-d7-9b-d7-aa--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+        "raw/posts/3105-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94-2--d7-9e-d7-98-d7-a8.json",
+        "raw/posts/2841-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+        "raw/posts/1382-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a6-d7-99-d7-95-d7-93--d7-9e-d7-92-d7-9f--d7-90-d7.json",
+        "raw/posts/2344-d7-94-d7-93-d7-a8-d7-9b-d7-aa--d7-a2-d7-91-d7-95-d7-93-d7-95-d7-aa--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+        "raw/posts/1217-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94--d7-a1-d7-9b-d7-.json",
+        "raw/posts/1284-d7-a9-d7-99-d7-a7-d7-95-d7-9c-d7-99-d7-9d--d7-91-d7-91-d7-97-d7-99-d7-a8-d7-aa--d7-a6-d7-99-d7-95-d7-93--d7-9c-d7-a2-d7-.json",
+        "raw/posts/1190-d7-a6-d7-99-d7-95-d7-93--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-9c-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_mobile_machine",
+      "display_name": "קורס מכונה ניידת",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס מכונה ניידת, רישיון/היתר להפעלת כלי צמ״ה כגון שופל, באגר, בובקט, מחפרון, קומביין או מטאטא כביש, תנאי השתתפות, פטורים, טופס ירוק ומה כולל הקורס.",
+      "file_name": "generated/course_mobile_machine.txt",
+      "source_count": 6,
+      "source_files": [
+        "raw/posts/776-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-9b-d7-95-d7-a0-d7-94--d7-a0-d7-99-d7-99-d7-93-d7-aa.json",
+        "raw/posts/4730-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9e-d7-9b-d7-95-d7-a0-d7-94--d7-a0-d7-99-d7-99-d7-93-d7-aa--d7-9e-d7-a9-d7-a8-d7-.json",
+        "raw/posts/4542-d7-98-d7-a8-d7-a7-d7-98-d7-95-d7-a8--d7-90-d7-95--d7-a9-d7-95-d7-a4-d7-9c--d7-9b-d7-9a--d7-aa-d7-91-d7-97-d7-a8-d7-95--d.json",
+        "raw/posts/4541-d7-94-d7-99-d7-aa-d7-a8--d7-9c-d7-9e-d7-9b-d7-95-d7-a0-d7-94--d7-a0-d7-99-d7-99-d7-93-d7-aa--d7-9e-d7-95-d7-9c--d7-a8-d7.json",
+        "raw/posts/4543-d7-94-d7-9e-d7-93-d7-a8-d7-99-d7-9a--d7-94-d7-a9-d7-9c-d7-9d--d7-9c-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9b-d7-9c-d7-.json",
+        "raw/posts/1377-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-99-d7-a9-d7-99-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_d1_license",
+      "display_name": "קורס רישיון D1",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על רישיון D1 / אוטובוס זעיר במכללת במבי, כולל למי הרישיון מיועד, תנאי קבלה, שלבי התהליך, בחירת קורס מקצועי והבדל מרישיון D2.",
+      "file_name": "generated/course_d1_license.txt",
+      "source_count": 2,
+      "source_files": [
+        "raw/posts/4726-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f-d1--d7-9e-d7-94--d7-9b-d7-95-d7-9c-d7-9c--d7-95-d7-9e-d7-94--d7-a6-d7-a8-d7-99-d7-9a.json",
+        "raw/posts/4011-d7-90-d7-99-d7-9a--d7-9c-d7-91-d7-97-d7-95-d7-a8--d7-a7-d7-95-d7-a8-d7-a1--d7-90-d7-95-d7-98-d7-95-d7-91-d7-95-d7-a1--d7.json"
+      ]
+    },
+    {
+      "tool_id": "course_hazardous_materials_transport",
+      "display_name": "קורס הובלת חומ\"ס",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס הובלת חומרים מסוכנים / הובלת חומ\"ס במכללת במבי, כולל מתכונת, תעודה, תוקף, רענון, מיקום, דרישות כלליות לחברה ופרטי הרשמה.",
+      "file_name": "generated/course_hazardous_materials_transport.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/2791-d7-a7-d7-95-d7-a8-d7-a1--d7-94-d7-95-d7-91-d7-9c-d7-aa--d7-97-d7-95-d7-9e-d7-a1.json"
+      ]
+    },
+    {
+      "tool_id": "course_transport_safety_officers_mandatory_seminar",
+      "display_name": "יום עיון חובה לקציני בטיחות בתעבורה",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על יום עיון חובה לקציני בטיחות בתעבורה במכללת במבי, כולל מתכונת, מחיר, מיקום, נושאי לימוד, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_transport_safety_officers_mandatory_seminar.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/4198-d7-99-d7-95-d7-9d--d7-a2-d7-99-d7-95-d7-9f--d7-97-d7-95-d7-91-d7-94--d7-9c-d7-a7-d7-a6-d7-99-d7-a0-d7-99--d7-91-d7-98-d7.json"
+      ]
+    },
+    {
+      "tool_id": "course_self_loading_crane",
+      "display_name": "קורס עגורן העמסה עצמית",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס עגורן העמסה עצמית במכללת במבי, כולל תנאי קבלה, משך ומתכונת, מבחנים, חידוש רישיון/תעודה, רענון שנתי ואפשרות לקורס בחברה.",
+      "file_name": "generated/course_self_loading_crane.txt",
+      "source_count": 3,
+      "source_files": [
+        "raw/posts/801-d7-a7-d7-95-d7-a8-d7-a1--d7-a2-d7-92-d7-95-d7-a8-d7-9f--d7-94-d7-a2-d7-9e-d7-a1-d7-94--d7-a2-d7-a6-d7-9e-d7-99-d7-aa.json",
+        "raw/posts/3357-d7-a2-d7-9e-d7-95-d7-93--d7-a0-d7-97-d7-99-d7-aa-d7-94--d7-a7-d7-95-d7-a8-d7-a1--d7-a2-d7-92-d7-95-d7-a8-d7-9f--d7-94-d7.json",
+        "raw/posts/1406-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a2-d7-92-d7-95-d7-a8-d7-9f--d7-94-d7-a2-d7-9e-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_transport_operator_license",
+      "display_name": "רישיון מוביל",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס רישיון מוביל / מוביל קצר במכללת במבי, כולל תנאי סף, בחינות גמר, תעודת גמר, תפקיד מנהל מקצועי במשרד שירותי הובלה, נושאי לימוד, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_transport_operator_license.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/2790-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9e-d7-95-d7-91-d7-99-d7-9c.json"
+      ]
+    },
+    {
+      "tool_id": "course_safety_officers_seminars",
+      "display_name": "ימי עיון וקורסים לממונים על הבטיחות",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על ימי עיון, ימי כשירות או השתלמויות לממוני בטיחות במכללת במבי, כולל דרישות חידוש אישור כשירות, דיווח, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_safety_officers_seminars.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/1811-d7-99-d7-9e-d7-99--d7-a2-d7-99-d7-95-d7-9f--d7-95-d7-a7-d7-95-d7-a8-d7-a1-d7-99-d7-9d--d7-9c-d7-9e-d7-9e-d7-95-d7-a0-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_c1_license",
+      "display_name": "קורס רישיון C1 עד 15 טון",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על לימוד נהיגה על משאית עד 12 טון/רישיון C1 במכללת במבי, כולל מחיר כללי, תהליך הוצאת הרישיון, תיאוריה, תנאי כשירות ואפשרויות תעסוקה.",
+      "file_name": "generated/course_c1_license.txt",
+      "source_count": 6,
+      "source_files": [
+        "raw/posts/4533-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-a2-d7-93-15--d7-98-d7-95-d7-9f-c1--d7-94-d7-a8-d7-9b-d7-91--d7-94-d7-9e-d7-95-d7.json",
+        "raw/posts/4005-d7-98-d7-99-d7-a4-d7-99-d7-9d--d7-9c-d7-9c-d7-9e-d7-99-d7-93-d7-aa--d7-aa-d7-99-d7-90-d7-95-d7-a8-d7-99-d7-94--d7-9c-d7-.json",
+        "raw/posts/4012-d7-9e-d7-94-d7-9f--d7-94-d7-93-d7-a8-d7-99-d7-a9-d7-95-d7-aa--d7-9c-d7-9c-d7-99-d7-9e-d7-95-d7-93--d7-a0-d7-94-d7-99-d7-.json",
+        "raw/posts/2845-d7-9c-d7-99-d7-9e-d7-95-d7-93--d7-a0-d7-94-d7-99-d7-92-d7-94--d7-a2-d7-9c--d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-a2-d7-93-12.json",
+        "raw/posts/2835-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-9e-d7-97-d7-99-d7-a8.json",
+        "raw/posts/2418-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-a0-d7-94-d7-99-d7-92-d7-94--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-a2-d7-93-12-.json"
+      ]
+    },
+    {
+      "tool_id": "course_tractor_license",
+      "display_name": "קורס רישיון לטרקטור",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על הוצאת רישיון לטרקטור במכללת במבי, כולל שלבי התהליך, עלויות משוערות, דרכים לחיסכון ומידע כללי על ההכשרה במכללה כפי שמופיע באתר.",
+      "file_name": "generated/course_tractor_license.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/4537-d7-9b-d7-9e-d7-94--d7-91-d7-90-d7-9e-d7-aa--d7-a2-d7-95-d7-9c-d7-94--d7-9c-d7-94-d7-95-d7-a6-d7-99-d7-90--d7-a8-d7-99-d7.json"
+      ]
+    },
+    {
+      "tool_id": "course_safety_trustees",
+      "display_name": "קורס נאמני בטיחות",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס נאמני בטיחות במכללת במבי, כולל חובת ועדת בטיחות, למי הקורס מיועד, מתכונת, נוכחות, מבחן, תעודה, נושאי לימוד וריענון.",
+      "file_name": "generated/course_safety_trustees.txt",
+      "source_count": 3,
+      "source_files": [
+        "raw/posts/4530-d7-a7-d7-95-d7-a8-d7-a1--d7-a0-d7-90-d7-9e-d7-a0-d7-99--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-94-d7-a1-d7-9e-d7-9b-d7-.json",
+        "raw/posts/788-d7-a7-d7-95-d7-a8-d7-a1--d7-a0-d7-90-d7-9e-d7-a0-d7-99--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a1-d7-99-d7-a1-d7-.json",
+        "raw/posts/1356-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1--d7-a0-d7-90-d7-9e-d7-a0-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_emergency_response_planning",
+      "display_name": "תכנון מענה חירום בארגון",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על היערכות למצבי חירום במקום העבודה, תוכנית חירום ארגונית, נהלי פינוי, תרחישי חירום, שלבי ניהול חירום או סדנת תכנון מענה חירום בארגון.",
+      "file_name": "generated/course_emergency_response_planning.txt",
+      "source_count": 4,
+      "source_files": [
+        "raw/posts/3569-d7-aa-d7-9b-d7-a0-d7-95-d7-9f--d7-9e-d7-a2-d7-a0-d7-94--d7-97-d7-99-d7-a8-d7-95-d7-9d--d7-91-d7-90-d7-a8-d7-92-d7-95-d7-.json",
+        "raw/posts/3514-d7-9b-d7-aa-d7-99-d7-91-d7-aa--d7-aa-d7-95-d7-9b-d7-a0-d7-99-d7-aa--d7-97-d7-99-d7-a8-d7-95-d7-9d--d7-9c-d7-97-d7-91-d7-.json",
+        "raw/posts/3513-d7-94-d7-99-d7-a2-d7-a8-d7-9b-d7-95-d7-aa--d7-9c-d7-9e-d7-a6-d7-91-d7-99--d7-97-d7-99-d7-a8-d7-95-d7-9d--d7-91-d7-9e-d7-.json",
+        "raw/posts/3511-d7-9b-d7-99-d7-a6-d7-93--d7-9c-d7-94-d7-92-d7-99-d7-91--d7-9c-d7-9e-d7-a6-d7-91-d7-99--d7-97-d7-99-d7-a8-d7-95-d7-9d--d7.json"
+      ]
+    },
+    {
+      "tool_id": "course_work_at_height_instructor_refresher",
+      "display_name": "ריענון מדריכים לעבודה בגובה",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על ריענון מדריכי עבודה בגובה במכללת במבי, כולל הצורך בריענון לאחר שנתיים והרשמה לריענון קרוב.",
+      "file_name": "generated/course_work_at_height_instructor_refresher.txt",
+      "source_count": 2,
+      "source_files": [
+        "raw/posts/813-d7-a8-d7-99-d7-a2-d7-a0-d7-95-d7-9f--d7-9e-d7-93-d7-a8-d7-99-d7-9b-d7-99-d7-9d--d7-9c-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-.json",
+        "raw/posts/1025-d7-97-d7-93-d7-a9--d7-91-d7-91-d7-9e-d7-91-d7-99--d7-a8-d7-99-d7-a2-d7-a0-d7-95-d7-9f--d7-9e-d7-93-d7-a8-d7-99-d7-9b-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_work_at_height_instructor",
+      "display_name": "קורס מדריך עבודה בגובה",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס מדריך עבודה בגובה במכללת במבי, כולל אוכלוסיית יעד, משך ההכשרה, נושאי ההכשרה, תעודה, והיכן מדריך מוסמך רשאי להעביר קורסים.",
+      "file_name": "generated/course_work_at_height_instructor.txt",
+      "source_count": 4,
+      "source_files": [
+        "raw/posts/772-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-93-d7-a8-d7-99-d7-9a--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+        "raw/posts/1392-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-a2-d7-a0-d7-95-d7-.json",
+        "raw/posts/2409-d7-94-d7-93-d7-a8-d7-9b-d7-aa--d7-a2-d7-91-d7-95-d7-93-d7-95-d7-aa--d7-91-d7-92-d7-95-d7-91-d7-94-2.json",
+        "raw/posts/1196-d7-9e-d7-93-d7-a8-d7-99-d7-9a--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94.json"
+      ]
+    },
+    {
+      "tool_id": "course_construction_safety_officer_sector_training",
+      "display_name": "השתלמות ענפית בבנייה לממונה בטיחות",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על השתלמות ענפית בענף הבנייה והבנייה ההנדסית לממוני בטיחות במכללת במבי, כולל מטרות, קהל יעד, דרישות מוקדמות, משך, נושאי לימוד, מיקום, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_construction_safety_officer_sector_training.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/3316-d7-94-d7-a9-d7-aa-d7-9c-d7-9e-d7-95-d7-aa--d7-a2-d7-a0-d7-a4-d7-99-d7-aa--d7-91-d7-a2-d7-a0-d7-a3--d7-94-d7-91-d7-a0-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_electrical_safety_officer_sector_training",
+      "display_name": "השתלמות ענפית בחשמל לממונה בטיחות",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על השתלמות ענפית בחשמל לממוני בטיחות במכללת במבי, כולל מטרות, קהל יעד, דרישות מוקדמות, משך, נושאי לימוד, מיקום, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_electrical_safety_officer_sector_training.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/3322-d7-94-d7-a9-d7-aa-d7-9c-d7-9e-d7-95-d7-aa--d7-a2-d7-a0-d7-a4-d7-99-d7-aa--d7-91-d7-97-d7-a9-d7-9e-d7-9c--d7-9c-d7-9e-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_agricultural_safety_officer_sector_training",
+      "display_name": "השתלמות ענפית בחקלאות לממונה בטיחות",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על השתלמות ענפית בחקלאות לממוני בטיחות במכללת במבי, כולל מטרות, קהל יעד, דרישות מוקדמות, משך, נושאי לימוד, מיקום, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_agricultural_safety_officer_sector_training.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/3330-d7-94-d7-a9-d7-aa-d7-9c-d7-9e-d7-95-d7-aa--d7-a2-d7-a0-d7-a4-d7-99-d7-aa--d7-91-d7-97-d7-a7-d7-9c-d7-90-d7-95-d7-aa--d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_good_instruction",
+      "display_name": "קורס הדרכה טובה",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס הדרכה טובה במכללת במבי, כולל מתכונת, דרישות הסמכה, תעודה, ימי כשירות, מטרת ההכשרה, נושאי לימוד, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_good_instruction.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/1908-d7-94-d7-93-d7-a8-d7-9b-d7-94--d7-98-d7-95-d7-91-d7-94.json"
+      ]
+    },
+    {
+      "tool_id": "course_hazardous_materials_transport_refresher",
+      "display_name": "רענון הובלת חומ\"ס",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על רענון הובלת חומרים מסוכנים / רענון הובלת חומ\"ס במכללת במבי, כולל נושאי לימוד, תנאי הסמכה, חידוש היתר, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_hazardous_materials_transport_refresher.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/2789-d7-a8-d7-a2-d7-a0-d7-95-d7-9f--d7-94-d7-95-d7-91-d7-9c-d7-aa--d7-97-d7-95-d7-9e-d7-a1.json"
+      ]
+    },
+    {
+      "tool_id": "course_foreign_workers_driving",
+      "display_name": "קורסי נהיגה לעובדים זרים",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורסי נהיגה לעובדים זרים במכללת במבי, כולל הליך הוצאת מספר ישראלי, טופס ירוק, דרישות ויזה, שפות, בחינות, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_foreign_workers_driving.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/4345-d7-a7-d7-95-d7-a8-d7-a1-d7-99-d7-9d--d7-9c-d7-a2-d7-95-d7-91-d7-93-d7-99-d7-9d--d7-96-d7-a8-d7-99-d7-9d.json"
+      ]
+    },
+    {
+      "tool_id": "course_forklift_mobile_machine_palestinian_workers",
+      "display_name": "קורסי מלגזה ומכונה ניידת לעובדים פלסטינאיים",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורסי מלגזה או מכונה ניידת לעובדים פלסטינאיים במכללת במבי, כולל מתכונת, דרישות קבלה, מגבלות ההיתר, תעודה, מיקום ופרטי הרשמה.",
+      "file_name": "generated/course_forklift_mobile_machine_palestinian_workers.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/809-d7-a7-d7-95-d7-a8-d7-a1-d7-99--d7-9e-d7-9c-d7-92-d7-96-d7-94--d7-95-d7-9e-d7-9b-d7-95-d7-a0-d7-94--d7-a0-d7-99-d7-99-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_public_transport_vehicle",
+      "display_name": "קורס רכב ציבורי",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס רכב ציבורי במכללת במבי, כולל רישיון D לאוטובוס או D1/D2 לאוטובוס זעיר, תנאי קבלה, מתכונת עיונית ומעשית, מיקום ותהליך הרשמה.",
+      "file_name": "generated/course_public_transport_vehicle.txt",
+      "source_count": 5,
+      "source_files": [
+        "raw/posts/804-d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-9b-d7-91--d7-a6-d7-99-d7-91-d7-95-d7-a8-d7-99.json",
+        "raw/posts/3361-d7-a2-d7-9e-d7-95-d7-93--d7-a0-d7-97-d7-99-d7-aa-d7-94--d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-9b-d7-91--d7-a6-d7-99-d7-91-d7.json",
+        "raw/posts/4009-d7-9e-d7-94--d7-a6-d7-a8-d7-99-d7-9a--d7-9b-d7-93-d7-99--d7-9c-d7-a7-d7-91-d7-9c--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d.json",
+        "raw/posts/2428-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-90-d7-95-d7-98-d7-95-d7-91-d7-95-d7-a1.json",
+        "raw/posts/2386-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-90-d7-95-d7-98-d7-95-d7-91-d7-95-d7-a1--d7-96-d7-a2-d7-99-d7-a8--d7-a6-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_long_transport_operator_license",
+      "display_name": "קורס רישיון מוביל ארוך",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס רישיון מוביל ארוך / אחראי על ניהול מקצועי מוסמך במשרד הובלה במכללת במבי, כולל תנאי קבלה, משך, נושאי לימוד, חובת מנהל מקצועי, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_long_transport_operator_license.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/3308-d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9e-d7-95-d7-91-d7-99-d7-9c--d7-90-d7-a8-d7-95-d7-9a--d7.json"
+      ]
+    },
+    {
+      "tool_id": "course_mobile_machine_instructor",
+      "display_name": "קורס מדריכים למכונה ניידת",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס מדריכים למכונה ניידת במכללת במבי, כולל מתכונת, תנאי קבלה, תנאי הסמכה, מיקום, תעודה, היתר, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_mobile_machine_instructor.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/2332-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-93-d7-a8-d7-99-d7-9b-d7-99-d7-9d--d7-9c-d7-9e-d7-9b-d7-95-d7-a0-d7-94--d7-a0-d7-99-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_tractor",
+      "display_name": "קורס טרקטור",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס טרקטור במכללת במבי, כולל גיל התחלה, טופס ירוק, תיאוריה, טסט, מתכונת הקורס, כלים שמותר לנהוג בהם ותשלום אגרת רישיון.",
+      "file_name": "generated/course_tractor.txt",
+      "source_count": 4,
+      "source_files": [
+        "raw/posts/762-d7-a7-d7-95-d7-a8-d7-a1--d7-98-d7-a8-d7-a7-d7-98-d7-95-d7-a8.json",
+        "raw/posts/1401-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-9c-d7-a7-d7-95-d7-a8-d7-a1--d7-9c-d7-94-d7-95-d7-.json",
+        "raw/posts/1289-d7-aa-d7-99-d7-90-d7-95-d7-a8-d7-99-d7-94--d7-9c-d7-98-d7-a8-d7-a7-d7-98-d7-95-d7-a8.json",
+        "raw/posts/1278-d7-9e-d7-90-d7-99-d7-96-d7-94--d7-92-d7-99-d7-9c--d7-95-d7-90-d7-99-d7-9a--d7-9e-d7-95-d7-a6-d7-99-d7-90-d7-99-d7-9d--d7.json"
+      ]
+    },
+    {
+      "tool_id": "course_traffic_accident_investigation_safety_officers",
+      "display_name": "השתלמות חקירת תאונות דרכים לקציני בטיחות",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על השתלמות בנושא חקירת תאונות דרכים לקציני בטיחות במכללת במבי, כולל תנאי קבלה, מתכונת, נושאי לימוד, מבחן, תעודה, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_traffic_accident_investigation_safety_officers.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/3254-d7-94-d7-a9-d7-aa-d7-9c-d7-9e-d7-95-d7-aa--d7-91-d7-a0-d7-95-d7-a9-d7-90--d7-97-d7-a7-d7-99-d7-a8-d7-aa--d7-aa-d7-90-d7-.json"
+      ]
+    },
+    {
+      "tool_id": "course_cargo_securing",
+      "display_name": "אבטחת מטענים",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורס/השתלמות אבטחת מטענים במכללת במבי, כולל מתכונת, דרישות קבלה, תעודה, תקנות, בחינות, תנאי קבלת היתר, נושאי לימוד, שוברים ופרטי הרשמה.",
+      "file_name": "generated/course_cargo_securing.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/2129-d7-90-d7-91-d7-98-d7-97-d7-aa--d7-9e-d7-98-d7-a2-d7-a0-d7-99-d7-9d.json"
+      ]
+    },
+    {
+      "tool_id": "course_crane_license",
+      "display_name": "קורס רישיון לעגורן",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל באופן כללי איך מקבלים רישיון לעגורן בישראל או על קורס עגורן במכללת במבי, כולל סוגי רישיונות, תנאי קבלה כלליים, תכני לימוד, מבחנים והסמכה.",
+      "file_name": "generated/course_crane_license.txt",
+      "source_count": 2,
+      "source_files": [
+        "raw/posts/4010-d7-90-d7-99-d7-9a--d7-9e-d7-a7-d7-91-d7-9c-d7-99-d7-9d--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-a2-d7-92-d7-95-d7-.json",
+        "raw/posts/2837-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-a2-d7-92-d7-95-d7-a8-d7-9f.json"
+      ]
+    },
+    {
+      "tool_id": "course_crane_license_general",
+      "display_name": "רישיון למנוף",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל באופן כללי על רישיון למנוף או היתר למנוף במכללת במבי, כולל תנאי קבלה כלליים, מתכונת, מבחנים, נושאי לימוד והסמכה.",
+      "file_name": "generated/course_crane_license_general.txt",
+      "source_count": 3,
+      "source_files": [
+        "raw/posts/4008-d7-9e-d7-94--d7-97-d7-a9-d7-95-d7-91--d7-9c-d7-93-d7-a2-d7-aa--d7-a2-d7-9c--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d.json",
+        "raw/posts/2839-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a0-d7-95-d7-a3.json",
+        "raw/posts/2403-d7-94-d7-99-d7-aa-d7-a8--d7-9c-d7-9e-d7-a0-d7-95-d7-a3.json"
+      ]
+    },
+    {
+      "tool_id": "course_taxi_license",
+      "display_name": "קורס רישיון למונית",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על רישיון למונית או קורס נהגי מונית במכללת במבי, כולל היקף הקורס העיוני, נושאי לימוד, לימודי ערב והרשמה.",
+      "file_name": "generated/course_taxi_license.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/2828-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-95-d7-a0-d7-99-d7-aa.json"
+      ]
+    }
+  ],
+  "processed": [
+    {
+      "file": "raw/pages/34-d7-99-d7-a6-d7-99-d7-a8-d7-aa--d7-a7-d7-a9-d7-a8.json",
+      "id": 34,
+      "title": "יצירת קשר",
+      "link": "https://bambischool.co.il/%d7%99%d7%a6%d7%99%d7%a8%d7%aa-%d7%a7%d7%a9%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "contacting_bambi_college",
+      "reason": "העמוד כולל פרטי התקשרות, כתובות ודרכי הגעה שימושיים לשירות לקוחות, ומתאים לקטגוריית יצירת קשר קיימת.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/53-home.json",
+      "id": 53,
+      "title": "Home",
+      "link": "https://bambischool.co.il/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "about_the_college",
+      "reason": "עמוד הבית כולל מידע כללי שימושי על המכללה, תחומי הפעילות והרקע שלה, אך אינו עמוד קורס ספציפי. לכן הוא מתאים לקטגוריית אודות המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/325-d7-a7-d7-95-d7-a8-d7-a1-d7-99--d7-a0-d7-94-d7-99-d7-92-d7-94.json",
+      "id": 325,
+      "title": "קורסי נהיגה / תחבורה",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "driving_and_transportation_courses",
+      "reason": "העמוד הוא אינדקס כללי של קורסי נהיגה ותחבורה ומכיל מידע עובדתי ראשוני על קורסים רבים, לכן מתאים לקטגוריה קיימת ולא לכלי קורס ספציפי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/22-d7-a7-d7-95-d7-a8-d7-a1-d7-99--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa.json",
+      "id": 22,
+      "title": "קורסי בטיחות",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "safety_courses",
+      "reason": "העמוד הוא אינדקס קורסי בטיחות עם מידע עובדתי שימושי על קורסים, מתכונת ותנאי קבלה/הסמכה, ומתאים לקטגוריית קורסי בטיחות הקיימת.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/3697-heavy-vehicle.json",
+      "id": 3697,
+      "title": "משא כבד",
+      "link": "https://bambischool.co.il/heavy-vehicle/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק בקורס ספציפי עם קהל יעד, דרישת הפניה, מועד ותכני קורס, ולכן יש ליצור כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4868-d7-a8-d7-a2-d7-a0-d7-95-d7-9f--d7-9e-d7-93-d7-a8-d7-99-d7-9a--d7-9e-d7-9c-d7-92-d7-96-d7-94.json",
+      "id": 4868,
+      "title": "רענון מדריך מלגזה",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a8%d7%a2%d7%a0%d7%95%d7%9f-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_forklift_instructor_refresher",
+      "reason": "העמוד עוסק בקורס/השתלמות ספציפית עם מידע שימושי לבוט: מתכונת, תנאי קבלה והסמכה, נושאי לימוד ופרטי קשר. לפי הכללים נוצר כלי חדש לקורס.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/766-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-93-d7-a8-d7-99-d7-9a--d7-9e-d7-9c-d7-92-d7-96-d7-94.json",
+      "id": 766,
+      "title": "קורס מדריך מלגזה",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_forklift_instructor",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על מתכונת, תנאי קבלה, הסמכה, תעודה והרשמה, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/758-d7-97-d7-99-d7-93-d7-95-d7-a9--d7-aa-d7-a2-d7-95-d7-93-d7-aa--d7-a2-d7-92-d7-95-d7-a8-d7-9f.json",
+      "id": 758,
+      "title": "חידוש תעודת עגורן",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%97%d7%99%d7%93%d7%95%d7%a9-%d7%aa%d7%a2%d7%95%d7%93%d7%aa-%d7%a2%d7%92%d7%95%d7%a8%d7%9f/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_crane_certificate_renewal",
+      "reason": "העמוד עוסק בשירות/הסמכה ספציפיים לחידוש תעודת עגורן וכולל דרישות רגולטוריות, זמן טיפול ופרטי קשר שימושיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4391-d7-a7-d7-95-d7-a8-d7-a1--d7-94-d7-95-d7-a8-d7-90-d7-aa--d7-a0-d7-94-d7-99-d7-92-d7-94.json",
+      "id": 4391,
+      "title": "קורס הוראת נהיגה",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a7%d7%95%d7%a8%d7%a1-%d7%94%d7%95%d7%a8%d7%90%d7%aa-%d7%a0%d7%94%d7%99%d7%92%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_driving_instructor",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על מתכונת, תנאי קבלה, משך, תעודה והרשמה, ולכן נדרש כלי חדש לקורס.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/744-d7-94-d7-93-d7-a8-d7-9b-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-9b-d7-9c-d7-9c-d7-99-d7-aa--d7-91-d7-a2-d7-91-d7-.json",
+      "id": 744,
+      "title": "הדרכות בטיחות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%94%d7%93%d7%a8%d7%9b%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%9b%d7%9c%d7%9c%d7%99%d7%aa-%d7%91%d7%a2%d7%91%d7%95%d7%93%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_workplace_safety_training",
+      "reason": "העמוד עוסק בהדרכת בטיחות ספציפית עם מידע שירותי שימושי: מתכונת, תעודה, תנאי סף, נושאי לימוד ופרטי קשר, ולכן מתאים ככלי קורס/הכשרה נפרד.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/797-d7-a8-d7-a2-d7-a0-d7-95-d7-9f--d7-a9-d7-a0-d7-aa-d7-99--d7-9c-d7-9e-d7-9c-d7-92-d7-96-d7-94.json",
+      "id": 797,
+      "title": "רענון שנתי למלגזה",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a8%d7%a2%d7%a0%d7%95%d7%9f-%d7%a9%d7%a0%d7%aa%d7%99-%d7%9c%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_annual_forklift_refresher",
+      "reason": "העמוד עוסק בהכשרה/רענון ספציפי למלגזה עם מידע שימושי לבוט, ולכן נוצר כלי קורס חדש בהתאם לכללים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2912-d7-a7-d7-95-d7-a8-d7-a1--d7-90-d7-aa-d7-aa-d7-99-d7-9d.json",
+      "id": 2912,
+      "title": "קורס אתתים",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%90%d7%aa%d7%aa%d7%99%d7%9d/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_signalman",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על תנאי קבלה, הסמכה, משך, מיקום והרשמה, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4308-d7-a7-d7-95-d7-a8-d7-a1--d7-a2-d7-92-d7-95-d7-a8-d7-9f--d7-92-d7-a9-d7-a8.json",
+      "id": 4308,
+      "title": "קורס עגורן גשר",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a2%d7%92%d7%95%d7%a8%d7%9f-%d7%92%d7%a9%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_bridge_crane",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על מתכונת, קבלה, תעודה והרשמה, ולכן נדרש כלי חדש לקורס.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/780-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-9c-d7-92-d7-96-d7-94.json",
+      "id": 780,
+      "title": "קורס מלגזה",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_forklift",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על מתכונת, תנאי קבלה, הסמכה, נושאי לימוד ויצירת קשר, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/753-d7-a7-d7-95-d7-a8-d7-a1--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+      "id": 753,
+      "title": "קורס עבודה בגובה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_work_at_height",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על דרישות, מתכונת, תעודה, תוקף, רענון ויצירת קשר, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/776-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-9b-d7-95-d7-a0-d7-94--d7-a0-d7-99-d7-99-d7-93-d7-aa.json",
+      "id": 776,
+      "title": "קורס מכונה ניידת",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%9b%d7%95%d7%a0%d7%94-%d7%a0%d7%99%d7%99%d7%93%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_mobile_machine",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על מתכונת, תנאי קבלה, תעודה, תוכן ויצירת קשר, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4730-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9e-d7-9b-d7-95-d7-a0-d7-94--d7-a0-d7-99-d7-99-d7-93-d7-aa--d7-9e-d7-a9-d7-a8-d7-.json",
+      "id": 4730,
+      "title": "רישיון מכונה ניידת משרד התחבורה – תנאים וציוד נדרש",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9e%d7%9b%d7%95%d7%a0%d7%94-%d7%a0%d7%99%d7%99%d7%93%d7%aa-%d7%9e%d7%a9%d7%a8%d7%93-%d7%94%d7%aa%d7%97%d7%91%d7%95%d7%a8%d7%94-%d7%aa%d7%a0%d7%90/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_mobile_machine",
+      "reason": "העמוד הוא מאמר עם מידע עובדתי נוסף על רישיון/קורס מכונה ניידת, ומתאים להרחבת כלי קורס קיים ולא ליצירת כלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4726-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f-d1--d7-9e-d7-94--d7-9b-d7-95-d7-9c-d7-9c--d7-95-d7-9e-d7-94--d7-a6-d7-a8-d7-99-d7-9a.json",
+      "id": 4726,
+      "title": "רישיון d1 – מה כולל ומה צריך לדעת לפני ההרשמה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-d1-%d7%9e%d7%94-%d7%9b%d7%95%d7%9c%d7%9c-%d7%95%d7%9e%d7%94-%d7%a6%d7%a8%d7%99%d7%9a-%d7%9c%d7%93%d7%a2%d7%aa-%d7%9c%d7%a4%d7%a0%d7%99-%d7%94%d7%94%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_d1_license",
+      "reason": "העמוד עוסק בהכשרה/רישיון ספציפי D1 ומכיל תנאי קבלה ותהליך הוצאת רישיון, לכן יש ערך לבוט ונדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4724-d7-a7-d7-95-d7-a8-d7-a1--d7-92-d7-95-d7-91-d7-94--d7-94-d7-a1-d7-9e-d7-9b-d7-94--d7-9c-d7-a2-d7-91-d7-95-d7-93-d7-94--d7.json",
+      "id": 4724,
+      "title": "קורס גובה – הסמכה לעבודה בגובה עם תקני בטיחות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%92%d7%95%d7%91%d7%94-%d7%94%d7%a1%d7%9e%d7%9b%d7%94-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94-%d7%a2%d7%9d-%d7%aa%d7%a7%d7%a0%d7%99/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height",
+      "reason": "העמוד עוסק בקורס עבודה בגובה ומוסיף מידע עובדתי שימושי על מטרות, תכנים וחלק מעשי. מאחר שכבר קיים כלי לקורס זה, יש לצרף אליו את הסיכום.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4723-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9e-d7-a2-d7-9c-15--d7-98-d7-95-d7-9f--d7-9e-d7-97-d7-99-d7-a8--d7-a2-d7-9c-d7-95.json",
+      "id": 4723,
+      "title": "רישיון מעל 15 טון מחיר – עלויות ועדכוני רגולציה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9e%d7%a2%d7%9c-15-%d7%98%d7%95%d7%9f-%d7%9e%d7%97%d7%99%d7%a8-%d7%a2%d7%9c%d7%95%d7%99%d7%95%d7%aa-%d7%95%d7%a2%d7%93%d7%9b%d7%95%d7%a0%d7%99-%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק ברישיון למשאית מעל 15 טון ומוסיף מידע כללי רלוונטי לקורס משא כבד, אך אינו מצדיק כלי חדש כי הוא מאמר כללי ללא פרטי קורס מלאים או מחיר מדויק.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/818-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-9c-d7-92-d7-96-d7-94--d7-a7-d7-95-d7-a8-d7-a1--d7-9c-d7-99-d7-9e-d7-.json",
+      "id": 818,
+      "title": "רישיון למלגזה &#8211; קורס / לימודי מלגזה",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%9c%d7%92%d7%96%d7%94-%d7%a7%d7%95%d7%a8%d7%a1-%d7%9c%d7%99%d7%9e%d7%95%d7%93%d7%99-%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_forklift",
+      "reason": "העמוד עוסק בקורס ספציפי שכבר קיים ככלי: קורס מלגזה. הסיכום מוסיף פרטים שימושיים כמו סוגי היתר 129/130, מיקום ושוברים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2791-d7-a7-d7-95-d7-a8-d7-a1--d7-94-d7-95-d7-91-d7-9c-d7-aa--d7-97-d7-95-d7-9e-d7-a1.json",
+      "id": 2791,
+      "title": "קורס הובלת חומ&quot;ס",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%94%d7%95%d7%91%d7%9c%d7%aa-%d7%97%d7%95%d7%9e%d7%a1/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_hazardous_materials_transport",
+      "reason": "העמוד עוסק בקורס ספציפי במכללה ומכיל מידע שימושי על מתכונת, תעודה, תוקף, מיקום ופרטי קשר, לכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4198-d7-99-d7-95-d7-9d--d7-a2-d7-99-d7-95-d7-9f--d7-97-d7-95-d7-91-d7-94--d7-9c-d7-a7-d7-a6-d7-99-d7-a0-d7-99--d7-91-d7-98-d7.json",
+      "id": 4198,
+      "title": "יום עיון חובה לקציני בטיחות בתעבורה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%99%d7%95%d7%9d-%d7%a2%d7%99%d7%95%d7%9f-%d7%97%d7%95%d7%91%d7%94-%d7%9c%d7%a7%d7%a6%d7%99%d7%a0%d7%99-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_transport_safety_officers_mandatory_seminar",
+      "reason": "העמוד עוסק בהשתלמות/יום עיון ספציפי עם מידע שימושי לבוט: מתכונת, מחיר, מיקום, נושאים ופרטי קשר. לפי הכללים יש ליצור כלי חדש לקורס/הכשרה ספציפית.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/801-d7-a7-d7-95-d7-a8-d7-a1--d7-a2-d7-92-d7-95-d7-a8-d7-9f--d7-94-d7-a2-d7-9e-d7-a1-d7-94--d7-a2-d7-a6-d7-9e-d7-99-d7-aa.json",
+      "id": 801,
+      "title": "קורס עגורן העמסה עצמית",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a2%d7%92%d7%95%d7%a8%d7%9f-%d7%94%d7%a2%d7%9e%d7%a1%d7%94-%d7%a2%d7%a6%d7%9e%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_self_loading_crane",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על מתכונת, תנאי קבלה, הסמכה ופרטי קשר, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2391-d7-94-d7-99-d7-aa-d7-a8--d7-9c-d7-a2-d7-92-d7-95-d7-a8-d7-9f.json",
+      "id": 2391,
+      "title": "היתר לעגורן",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%99%d7%aa%d7%a8-%d7%9c%d7%a2%d7%92%d7%95%d7%a8%d7%9f/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "safety_courses",
+      "reason": "העמוד מספק מידע עובדתי ושירותי על הכשרות והיתר לעגורן, אך הוא כללי ומפנה לשני קורסים קיימים ולכן מתאים לצירוף לקטגוריית קורסי בטיחות ולא ליצירת כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2790-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9e-d7-95-d7-91-d7-99-d7-9c.json",
+      "id": 2790,
+      "title": "רישיון מוביל",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9e%d7%95%d7%91%d7%99%d7%9c/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_transport_operator_license",
+      "reason": "העמוד עוסק בקורס/הסמכה ספציפיים לרישיון מוביל ומכיל תנאי סף, בחינות, תעודה, נושאי לימוד ופרטי קשר שימושיים לבוט.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1811-d7-99-d7-9e-d7-99--d7-a2-d7-99-d7-95-d7-9f--d7-95-d7-a7-d7-95-d7-a8-d7-a1-d7-99-d7-9d--d7-9c-d7-9e-d7-9e-d7-95-d7-a0-d7-.json",
+      "id": 1811,
+      "title": "ימי עיון וקורסים לממונים על הבטיחות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%99%d7%9e%d7%99-%d7%a2%d7%99%d7%95%d7%9f-%d7%95%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d-%d7%9c%d7%9e%d7%9e%d7%95%d7%a0%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_safety_officers_seminars",
+      "reason": "העמוד עוסק בהשתלמויות/ימי כשירות ייעודיים לממוני בטיחות, כולל דרישות רגולטוריות, דיווח ופרטי הרשמה, ולכן מועיל לבוט ככלי קורס/הכשרה נפרד.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4533-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-a2-d7-93-15--d7-98-d7-95-d7-9f-c1--d7-94-d7-a8-d7-9b-d7-91--d7-94-d7-9e-d7-95-d7.json",
+      "id": 4533,
+      "title": "רישיון עד 15 טון (C1): הרכב המושלם לעסקים קטנים וחלוקה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a2%d7%93-15-%d7%98%d7%95%d7%9f-c1-%d7%94%d7%a8%d7%9b%d7%91-%d7%94%d7%9e%d7%95%d7%a9%d7%9c%d7%9d-%d7%9c%d7%a2%d7%a1%d7%a7%d7%99%d7%9d-%d7%a7%d7%98%d7%a0/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_c1_license",
+      "reason": "העמוד עוסק בהכשרה ספציפית לרישיון C1 עד 15 טון ומכיל מידע שימושי על התאמה ותכני הקורס, לכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4534-d7-94-d7-aa-d7-9e-d7-95-d7-93-d7-93-d7-95-d7-aa--d7-a2-d7-9d--d7-9e-d7-a9-d7-a8-d7-93--d7-94-d7-a8-d7-99-d7-a9-d7-95-d7-.json",
+      "id": 4534,
+      "title": "התמודדות עם משרד הרישוי: רישיון למשאית כבדה (C) שלב אחר שלב",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%aa%d7%9e%d7%95%d7%93%d7%93%d7%95%d7%aa-%d7%a2%d7%9d-%d7%9e%d7%a9%d7%a8%d7%93-%d7%94%d7%a8%d7%99%d7%a9%d7%95%d7%99-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%a9%d7%90%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק ברישיון C למשאית כבדה ומוסיף מידע שימושי על תנאי סף ושלבי התהליך; קיימת קטגוריית קורס משא כבד מתאימה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4538-d7-a9-d7-93-d7-a8-d7-95-d7-92--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-9e-d7-a2-d7-.json",
+      "id": 4538,
+      "title": "שדרוג רישיון למשאית מעל 15 טון: המקפצה שלך לקריירה בהובלה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a9%d7%93%d7%a8%d7%95%d7%92-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%a9%d7%90%d7%99%d7%aa-%d7%9e%d7%a2%d7%9c-15-%d7%98%d7%95%d7%9f-%d7%94%d7%9e%d7%a7%d7%a4%d7%a6%d7%94-%d7%a9%d7%9c/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק בשדרוג רישיון למשאית מעל 15 טון, שהוא מידע רלוונטי לקורס משא כבד קיים. התוכן כולל פרטי לימוד, מיקום ותשתיות, אך אינו מצדיק כלי חדש כי כבר קיים כלי ייעודי לקורס.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4537-d7-9b-d7-9e-d7-94--d7-91-d7-90-d7-9e-d7-aa--d7-a2-d7-95-d7-9c-d7-94--d7-9c-d7-94-d7-95-d7-a6-d7-99-d7-90--d7-a8-d7-99-d7.json",
+      "id": 4537,
+      "title": "כמה באמת עולה להוציא רישיון לטרקטור? (מדריך להורים)",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9b%d7%9e%d7%94-%d7%91%d7%90%d7%9e%d7%aa-%d7%a2%d7%95%d7%9c%d7%94-%d7%9c%d7%94%d7%95%d7%a6%d7%99%d7%90-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%98%d7%a8%d7%a7%d7%98%d7%95%d7%a8-%d7%9e%d7%93/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_tractor_license",
+      "reason": "העמוד עוסק בקורס/רישיון ספציפי לטרקטור ומכיל מידע שימושי על תהליך ועלויות, לכן נוצר כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4542-d7-98-d7-a8-d7-a7-d7-98-d7-95-d7-a8--d7-90-d7-95--d7-a9-d7-95-d7-a4-d7-9c--d7-9b-d7-9a--d7-aa-d7-91-d7-97-d7-a8-d7-95--d.json",
+      "id": 4542,
+      "title": "טרקטור או שופל? כך תבחרו את ההכשרה המתאימה לקריירה שלכם",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%98%d7%a8%d7%a7%d7%98%d7%95%d7%a8-%d7%90%d7%95-%d7%a9%d7%95%d7%a4%d7%9c-%d7%9b%d7%9a-%d7%aa%d7%91%d7%97%d7%a8%d7%95-%d7%90%d7%aa-%d7%94%d7%94%d7%9b%d7%a9%d7%a8%d7%94-%d7%94%d7%9e%d7%aa%d7%90%d7%99/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_mobile_machine",
+      "reason": "העמוד הוא מאמר שיווקי אך כולל מידע שימושי להשוואה בין הכשרת טרקטור לשופל וקישור ברור לקורס מכונה ניידת; מתאים להוספה לכלי קורס קיים ולא לפתיחת כלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4541-d7-94-d7-99-d7-aa-d7-a8--d7-9c-d7-9e-d7-9b-d7-95-d7-a0-d7-94--d7-a0-d7-99-d7-99-d7-93-d7-aa--d7-9e-d7-95-d7-9c--d7-a8-d7.json",
+      "id": 4541,
+      "title": "היתר למכונה ניידת מול רישיון נהיגה: עושים סדר בבירוקרטיה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%99%d7%aa%d7%a8-%d7%9c%d7%9e%d7%9b%d7%95%d7%a0%d7%94-%d7%a0%d7%99%d7%99%d7%93%d7%aa-%d7%9e%d7%95%d7%9c-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%a2%d7%95%d7%a9/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_mobile_machine",
+      "reason": "העמוד עוסק במידע עובדתי על היתר וקורס מכונה ניידת, ומתאים להרחבת כלי קיים לקורס מכונה ניידת ולא ליצירת כלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4543-d7-94-d7-9e-d7-93-d7-a8-d7-99-d7-9a--d7-94-d7-a9-d7-9c-d7-9d--d7-9c-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9b-d7-9c-d7-.json",
+      "id": 4543,
+      "title": "המדריך השלם לרישיון כלי צמ&quot;ה: משופל ועד מחפרון",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%94%d7%a9%d7%9c%d7%9d-%d7%9c%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9b%d7%9c%d7%99-%d7%a6%d7%9e%d7%94-%d7%9e%d7%a9%d7%95%d7%a4%d7%9c-%d7%95%d7%a2%d7%93/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_mobile_machine",
+      "reason": "העמוד הוא מאמר כללי אך כולל מידע עובדתי שימושי על רישיון כלי צמ\"ה, שהוא חלק מתחום מכונה ניידת/הפעלת כלים הנדסיים, ולכן מתאים לצירוף לכלי הקיים course_mobile_machine ולא ליצירת כלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4531-d7-a0-d7-99-d7-94-d7-95-d7-9c--d7-94-d7-95-d7-a8-d7-90-d7-95-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-90-d7-.json",
+      "id": 4531,
+      "title": "ניהול הוראות בטיחות בארגון: המדריך למעסיק ולמנהל",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a0%d7%99%d7%94%d7%95%d7%9c-%d7%94%d7%95%d7%a8%d7%90%d7%95%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%90%d7%a8%d7%92%d7%95%d7%9f-%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9c%d7%9e%d7%a2/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "about_the_college",
+      "reason": "העמוד הוא מאמר כללי, אך כולל מידע שירותי עובדתי על שירותי בטיחות לארגונים, רקע, מיקום ואישורים של מכללת במבי. אינו עוסק בקורס ספציפי ולכן מתאים לקטגוריית אודות המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4530-d7-a7-d7-95-d7-a8-d7-a1--d7-a0-d7-90-d7-9e-d7-a0-d7-99--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-94-d7-a1-d7-9e-d7-9b-d7-.json",
+      "id": 4530,
+      "title": "קורס נאמני בטיחות: הסמכויות והכלים שתקבלו בשטח",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a0%d7%90%d7%9e%d7%a0%d7%99-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%94%d7%a1%d7%9e%d7%9b%d7%95%d7%99%d7%95%d7%aa-%d7%95%d7%94%d7%9b%d7%9c%d7%99%d7%9d-%d7%a9%d7%aa%d7%a7/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_safety_trustees",
+      "reason": "העמוד עוסק בקורס ספציפי של נאמני בטיחות ומכיל מידע שימושי על קהל יעד, נושאי לימוד וכלים לבוגרים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3569-d7-aa-d7-9b-d7-a0-d7-95-d7-9f--d7-9e-d7-a2-d7-a0-d7-94--d7-97-d7-99-d7-a8-d7-95-d7-9d--d7-91-d7-90-d7-a8-d7-92-d7-95-d7-.json",
+      "id": 3569,
+      "title": "תכנון מענה חירום בארגון",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%aa%d7%9b%d7%a0%d7%95%d7%9f-%d7%9e%d7%a2%d7%a0%d7%94-%d7%97%d7%99%d7%a8%d7%95%d7%9d-%d7%91%d7%90%d7%a8%d7%92%d7%95%d7%9f/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_emergency_response_planning",
+      "reason": "העמוד עוסק בסדנה/הכשרה ספציפית בתחום היערכות לחירום בארגון עם מידע שימושי על מתכונת, קהל יעד, תכנים, מיקום ופרטי קשר, ולכן מתאים ככלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/813-d7-a8-d7-99-d7-a2-d7-a0-d7-95-d7-9f--d7-9e-d7-93-d7-a8-d7-99-d7-9b-d7-99-d7-9d--d7-9c-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-.json",
+      "id": 813,
+      "title": "ריענון מדריכים לעבודה בגובה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%a8%d7%99%d7%a2%d7%a0%d7%95%d7%9f-%d7%9e%d7%93%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_work_at_height_instructor_refresher",
+      "reason": "העמוד עוסק בהכשרה/ריענון ספציפי עם מידע שימושי על מתכונת, תנאי קבלה, תעודה, תוכנית לימודים ויצירת קשר, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/788-d7-a7-d7-95-d7-a8-d7-a1--d7-a0-d7-90-d7-9e-d7-a0-d7-99--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a1-d7-99-d7-a1-d7-.json",
+      "id": 788,
+      "title": "קורס נאמני בטיחות בסיסי",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a0%d7%90%d7%9e%d7%a0%d7%99-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a1%d7%99%d7%a1%d7%99/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_safety_trustees",
+      "reason": "העמוד עוסק בקורס ספציפי שכבר קיימת עבורו קטגוריה/כלי, ומוסיף פרטים עובדתיים שימושיים על מתכונת, תנאי קבלה, תעודה, תוכנית לימודים והרשמה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/772-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-93-d7-a8-d7-99-d7-9a--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+      "id": 772,
+      "title": "קורס מדריך עבודה בגובה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_work_at_height_instructor",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על מתכונת, קבלה, תעודה, תכנים והרשמה, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3316-d7-94-d7-a9-d7-aa-d7-9c-d7-9e-d7-95-d7-aa--d7-a2-d7-a0-d7-a4-d7-99-d7-aa--d7-91-d7-a2-d7-a0-d7-a3--d7-94-d7-91-d7-a0-d7-.json",
+      "id": 3316,
+      "title": "השתלמות ענפית בענף הבניה ובניה הנדסית לממונה בטיחות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%94%d7%a9%d7%aa%d7%9c%d7%9e%d7%95%d7%aa-%d7%a2%d7%a0%d7%a4%d7%99%d7%aa-%d7%91%d7%a2%d7%a0%d7%a3-%d7%94%d7%91%d7%a0%d7%99%d7%94-%d7%95%d7%91%d7%a0%d7%99%d7%94-%d7%94%d7%a0%d7%93%d7%a1%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_construction_safety_officer_sector_training",
+      "reason": "העמוד עוסק בהשתלמות ספציפית לממוני בטיחות ומכיל מידע שימושי על מטרות, קהל יעד, דרישות, שעות, נושאים ופרטי קשר; לפי הכללים יש ליצור כלי חדש לקורס/הכשרה ספציפית.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3322-d7-94-d7-a9-d7-aa-d7-9c-d7-9e-d7-95-d7-aa--d7-a2-d7-a0-d7-a4-d7-99-d7-aa--d7-91-d7-97-d7-a9-d7-9e-d7-9c--d7-9c-d7-9e-d7-.json",
+      "id": 3322,
+      "title": "השתלמות ענפית בחשמל לממונה בטיחות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%94%d7%a9%d7%aa%d7%9c%d7%9e%d7%95%d7%aa-%d7%a2%d7%a0%d7%a4%d7%99%d7%aa-%d7%91%d7%97%d7%a9%d7%9e%d7%9c-%d7%9c%d7%9e%d7%9e%d7%95%d7%a0%d7%94-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_electrical_safety_officer_sector_training",
+      "reason": "העמוד עוסק בהשתלמות ספציפית לממוני בטיחות וכולל מידע שימושי על מטרות, קהל יעד, דרישות, משך, נושאים ופרטי קשר, לכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3330-d7-94-d7-a9-d7-aa-d7-9c-d7-9e-d7-95-d7-aa--d7-a2-d7-a0-d7-a4-d7-99-d7-aa--d7-91-d7-97-d7-a7-d7-9c-d7-90-d7-95-d7-aa--d7-.json",
+      "id": 3330,
+      "title": "השתלמות ענפית בחקלאות לממונה בטיחות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%94%d7%a9%d7%aa%d7%9c%d7%9e%d7%95%d7%aa-%d7%a2%d7%a0%d7%a4%d7%99%d7%aa-%d7%91%d7%97%d7%a7%d7%9c%d7%90%d7%95%d7%aa-%d7%9c%d7%9e%d7%9e%d7%95%d7%a0%d7%94-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_agricultural_safety_officer_sector_training",
+      "reason": "העמוד עוסק בהשתלמות ספציפית עם מידע שימושי על מטרות, קהל יעד, תנאי קבלה, שעות, נושאי לימוד ופרטי הרשמה, ולכן יש ליצור כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1908-d7-94-d7-93-d7-a8-d7-9b-d7-94--d7-98-d7-95-d7-91-d7-94.json",
+      "id": 1908,
+      "title": "הדרכה טובה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%94%d7%93%d7%a8%d7%9b%d7%94-%d7%98%d7%95%d7%91%d7%94/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_good_instruction",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע עובדתי שימושי על מתכונת, דרישות, תעודה, נושאים ופרטי קשר, ולכן נוצר כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2789-d7-a8-d7-a2-d7-a0-d7-95-d7-9f--d7-94-d7-95-d7-91-d7-9c-d7-aa--d7-97-d7-95-d7-9e-d7-a1.json",
+      "id": 2789,
+      "title": "רענון הובלת חומ&quot;ס",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a8%d7%a2%d7%a0%d7%95%d7%9f-%d7%94%d7%95%d7%91%d7%9c%d7%aa-%d7%97%d7%95%d7%9e%d7%a1/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_hazardous_materials_transport_refresher",
+      "reason": "העמוד עוסק בהכשרה ספציפית מסוג רענון הובלת חומ\"ס ומכיל תנאי הסמכה, נושאי לימוד ופרטי קשר שימושיים לבוט.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4345-d7-a7-d7-95-d7-a8-d7-a1-d7-99-d7-9d--d7-9c-d7-a2-d7-95-d7-91-d7-93-d7-99-d7-9d--d7-96-d7-a8-d7-99-d7-9d.json",
+      "id": 4345,
+      "title": "קורסים לעובדים זרים",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d-%d7%9c%d7%a2%d7%95%d7%91%d7%93%d7%99%d7%9d-%d7%96%d7%a8%d7%99%d7%9d/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_foreign_workers_driving",
+      "reason": "העמוד עוסק בהכשרה/קורס נהיגה ייעודי לעובדים זרים וכולל מידע שירותי שימושי על הליך רישוי, דרישות ופרטי קשר.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/809-d7-a7-d7-95-d7-a8-d7-a1-d7-99--d7-9e-d7-9c-d7-92-d7-96-d7-94--d7-95-d7-9e-d7-9b-d7-95-d7-a0-d7-94--d7-a0-d7-99-d7-99-d7-.json",
+      "id": 809,
+      "title": "קורסי מלגזה ומכונה ניידת לעובדים פלסטינאיים",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%9e%d7%9c%d7%92%d7%96%d7%94-%d7%95%d7%9e%d7%9b%d7%95%d7%a0%d7%94-%d7%a0%d7%99%d7%99%d7%93%d7%aa-%d7%9c%d7%a2%d7%95%d7%91%d7%93%d7%99%d7%9d/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_forklift_mobile_machine_palestinian_workers",
+      "reason": "העמוד עוסק בהכשרה ספציפית עם דרישות, מתכונת, תעודה ופרטי קשר ולכן יש לו ערך שירותי לבוט. לפי הכללים נוצר כלי חדש לקורס ספציפי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/804-d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-9b-d7-91--d7-a6-d7-99-d7-91-d7-95-d7-a8-d7-99.json",
+      "id": 804,
+      "title": "קורס רכב ציבורי",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a8%d7%9b%d7%91-%d7%a6%d7%99%d7%91%d7%95%d7%a8%d7%99/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_public_transport_vehicle",
+      "reason": "העמוד עוסק בקורס ספציפי עם פרטים שימושיים על מתכונת, תנאי קבלה, תהליך, תעודה, נושאי לימוד ויצירת קשר, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3308-d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9e-d7-95-d7-91-d7-99-d7-9c--d7-90-d7-a8-d7-95-d7-9a--d7.json",
+      "id": 3308,
+      "title": "קורס רישיון מוביל ארוך-  אחראי על ניהול מקצועי מוסמך- משרד הובלה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9e%d7%95%d7%91%d7%99%d7%9c-%d7%90%d7%a8%d7%95%d7%9a-%d7%90%d7%97%d7%a8%d7%90%d7%99-%d7%a2%d7%9c-%d7%a0%d7%99%d7%94%d7%95%d7%9c/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_long_transport_operator_license",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על תנאי קבלה, משך, נושאי לימוד ופרטי הרשמה, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/784-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-a9-d7-90--d7-9b-d7-91-d7-93.json",
+      "id": 784,
+      "title": "קורס משא כבד",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%a9%d7%90-%d7%9b%d7%91%d7%93/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק בקורס ספציפי שכבר קיים ככלי course_heavy_vehicle ומוסיף פרטים שירותיים חשובים על מתכונת, תנאים ותהליך הרשמה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2332-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-93-d7-a8-d7-99-d7-9b-d7-99-d7-9d--d7-9c-d7-9e-d7-9b-d7-95-d7-a0-d7-94--d7-a0-d7-99-d7-.json",
+      "id": 2332,
+      "title": "קורס מדריכים למכונה ניידת",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%93%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%9c%d7%9e%d7%9b%d7%95%d7%a0%d7%94-%d7%a0%d7%99%d7%99%d7%93%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_mobile_machine_instructor",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על מתכונת, תנאי קבלה, הסמכה, מיקומים ופרטי הרשמה, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/762-d7-a7-d7-95-d7-a8-d7-a1--d7-98-d7-a8-d7-a7-d7-98-d7-95-d7-a8.json",
+      "id": 762,
+      "title": "קורס טרקטור",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%a7%d7%95%d7%a8%d7%a1-%d7%98%d7%a8%d7%a7%d7%98%d7%95%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_tractor",
+      "reason": "העמוד עוסק בקורס ספציפי עם מידע שימושי על מתכונת, תנאי קבלה, תעודה, תוכנית לימודים ופרטי הרשמה, ולכן נוצר כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3254-d7-94-d7-a9-d7-aa-d7-9c-d7-9e-d7-95-d7-aa--d7-91-d7-a0-d7-95-d7-a9-d7-90--d7-97-d7-a7-d7-99-d7-a8-d7-aa--d7-aa-d7-90-d7-.json",
+      "id": 3254,
+      "title": "השתלמות בנושא חקירת תאונות דרכים לקציני בטיחות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/%d7%94%d7%a9%d7%aa%d7%9c%d7%9e%d7%95%d7%aa-%d7%91%d7%a0%d7%95%d7%a9%d7%90-%d7%97%d7%a7%d7%99%d7%a8%d7%aa-%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%93%d7%a8%d7%9b%d7%99%d7%9d-%d7%9c%d7%a7%d7%a6%d7%99/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_traffic_accident_investigation_safety_officers",
+      "reason": "העמוד עוסק בהשתלמות ספציפית לקציני בטיחות עם תנאי קבלה, מתכונת, נושאים, תעודה ופרטי הרשמה, ולכן יש ליצור כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2129-d7-90-d7-91-d7-98-d7-97-d7-aa--d7-9e-d7-98-d7-a2-d7-a0-d7-99-d7-9d.json",
+      "id": 2129,
+      "title": "אבטחת מטענים",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%90%d7%91%d7%98%d7%97%d7%aa-%d7%9e%d7%98%d7%a2%d7%a0%d7%99%d7%9d/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_cargo_securing",
+      "reason": "העמוד עוסק בקורס/השתלמות ספציפית עם מידע שימושי על מתכונת, דרישות, תעודה, רגולציה והרשמה, ולכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/738-d7-9b-d7-9c--d7-94-d7-a7-d7-95-d7-a8-d7-a1-d7-99-d7-9d.json",
+      "id": 738,
+      "title": "כל הקורסים",
+      "link": "https://bambischool.co.il/uncategorized/%d7%9b%d7%9c-%d7%94%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "driving_and_transportation_courses",
+      "reason": "העמוד הוא אינדקס כללי של קורסים, עם רשימת קורסי נהיגה ובטיחות בלבד וללא פירוט עובדתי נוסף. מתאים לצירוף לקטגוריית קורסי נהיגה ותחבורה כאינדקס.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3357-d7-a2-d7-9e-d7-95-d7-93--d7-a0-d7-97-d7-99-d7-aa-d7-94--d7-a7-d7-95-d7-a8-d7-a1--d7-a2-d7-92-d7-95-d7-a8-d7-9f--d7-94-d7.json",
+      "id": 3357,
+      "title": "עמוד נחיתה &#8211; קורס עגורן העמסה עצמית",
+      "link": "https://bambischool.co.il/uncategorized/%d7%a2%d7%9e%d7%95%d7%93-%d7%a0%d7%97%d7%99%d7%aa%d7%94-%d7%a7%d7%95%d7%a8%d7%a1-%d7%a2%d7%92%d7%95%d7%a8%d7%9f-%d7%94%d7%a2%d7%9e%d7%a1%d7%94-%d7%a2%d7%a6%d7%9e%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_self_loading_crane",
+      "reason": "העמוד הוא עמוד נחיתה לקורס ספציפי שכבר קיים ככלי, ומכיל פרטים שימושיים על מתכונת, דרישות, תעודה, תנאי היתר ויצירת קשר.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3360-d7-a2-d7-9e-d7-95-d7-93--d7-a0-d7-97-d7-99-d7-aa-d7-94--d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-a9-d7-90--d7-9b-d7-91-d7-93.json",
+      "id": 3360,
+      "title": "עמוד נחיתה &#8211; קורס משא כבד",
+      "link": "https://bambischool.co.il/uncategorized/%d7%a2%d7%9e%d7%95%d7%93-%d7%a0%d7%97%d7%99%d7%aa%d7%94-%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%a9%d7%90-%d7%9b%d7%91%d7%93/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק בקורס ספציפי שכבר קיים ככלי: קורס משא כבד. יש בו מידע שירותי מפורט ועדכני על מתכונת, תנאי קבלה, תהליך הפניה, תוכנית לימודים ופרטי קשר.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3361-d7-a2-d7-9e-d7-95-d7-93--d7-a0-d7-97-d7-99-d7-aa-d7-94--d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-9b-d7-91--d7-a6-d7-99-d7-91-d7.json",
+      "id": 3361,
+      "title": "עמוד נחיתה &#8211; קורס רכב ציבורי",
+      "link": "https://bambischool.co.il/uncategorized/%d7%a2%d7%9e%d7%95%d7%93-%d7%a0%d7%97%d7%99%d7%aa%d7%94-%d7%a7%d7%95%d7%a8%d7%a1-%d7%a8%d7%9b%d7%91-%d7%a6%d7%99%d7%91%d7%95%d7%a8%d7%99/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_public_transport_vehicle",
+      "reason": "העמוד הוא עמוד נחיתה לקורס ספציפי שכבר קיים עבורו כלי ייעודי; התוכן מוסיף/מאשר פרטי קורס, תנאי קבלה, תהליך, תוכנית לימודים ופרטי קשר.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4007-d7-9e-d7-94--d7-9b-d7-95-d7-9c-d7-9c--d7-a9-d7-99-d7-a8-d7-95-d7-aa-d7-99--d7-9e-d7-9e-d7-95-d7-a0-d7-94--d7-91-d7-98-d7.json",
+      "id": 4007,
+      "title": "מה כולל שירותי ממונה בטיחות בעסק?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%94-%d7%9b%d7%95%d7%9c%d7%9c-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%9e%d7%9e%d7%95%d7%a0%d7%94-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a2%d7%a1%d7%a7/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "about_the_college",
+      "reason": "העמוד אינו קורס ספציפי, אך כולל מידע שירותי רלוונטי על שירותי ממונה בטיחות שמכללת במבי מציעה לעסקים ולכן מתאים לקטגוריית אודות/שירותי המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4006-d7-a9-d7-9c-d7-91-d7-99-d7-9d--d7-9c-d7-a7-d7-91-d7-9c-d7-aa--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-a0-d7-94-d7-99-d7-.json",
+      "id": 4006,
+      "title": "שלבים לקבלת רישיון נהיגה דרגה C",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a9%d7%9c%d7%91%d7%99%d7%9d-%d7%9c%d7%a7%d7%91%d7%9c%d7%aa-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%93%d7%a8%d7%92%d7%94-c/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד הוא מאמר מידע על רישיון דרגה C ומשלים את כלי קורס משא כבד הקיים, ללא צורך ביצירת כלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4005-d7-98-d7-99-d7-a4-d7-99-d7-9d--d7-9c-d7-9c-d7-9e-d7-99-d7-93-d7-aa--d7-aa-d7-99-d7-90-d7-95-d7-a8-d7-99-d7-94--d7-9c-d7-.json",
+      "id": 4005,
+      "title": "טיפים ללמידת תיאוריה למשאית",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%98%d7%99%d7%a4%d7%99%d7%9d-%d7%9c%d7%9c%d7%9e%d7%99%d7%93%d7%aa-%d7%aa%d7%99%d7%90%d7%95%d7%a8%d7%99%d7%94-%d7%9c%d7%9e%d7%a9%d7%90%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_c1_license",
+      "reason": "העמוד הוא מאמר טיפים אך כולל מידע עובדתי ושירותי על קורס תיאוריה למשאית עד 12 טון, המתאים להרחבת כלי קיים בנושא רישיון משאית/C1 ולא מצדיק כלי חדש.",
+      "confidence": "medium"
+    },
+    {
+      "file": "raw/posts/4004-d7-90-d7-99-d7-9a--d7-9e-d7-aa-d7-91-d7-a6-d7-a2--d7-97-d7-99-d7-93-d7-95-d7-a9--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7.json",
+      "id": 4004,
+      "title": "איך מתבצע חידוש רישיון למלגזה?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%90%d7%99%d7%9a-%d7%9e%d7%aa%d7%91%d7%a6%d7%a2-%d7%97%d7%99%d7%93%d7%95%d7%a9-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_forklift",
+      "reason": "העמוד הוא מאמר עם מידע שירותי רלוונטי על חידוש רישיון מלגזה, ומתאים להוספה לכלי הקיים של קורס מלגזה ולא ככלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4012-d7-9e-d7-94-d7-9f--d7-94-d7-93-d7-a8-d7-99-d7-a9-d7-95-d7-aa--d7-9c-d7-9c-d7-99-d7-9e-d7-95-d7-93--d7-a0-d7-94-d7-99-d7-.json",
+      "id": 4012,
+      "title": "מהן הדרישות ללימוד נהיגה על משאית",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%94%d7%9f-%d7%94%d7%93%d7%a8%d7%99%d7%a9%d7%95%d7%aa-%d7%9c%d7%9c%d7%99%d7%9e%d7%95%d7%93-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%a2%d7%9c-%d7%9e%d7%a9%d7%90%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_c1_license",
+      "reason": "העמוד מספק מידע עובדתי על דרישות ושלבי לימוד נהיגה על משאית עד 12 טון, ומתאים להרחבת כלי קיים של רישיון C1.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4011-d7-90-d7-99-d7-9a--d7-9c-d7-91-d7-97-d7-95-d7-a8--d7-a7-d7-95-d7-a8-d7-a1--d7-90-d7-95-d7-98-d7-95-d7-91-d7-95-d7-a1--d7.json",
+      "id": 4011,
+      "title": "איך לבחור קורס אוטובוס זעיר מקצועי ואמין",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%90%d7%99%d7%9a-%d7%9c%d7%91%d7%97%d7%95%d7%a8-%d7%a7%d7%95%d7%a8%d7%a1-%d7%90%d7%95%d7%98%d7%95%d7%91%d7%95%d7%a1-%d7%96%d7%a2%d7%99%d7%a8-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99-%d7%95%d7%90%d7%9e/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_d1_license",
+      "reason": "העמוד הוא מאמר שיווקי אך מכיל מידע רלוונטי על קורס אוטובוס זעיר/Rישיון D1 ולכן מתאים לעדכון כלי קורס קיים ולא ליצירת כלי חדש.",
+      "confidence": "medium"
+    },
+    {
+      "file": "raw/posts/4010-d7-90-d7-99-d7-9a--d7-9e-d7-a7-d7-91-d7-9c-d7-99-d7-9d--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-a2-d7-92-d7-95-d7-.json",
+      "id": 4010,
+      "title": "איך מקבלים רישיון לעגורן בישראל?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%90%d7%99%d7%9a-%d7%9e%d7%a7%d7%91%d7%9c%d7%99%d7%9d-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%a2%d7%92%d7%95%d7%a8%d7%9f-%d7%91%d7%99%d7%a9%d7%a8%d7%90%d7%9c/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_crane_license",
+      "reason": "העמוד כולל מידע עובדתי ושירותי על הכשרה לקבלת רישיון לעגורן, תנאי קבלה, תכנים ותהליך הסמכה, ולכן מועיל לבוט. מדובר בנושא קורס כללי שלא קיים ככלי נפרד.",
+      "confidence": "medium"
+    },
+    {
+      "file": "raw/posts/4009-d7-9e-d7-94--d7-a6-d7-a8-d7-99-d7-9a--d7-9b-d7-93-d7-99--d7-9c-d7-a7-d7-91-d7-9c--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d.json",
+      "id": 4009,
+      "title": "מה צריך כדי לקבל רישיון למונית?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%94-%d7%a6%d7%a8%d7%99%d7%9a-%d7%9b%d7%93%d7%99-%d7%9c%d7%a7%d7%91%d7%9c-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%95%d7%a0%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_public_transport_vehicle",
+      "reason": "העמוד עוסק ברישיון למונית, שהוא חלק מרכב ציבורי/D1, ויש כבר כלי קיים מתאים לקורס רכב ציבורי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4008-d7-9e-d7-94--d7-97-d7-a9-d7-95-d7-91--d7-9c-d7-93-d7-a2-d7-aa--d7-a2-d7-9c--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d.json",
+      "id": 4008,
+      "title": "מה חשוב לדעת על רישיון למנוף",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%94-%d7%97%d7%a9%d7%95%d7%91-%d7%9c%d7%93%d7%a2%d7%aa-%d7%a2%d7%9c-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%a0%d7%95%d7%a3/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_crane_license_general",
+      "reason": "העמוד מספק מידע עובדתי ושירותי על הכשרה ורישיון למנוף, כולל סוגי רישיונות, תנאי קבלה, תהליך ותכני לימוד. מדובר בנושא קורס/הסמכה ולכן נוצר כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1377-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-99-d7-a9-d7-99-d7-.json",
+      "id": 1377,
+      "title": "שאלות נפוצות- קורס / רישיון למכונה ניידת",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%a7%d7%95%d7%a8%d7%a1-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%9b%d7%95%d7%a0%d7%94-%d7%a0%d7%99%d7%99%d7%93%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_mobile_machine",
+      "reason": "העמוד הוא FAQ עובדתי על קורס מכונה ניידת ומוסיף פרטים שימושיים לכלי קיים של הקורס: חובת היתר, תנאי השתתפות, מתכונת, טופס ירוק ופטורים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3514-d7-9b-d7-aa-d7-99-d7-91-d7-aa--d7-aa-d7-95-d7-9b-d7-a0-d7-99-d7-aa--d7-97-d7-99-d7-a8-d7-95-d7-9d--d7-9c-d7-97-d7-91-d7-.json",
+      "id": 3514,
+      "title": "כתיבת תוכנית חירום לחברה",
+      "link": "https://bambischool.co.il/%d7%aa%d7%9b%d7%a0%d7%95%d7%9f-%d7%9e%d7%a2%d7%a0%d7%94-%d7%97%d7%99%d7%a8%d7%95%d7%9d-%d7%91%d7%90%d7%a8%d7%92%d7%95%d7%9f/%d7%9b%d7%aa%d7%99%d7%91%d7%aa-%d7%aa%d7%95%d7%9b%d7%a0%d7%99%d7%aa-%d7%97%d7%99%d7%a8%d7%95%d7%9d-%d7%9c%d7%97%d7%91%d7%a8%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_emergency_response_planning",
+      "reason": "העמוד מספק מידע שירותי ורלוונטי על כתיבת תוכנית חירום לארגונים, והוא משתלב בכלי קיים בנושא תכנון מענה חירום בארגון.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3513-d7-94-d7-99-d7-a2-d7-a8-d7-9b-d7-95-d7-aa--d7-9c-d7-9e-d7-a6-d7-91-d7-99--d7-97-d7-99-d7-a8-d7-95-d7-9d--d7-91-d7-9e-d7-.json",
+      "id": 3513,
+      "title": "היערכות למצבי חירום במקום העבודה",
+      "link": "https://bambischool.co.il/%d7%aa%d7%9b%d7%a0%d7%95%d7%9f-%d7%9e%d7%a2%d7%a0%d7%94-%d7%97%d7%99%d7%a8%d7%95%d7%9d-%d7%91%d7%90%d7%a8%d7%92%d7%95%d7%9f/%d7%94%d7%99%d7%a2%d7%a8%d7%9b%d7%95%d7%aa-%d7%9c%d7%9e%d7%a6%d7%91%d7%99-%d7%97%d7%99%d7%a8%d7%95%d7%9d-%d7%91%d7%9e%d7%a7%d7%95%d7%9d-%d7%94%d7%a2%d7%91%d7%95%d7%93%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_emergency_response_planning",
+      "reason": "העמוד מספק מידע עובדתי ושימושי בנושא היערכות ארגונית למצבי חירום, מתאים לכלי הקיים על תכנון מענה חירום בארגון.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3511-d7-9b-d7-99-d7-a6-d7-93--d7-9c-d7-94-d7-92-d7-99-d7-91--d7-9c-d7-9e-d7-a6-d7-91-d7-99--d7-97-d7-99-d7-a8-d7-95-d7-9d--d7.json",
+      "id": 3511,
+      "title": "כיצד להגיב למצבי חירום במקום העבודה?",
+      "link": "https://bambischool.co.il/%d7%aa%d7%9b%d7%a0%d7%95%d7%9f-%d7%9e%d7%a2%d7%a0%d7%94-%d7%97%d7%99%d7%a8%d7%95%d7%9d-%d7%91%d7%90%d7%a8%d7%92%d7%95%d7%9f/%d7%9b%d7%99%d7%a6%d7%93-%d7%9c%d7%94%d7%92%d7%99%d7%91-%d7%9c%d7%9e%d7%a6%d7%91%d7%99-%d7%97%d7%99%d7%a8%d7%95%d7%9d-%d7%91%d7%9e%d7%a7%d7%95%d7%9d-%d7%94%d7%a2%d7%91%d7%95%d7%93%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_emergency_response_planning",
+      "reason": "העמוד מספק מידע עובדתי ושימושי על היערכות ותגובה למצבי חירום במקום העבודה, ומתאים לכלי הקיים בנושא תכנון מענה חירום בארגון.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/869-d7-90-d7-aa-d7-a8-d7-99-d7-9d--d7-97-d7-a9-d7-95-d7-91-d7-99-d7-9d.json",
+      "id": 869,
+      "title": "אתרים חשובים",
+      "link": "https://bambischool.co.il/%d7%9e%d7%99%d7%93%d7%a2-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99/%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%97%d7%a9%d7%95%d7%91%d7%99%d7%9d/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "laws_and_regulations",
+      "reason": "העמוד אינו קורס, אך מכיל רשימת אתרים ושירותים רגולטוריים שימושיים לתלמידים בנושאי רישוי, תחבורה ובטיחות ולכן מתאים לקטגוריית חוקים ותקנות.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3103-d7-94-d7-a1-d7-9e-d7-9b-d7-aa--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+      "id": 3103,
+      "title": "הסמכת עבודה בגובה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%a1%d7%9e%d7%9b%d7%aa-%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height",
+      "reason": "העמוד עוסק בהסמכת עבודה בגובה ומוסיף מידע כללי רלוונטי לכלי הקיים של קורס עבודה בגובה, ללא צורך בכלי חדש כי אינו עמוד קורס מפורט נפרד.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3105-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94-2--d7-9e-d7-98-d7-a8.json",
+      "id": 3105,
+      "title": "עבודה בגובה 2 מטר",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94-2-%d7%9e%d7%98%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height",
+      "reason": "העמוד הוא מאמר שיווקי-מידעי אך כולל מידע רלוונטי לשאלות על עבודה בגובה 2 מטר והדרכה, ולכן מתאים להרחבת כלי קיים של קורס עבודה בגובה ולא ליצירת כלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3204-d7-94-d7-9b-d7-a9-d7-a8-d7-94--d7-9c-d7-a0-d7-94-d7-99-d7-92-d7-94--d7-a2-d7-9c--d7-9e-d7-a9-d7-90-d7-99-d7-aa.json",
+      "id": 3204,
+      "title": "הכשרה לנהיגה על משאית",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%9b%d7%a9%d7%a8%d7%94-%d7%9c%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%a2%d7%9c-%d7%9e%d7%a9%d7%90%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד הוא מאמר כללי אך רלוונטי להכשרה לנהיגה על משאית, ומתאים להוספה לכלי הקיים של קורס משא כבד במקום יצירת כלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1342-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-98-d7-95-d7-a4-d7-a1--d7-99-d7-a8-d7-95-d7-a7.json",
+      "id": 1342,
+      "title": "שאלות נפוצות- טופס ירוק",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%98%d7%95%d7%a4%d7%a1-%d7%99%d7%a8%d7%95%d7%a7/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "faq",
+      "reason": "העמוד הוא FAQ שימושי ושירותי בנושא טופס ירוק, מתאים לקטגוריית שאלות נפוצות קיימת ולא לקורס ספציפי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1431-d7-98-d7-95-d7-a4-d7-a1--d7-99-d7-a8-d7-95-d7-a7.json",
+      "id": 1431,
+      "title": "טופס ירוק (רש&quot;ל 18)",
+      "link": "https://bambischool.co.il/%d7%aa%d7%a4%d7%a8%d7%99%d7%98-%d7%a8%d7%90%d7%a9%d7%99/%d7%98%d7%95%d7%a4%d7%a1-%d7%99%d7%a8%d7%95%d7%a7/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "faq",
+      "reason": "העמוד מספק מידע שירותי חשוב וחוזר על טופס ירוק, ומתאים לקטגוריית שאלות נפוצות הקיימת.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1641-d7-a7-d7-95-d7-a8-d7-a1-d7-99-d7-9d--d7-a7-d7-a8-d7-95-d7-91-d7-99-d7-9d.json",
+      "id": 1641,
+      "title": "קורסים קרובים",
+      "link": "https://bambischool.co.il/%d7%aa%d7%a4%d7%a8%d7%99%d7%98-%d7%a8%d7%90%d7%a9%d7%99/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d-%d7%a7%d7%a8%d7%95%d7%91%d7%99%d7%9d/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "driving_and_transportation_courses",
+      "reason": "העמוד הוא אינדקס מועדים לקורסים קרובים ומכיל מידע שירותי שימושי על קורסי נהיגה ותחבורה, אך אינו עמוד קורס ספציפי ולכן שויך לקטגוריה קיימת.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/860-d7-93-d7-a8-d7-9b-d7-99--d7-94-d7-92-d7-a2-d7-94.json",
+      "id": 860,
+      "title": "דרכי הגעה",
+      "link": "https://bambischool.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%93%d7%a8%d7%9b%d7%99-%d7%94%d7%92%d7%a2%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "directions_to_bambi_college",
+      "reason": "העמוד מכיל מידע שירותי חשוב על כתובות, ניווט ותחבורה ציבורית למכללה ולמסלול המעשי בקדרון.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1387-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-93-d7-a8-d7-99-d7-.json",
+      "id": 1387,
+      "title": "שאלות נפוצות &#8211; קורס מדריך מלגזה",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_forklift_instructor",
+      "reason": "העמוד מכיל FAQ עובדתי ושימושי על קורס ספציפי שכבר קיים עבורו כלי: קורס מדריך מלגזה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1372-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-99-d7-a9-d7-99-d7-.json",
+      "id": 1372,
+      "title": "שאלות נפוצות- קורס / רישיון למלגזה",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%a7%d7%95%d7%a8%d7%a1-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_forklift",
+      "reason": "העמוד מכיל FAQ עובדתי ושימושי על קורס מלגזה, ויש כלי קיים מתאים לקורס זה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1185-d7-9e-d7-9e-d7-95-d7-a0-d7-94--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-a2-d7-9c--d7.json",
+      "id": 1185,
+      "title": "ממונה בטיחות בעבודה, על מי האחריות לקיום הבטיחות והגהות במפעל",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%9e%d7%95%d7%a0%d7%94-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%a2%d7%9c-%d7%9e%d7%99-%d7%94%d7%90%d7%97%d7%a8%d7%99%d7%95%d7%aa-%d7%9c%d7%a7%d7%99%d7%95/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "about_the_college",
+      "reason": "העמוד הוא מאמר מידע שירותי על אחריות לבטיחות בארגון, רלוונטי לשירותי בטיחות והדרכות של המכללה אך אינו עמוד קורס ספציפי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2845-d7-9c-d7-99-d7-9e-d7-95-d7-93--d7-a0-d7-94-d7-99-d7-92-d7-94--d7-a2-d7-9c--d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-a2-d7-93-12.json",
+      "id": 2845,
+      "title": "לימוד נהיגה על משאית עד 12 טון",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9c%d7%99%d7%9e%d7%95%d7%93-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%a2%d7%9c-%d7%9e%d7%a9%d7%90%d7%99%d7%aa-%d7%a2%d7%93-12-%d7%98%d7%95%d7%9f/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_c1_license",
+      "reason": "העמוד עוסק ברישיון/לימוד נהיגה על משאית עד 12 טון, נושא שכבר קיים בכלי course_c1_license, ומוסיף פרטים שימושיים על גיל, רישיון קודם, מינימום שיעורים ועלויות נלוות.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2843-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-9e-d7-a2-d7-9c-15--d7-98-d7-95-d7-9f.json",
+      "id": 2843,
+      "title": "רישיון משאית מעל 15 טון",
+      "link": "https://bambischool.co.il/uncategorized/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9e%d7%a9%d7%90%d7%99%d7%aa-%d7%9e%d7%a2%d7%9c-15-%d7%98%d7%95%d7%9f/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק בקורס/הכשרה ספציפית לרישיון C למשאית מעל 15 טון, אך כבר קיימת קטגוריית קורס משא כבד מתאימה ולכן יש לצרף אליה את הסיכום.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2841-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+      "id": 2841,
+      "title": "רישיון לעבודה בגובה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height",
+      "reason": "העמוד עוסק בקורס/אישור עבודה בגובה ומוסיף מידע שימושי על חובת הכשרה, רענון כל שנתיים והתאמה לארגונים; מתאים לכלי קורס קיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2839-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a0-d7-95-d7-a3.json",
+      "id": 2839,
+      "title": "רישיון למנוף",
+      "link": "https://bambischool.co.il/uncategorized/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%a0%d7%95%d7%a3/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_crane_license_general",
+      "reason": "העמוד עוסק במידע שירותי על רישיון/הכשרה למנוף, ומתאים לכלי קיים בנושא רישיון למנוף. התוכן מוסיף תנאי סף וריענון שנתי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2837-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-a2-d7-92-d7-95-d7-a8-d7-9f.json",
+      "id": 2837,
+      "title": "רישיון לעגורן",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%a2%d7%92%d7%95%d7%a8%d7%9f/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_crane_license",
+      "reason": "העמוד עוסק במידע כללי על רישיון לעגורן וקורס עגורן, ויש כלי קיים מתאים לנושא.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2835-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-9e-d7-97-d7-99-d7-a8.json",
+      "id": 2835,
+      "title": "רישיון למשאית מחיר",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%a9%d7%90%d7%99%d7%aa-%d7%9e%d7%97%d7%99%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_c1_license",
+      "reason": "העמוד כולל מידע שירותי רלוונטי על עלויות ושיעורים לרישיון משאית, ומתאים להרחבת כלי קיים על רישיון C1/משאית.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2833-d7-9e-d7-9c-d7-92-d7-96-d7-94--d7-98-d7-9c-d7-a1-d7-a7-d7-95-d7-a4-d7-99-d7-aa.json",
+      "id": 2833,
+      "title": "מלגזה טלסקופית",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%9c%d7%92%d7%96%d7%94-%d7%98%d7%9c%d7%a1%d7%a7%d7%95%d7%a4%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_forklift",
+      "reason": "העמוד מוסיף מידע עובדתי על רישיון מלגזה טלסקופית ומתאים לכלי הקיים של קורס מלגזה, אך אינו מצדיק כלי חדש כי הוא מאמר משנה ולא עמוד קורס נפרד.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2828-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-95-d7-a0-d7-99-d7-aa.json",
+      "id": 2828,
+      "title": "רישיון למונית",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%95%d7%a0%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_taxi_license",
+      "reason": "העמוד עוסק בקורס/רישיון ספציפי למונית ומכיל פרטים שימושיים על היקף, נושאים ומתכונת, לכן נדרש כלי קורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2824-d7-94-d7-93-d7-a8-d7-9b-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-9c-d7-a2-d7-95-d7-91-d7-93-d7-99-d7-9d.json",
+      "id": 2824,
+      "title": "הדרכת בטיחות לעובדים",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%93%d7%a8%d7%9b%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%9c%d7%a2%d7%95%d7%91%d7%93%d7%99%d7%9d/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_workplace_safety_training",
+      "reason": "העמוד מוסיף מידע שירותי רלוונטי על הדרכות בטיחות לעובדים ומתאים לכלי קיים של הדרכות בטיחות, אך אינו עמוד קורס ספציפי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2822-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-91-d7-93-d7-a8-d7-95-d7-9d.json",
+      "id": 2822,
+      "title": "רישיון למשאית בדרום",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%a9%d7%90%d7%99%d7%aa-%d7%91%d7%93%d7%a8%d7%95%d7%9d/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד מספק מידע עובדתי על הוצאת רישיון למשאית C באזור הדרום, כולל סוגי רישיונות, גיל, דרישת רישיון קודם ושיעורים. מתאים לכלי קיים של קורס משא כבד ולא מצדיק כלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1406-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a2-d7-92-d7-95-d7-a8-d7-9f--d7-94-d7-a2-d7-9e-d7-.json",
+      "id": 1406,
+      "title": "שאלות נפוצות &#8211; עגורן העמסה עצמית",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%a2%d7%92%d7%95%d7%a8%d7%9f-%d7%94%d7%a2%d7%9e%d7%a1%d7%94-%d7%a2%d7%a6%d7%9e%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_self_loading_crane",
+      "reason": "העמוד הוא FAQ עובדתי על קורס עגורן העמסה עצמית ומוסיף פרטים שימושיים לכלי קורס קיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1412-d7-aa-d7-a7-d7-a0-d7-94-168--d7-a9-d7-a2-d7-95-d7-aa--d7-a0-d7-94-d7-99-d7-92-d7-94--d7-95-d7-9e-d7-a0-d7-95-d7-97-d7-94.json",
+      "id": 1412,
+      "title": "תקנה 168- שעות נהיגה ומנוחה",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%aa%d7%a7%d7%a0%d7%94-168-%d7%a9%d7%a2%d7%95%d7%aa-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%95%d7%9e%d7%a0%d7%95%d7%97%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "laws_and_regulations",
+      "reason": "העמוד כולל מידע רגולטורי עובדתי ושימושי על תקנה 168 וחובת טכוגרף, מתאים לקטגוריית חוקים ותקנות קיימת ולא לקורס ספציפי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1401-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-9c-d7-a7-d7-95-d7-a8-d7-a1--d7-9c-d7-94-d7-95-d7-.json",
+      "id": 1401,
+      "title": "שאלות נפוצות לקורס להוצאת רישיון לטרקטור",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%9c%d7%a7%d7%95%d7%a8%d7%a1-%d7%9c%d7%94%d7%95%d7%a6%d7%90%d7%aa-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%98%d7%a8%d7%a7/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_tractor",
+      "reason": "העמוד מכיל FAQ עובדתי ושימושי על קורס טרקטור שכבר קיים ככלי קורס, ולכן יש לצרף את הסיכום לכלי הקיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1392-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1--d7-a8-d7-a2-d7-a0-d7-95-d7-.json",
+      "id": 1392,
+      "title": "שאלות נפוצות &#8211; קורס/רענון מדריך עבודה בגובה",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%a7%d7%95%d7%a8%d7%a1-%d7%a8%d7%a2%d7%a0%d7%95%d7%9f-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height_instructor",
+      "reason": "העמוד כולל FAQ עובדתי ושימושי על קורס מדריך עבודה בגובה, וקיים כלי ייעודי מתאים לקורס זה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1382-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a6-d7-99-d7-95-d7-93--d7-9e-d7-92-d7-9f--d7-90-d7.json",
+      "id": 1382,
+      "title": "שאלות נפוצות &#8211; ציוד מגן אישי",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%a6%d7%99%d7%95%d7%93-%d7%9e%d7%92%d7%9f-%d7%90%d7%99%d7%a9%d7%99/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height",
+      "reason": "העמוד כולל FAQ שימושי על ציוד מגן אישי לעבודה בגובה, רלוונטי לשירותי/קורס עבודה בגובה, אך אינו קורס נפרד ולכן מתאים לכלי קיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1367-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1-d7-99-d7-9d--d7-9e-d7-a9-d7-.json",
+      "id": 1367,
+      "title": "שאלות נפוצות קורסים משא כבד ורכב ציבורי",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d-%d7%9e%d7%a9%d7%90-%d7%9b%d7%91%d7%93-%d7%95%d7%a8%d7%9b%d7%91-%d7%a6%d7%99%d7%91%d7%95%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "faq",
+      "reason": "העמוד מכיל FAQ שירותי חשוב על קורסי משא כבד ורכב ציבורי, מתאים לקטגוריית שאלות נפוצות קיימת ולא לעמוד קורס יחיד.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1362-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-9b-d7-9c-d7-.json",
+      "id": 1362,
+      "title": "שאלות נפוצות &#8211; בטיחות כללית בעבודה",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%9b%d7%9c%d7%9c%d7%99%d7%aa-%d7%91%d7%a2%d7%91%d7%95%d7%93%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_workplace_safety_training",
+      "reason": "העמוד הוא FAQ שירותי עם מידע עובדתי על הדרכת בטיחות כללית לעובדים, ומתאים לכלי קיים של הדרכות בטיחות.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1356-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa--d7-a7-d7-95-d7-a8-d7-a1--d7-a0-d7-90-d7-9e-d7-a0-d7-.json",
+      "id": 1356,
+      "title": "שאלות נפוצות &#8211; קורס נאמני בטיחות",
+      "link": "https://bambischool.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa-%d7%a7%d7%95%d7%a8%d7%a1-%d7%a0%d7%90%d7%9e%d7%a0%d7%99-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_safety_trustees",
+      "reason": "העמוד הוא FAQ עובדתי על קורס נאמני בטיחות, ויש כלי קיים מתאים לקורס זה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/871-d7-a9-d7-90-d7-9c-d7-95-d7-aa--d7-a0-d7-a4-d7-95-d7-a6-d7-95-d7-aa.json",
+      "id": 871,
+      "title": "שאלות נפוצות",
+      "link": "https://bambischool.co.il/%d7%9e%d7%99%d7%93%d7%a2-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%a0%d7%a4%d7%95%d7%a6%d7%95%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "faq",
+      "reason": "העמוד הוא אינדקס שאלות נפוצות עם מידע שירותי רלוונטי למשתמשים ולבוט, ומתאים לקטגוריית שאלות נפוצות קיימת.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/870-d7-97-d7-95-d7-a7-d7-99-d7-9d--d7-95-d7-aa-d7-a7-d7-a0-d7-95-d7-aa.json",
+      "id": 870,
+      "title": "חוקים ותקנות",
+      "link": "https://bambischool.co.il/%d7%9e%d7%99%d7%93%d7%a2-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99/%d7%97%d7%95%d7%a7%d7%99%d7%9d-%d7%95%d7%aa%d7%a7%d7%a0%d7%95%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "laws_and_regulations",
+      "reason": "העמוד הוא עמוד כללי שמרכז תקנות ונוהלי רישוי רלוונטיים לקורסים, ולכן מתאים לקטגוריית חוקים ותקנות קיימת.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2428-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-90-d7-95-d7-98-d7-95-d7-91-d7-95-d7-a1.json",
+      "id": 2428,
+      "title": "רישיון לאוטובוס",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%90%d7%95%d7%98%d7%95%d7%91%d7%95%d7%a1/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_public_transport_vehicle",
+      "reason": "העמוד עוסק ברישיון לאוטובוס כחלק מקורס רכב ציבורי, ויש כבר כלי קיים מתאים. התוכן מוסיף פרטים שימושיים על משך משוער, תנאי קבלה ודרישות סיום.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2423-d7-9b-d7-9e-d7-94--d7-a2-d7-95-d7-9c-d7-94--d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa.json",
+      "id": 2423,
+      "title": "כמה עולה רישיון למשאית",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9b%d7%9e%d7%94-%d7%a2%d7%95%d7%9c%d7%94-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%a9%d7%90%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק בקורס/רישיון למשאית ומוסיף מידע שימושי על עלות כללית, תנאי קבלה ונושאי לימוד; מתאים לכלי הקיים של קורס משא כבד.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2418-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-a0-d7-94-d7-99-d7-92-d7-94--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa--d7-a2-d7-93-12-.json",
+      "id": 2418,
+      "title": "רישיון נהיגה למשאית עד 12 טון מחיר",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%9c%d7%9e%d7%a9%d7%90%d7%99%d7%aa-%d7%a2%d7%93-12-%d7%98%d7%95%d7%9f-%d7%9e%d7%97%d7%99%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_c1_license",
+      "reason": "העמוד עוסק ברישיון C1/משאית עד 12 טון ומוסיף מידע שירותי על מחיר כללי, פיקדון צבאי ותהליך ההוצאה; מתאים לכלי קיים course_c1_license.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2409-d7-94-d7-93-d7-a8-d7-9b-d7-aa--d7-a2-d7-91-d7-95-d7-93-d7-95-d7-aa--d7-91-d7-92-d7-95-d7-91-d7-94-2.json",
+      "id": 2409,
+      "title": "הדרכת עבודות בגובה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%93%d7%a8%d7%9b%d7%aa-%d7%a2%d7%91%d7%95%d7%93%d7%95%d7%aa-%d7%91%d7%92%d7%95%d7%91%d7%94-2/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height_instructor",
+      "reason": "העמוד עוסק בקורס/הסמכת מדריך עבודה בגובה ומוסיף פרטים עובדתיים התואמים לכלי קיים לקורס זה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2403-d7-94-d7-99-d7-aa-d7-a8--d7-9c-d7-9e-d7-a0-d7-95-d7-a3.json",
+      "id": 2403,
+      "title": "היתר למנוף",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%99%d7%aa%d7%a8-%d7%9c%d7%9e%d7%a0%d7%95%d7%a3/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_crane_license_general",
+      "reason": "העמוד עוסק בהיתר/רישיון למנוף ומוסיף פרטים עובדתיים כלליים על תנאי קבלה, משך, מתכונת ותנאי הסמכה. מתאים לכלי הקיים רישיון למנוף.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2397-d7-94-d7-95-d7-a8-d7-90-d7-95-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a2-d7-91-d7-95-d7-93-d7-94.json",
+      "id": 2397,
+      "title": "הוראות בטיחות בעבודה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%95%d7%a8%d7%90%d7%95%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a2%d7%91%d7%95%d7%93%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_workplace_safety_training",
+      "reason": "העמוד מספק מידע שירותי על הדרכות בטיחות לעובדים, כולל התאמה לארגון ותעודה בסיום, ומתאים לכלי הקיים של הדרכות בטיחות.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2386-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-90-d7-95-d7-98-d7-95-d7-91-d7-95-d7-a1--d7-96-d7-a2-d7-99-d7-a8--d7-a6-d7-.json",
+      "id": 2386,
+      "title": "רישיון לאוטובוס זעיר ציבורי",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%90%d7%95%d7%98%d7%95%d7%91%d7%95%d7%a1-%d7%96%d7%a2%d7%99%d7%a8-%d7%a6%d7%99%d7%91%d7%95%d7%a8%d7%99/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_public_transport_vehicle",
+      "reason": "העמוד עוסק בהכשרה ספציפית לרכב ציבורי/אוטובוס זעיר, ויש קטגוריה קיימת מתאימה לקורס רכב ציבורי. התוכן מוסיף פרטים על D2, עד 15 נוסעים, תנאי התחלה ותכני לימוד.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2381-d7-a8-d7-99-d7-a9-d7-95-d7-99--d7-9e-d7-9c-d7-92-d7-96-d7-94.json",
+      "id": 2381,
+      "title": "רישוי מלגזה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%95%d7%99-%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_forklift",
+      "reason": "העמוד עוסק בקורס מלגזה ומוסיף מידע עובדתי שימושי על תנאי התאמה, סוגי היתרים, משך ותכני לימוד; מתאים לכלי קיים של קורס מלגזה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2373-d7-a9-d7-99-d7-a8-d7-95-d7-aa-d7-99--d7-97-d7-95-d7-a5--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa.json",
+      "id": 2373,
+      "title": "שירותי חוץ בטיחות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%97%d7%95%d7%a5-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "about_the_college",
+      "reason": "העמוד אינו קורס ספציפי אלא מידע שירותי על שירותי בטיחות חיצוניים של המכללה, ולכן מתאים לקטגוריית אודות/שירותי המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2344-d7-94-d7-93-d7-a8-d7-9b-d7-aa--d7-a2-d7-91-d7-95-d7-93-d7-95-d7-aa--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+      "id": 2344,
+      "title": "הדרכת עבודות בגובה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%93%d7%a8%d7%9b%d7%aa-%d7%a2%d7%91%d7%95%d7%93%d7%95%d7%aa-%d7%91%d7%92%d7%95%d7%91%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height",
+      "reason": "העמוד עוסק בהדרכת עבודות בגובה ומוסיף מידע כללי רלוונטי לכלי הקיים של קורס עבודה בגובה, אך אינו כולל פרטי קורס חדשים כמו משך או מחיר.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2100-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-a0-d7-94-d7-99-d7-92-d7-94--d7-9e-d7-a2-d7-9c-12--d7-98-d7-95-d7-9f.json",
+      "id": 2100,
+      "title": "רישיון נהיגה מעל 12 טון",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%9e%d7%a2%d7%9c-12-%d7%98%d7%95%d7%9f/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק בקורס/רישיון ספציפי למשא כבד C, וכבר קיימת קטגוריית קורס מתאימה. המידע מוסיף תנאי קבלה ומתכונת לימוד.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2095-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-a9-d7-90--d7-9b-d7-91-d7-93-2.json",
+      "id": 2095,
+      "title": "קורס משא כבד",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%a9%d7%90-%d7%9b%d7%91%d7%93-2/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק בקורס ספציפי שכבר קיים ככלי course_heavy_vehicle ומוסיף פרטים שימושיים על תנאי קבלה, תכני לימוד ונוכחות.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2090-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-a9-d7-90-d7-99-d7-aa-c.json",
+      "id": 2090,
+      "title": "רישיון למשאית c",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%9e%d7%a9%d7%90%d7%99%d7%aa-c/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק בקורס/רישיון ספציפי שכבר קיים בכלי course_heavy_vehicle ומוסיף תנאי קבלה ותוכן לימודי רלוונטיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/2085-d7-a7-d7-95-d7-a8-d7-a1--d7-9e-d7-a9-d7-a8-d7-93--d7-94-d7-aa-d7-a2-d7-a1-d7-95-d7-a7-d7-94--d7-a8-d7-99-d7-a9-d7-99-d7-.json",
+      "id": 2085,
+      "title": "קורס משרד התעסוקה רישיון משאית",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%9e%d7%a9%d7%a8%d7%93-%d7%94%d7%aa%d7%a2%d7%a1%d7%95%d7%a7%d7%94-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9e%d7%a9%d7%90%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_heavy_vehicle",
+      "reason": "העמוד עוסק בקורס משא כבד/רישיון משאית מעל 12 טון ומוסיף פרטים שימושיים על זכאות דרך לשכת התעסוקה ותנאי הכנה, ולכן מתאים לכלי הקיים course_heavy_vehicle.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/986-d7-9c-d7-94-d7-a9-d7-99-d7-92--d7-94-d7-a4-d7-a0-d7-99-d7-99-d7-94--d7-9e-d7-9e-d7-a9-d7-a8-d7-93--d7-94-d7-aa-d7-97-d7-.json",
+      "id": 986,
+      "title": "להשיג הפנייה ממשרד התחבורה לקורס לרכב ציבורי או לרכב כבד – מדוע חשוב להתחיל בהקדם ?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9c%d7%94%d7%a9%d7%99%d7%92-%d7%94%d7%a4%d7%a0%d7%99%d7%99%d7%94-%d7%9e%d7%9e%d7%a9%d7%a8%d7%93-%d7%94%d7%aa%d7%97%d7%91%d7%95%d7%a8%d7%94-%d7%9c%d7%a7%d7%95%d7%a8%d7%a1-%d7%9c%d7%a8%d7%9b%d7%91/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "faq",
+      "reason": "העמוד מספק מידע שירותי חשוב ושימושי על תהליך קבלת הפניה לקורסי רכב ציבורי ומשא כבד, אך אינו עמוד קורס ספציפי ולכן מתאים לקטגוריית שאלות נפוצות.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1082-d7-94-d7-90-d7-9d--d7-90-d7-aa-d7-9d--d7-a2-d7-95-d7-91-d7-a8-d7-99-d7-9d--d7-a2-d7-9c--d7-94-d7-97-d7-95-d7-a7--d7-9e-d.json",
+      "id": 1082,
+      "title": "האם אתם עוברים על החוק מבלי להיות מודעים לכך?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%90%d7%9d-%d7%90%d7%aa%d7%9d-%d7%a2%d7%95%d7%91%d7%a8%d7%99%d7%9d-%d7%a2%d7%9c-%d7%94%d7%97%d7%95%d7%a7-%d7%9e%d7%91%d7%9c%d7%99-%d7%9c%d7%94%d7%99%d7%95%d7%aa-%d7%9e%d7%95%d7%93%d7%a2%d7%99/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "laws_and_regulations",
+      "reason": "העמוד הוא מאמר רגולטורי עם מידע עובדתי שימושי על שינויים בתקנות תעבורה ואחריות מעסיקים, מתאים לקטגוריית חוקים ותקנות ולא לקורס ספציפי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1025-d7-97-d7-93-d7-a9--d7-91-d7-91-d7-9e-d7-91-d7-99--d7-a8-d7-99-d7-a2-d7-a0-d7-95-d7-9f--d7-9e-d7-93-d7-a8-d7-99-d7-9b-d7-.json",
+      "id": 1025,
+      "title": "חדש בבמבי! ריענון מדריכי עבודה בגובה!",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%97%d7%93%d7%a9-%d7%91%d7%91%d7%9e%d7%91%d7%99-%d7%a8%d7%99%d7%a2%d7%a0%d7%95%d7%9f-%d7%9e%d7%93%d7%a8%d7%99%d7%9b%d7%99-%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height_instructor_refresher",
+      "reason": "העמוד קצר אך מוסיף מידע שירותי רלוונטי לכלי קיים על ריענון מדריכי עבודה בגובה; אין מספיק מידע ליצירת כלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1174-d7-a0-d7-99-d7-94-d7-95-d7-9c--d7-a1-d7-99-d7-9b-d7-95-d7-a0-d7-99-d7-9d--d7-91-d7-9e-d7-a7-d7-95-d7-9d--d7-94-d7-a2-d7-.json",
+      "id": 1174,
+      "title": "ניהול סיכונים במקום העבודה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a0%d7%99%d7%94%d7%95%d7%9c-%d7%a1%d7%99%d7%9b%d7%95%d7%a0%d7%99%d7%9d-%d7%91%d7%9e%d7%a7%d7%95%d7%9d-%d7%94%d7%a2%d7%91%d7%95%d7%93%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "about_the_college",
+      "reason": "העמוד אינו קורס ספציפי אלא מידע שירותי על ניהול סיכונים, סקרי סיכונים ושירותי בטיחות שבמבי מספקת לארגונים; מתאים לקטגוריית אודות המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1217-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94--d7-a1-d7-9b-d7-.json",
+      "id": 1217,
+      "title": "בטיחות בעבודה בגובה &#8211; סכנות ודרכי מזעורם",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94-%d7%a1%d7%9b%d7%a0%d7%95%d7%aa-%d7%95%d7%93%d7%a8%d7%9b%d7%99-%d7%9e%d7%96%d7%a2%d7%95%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height",
+      "reason": "העמוד הוא מאמר מקצועי עם מידע עובדתי רלוונטי לעבודה בגובה, חובת הדרכה, אחריות וציוד בטיחות; מתאים להוספה לכלי הקיים של קורס עבודה בגובה ולא ליצירת כלי חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/862-d7-9e-d7-99-d7-93-d7-a2--d7-9e-d7-a7-d7-a6-d7-95-d7-a2-d7-99.json",
+      "id": 862,
+      "title": "מידע מקצועי",
+      "link": "https://bambischool.co.il/%d7%aa%d7%a4%d7%a8%d7%99%d7%98-%d7%a8%d7%90%d7%a9%d7%99/%d7%9e%d7%99%d7%93%d7%a2-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "about_the_college",
+      "reason": "העמוד הוא עמוד כללי/אינדקס קצר שמפנה לסוגי מידע באתר, ללא פרטי קורס ספציפי. יש ערך מוגבל אך מתאים לצירוף לקטגוריית מידע כללי על המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/859-d7-90-d7-95-d7-93-d7-95-d7-aa--d7-94-d7-9e-d7-9b-d7-9c-d7-9c-d7-94--d7-9c-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-95-d7-.json",
+      "id": 859,
+      "title": "אודות המכללה לבטיחות ונהיגה במבי",
+      "link": "https://bambischool.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%94%d7%9e%d7%9b%d7%9c%d7%9c%d7%94-%d7%9c%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%95%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%9e%d7%91%d7%99/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "about_the_college",
+      "reason": "עמוד אודות מספק מידע כללי ושירותי חשוב על המכללה, מיקום, אישורים ותחומי הכשרה; מתאים לקטגוריית אודות קיימת.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1289-d7-aa-d7-99-d7-90-d7-95-d7-a8-d7-99-d7-94--d7-9c-d7-98-d7-a8-d7-a7-d7-98-d7-95-d7-a8.json",
+      "id": 1289,
+      "title": "תיאוריה לטרקטור",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%aa%d7%99%d7%90%d7%95%d7%a8%d7%99%d7%94-%d7%9c%d7%98%d7%a8%d7%a7%d7%98%d7%95%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_tractor",
+      "reason": "העמוד מוסיף מידע עובדתי ושימושי על שלב התיאוריה בקורס/רישיון טרקטור, כולל חובת שעות עיוניות, מסמכים ואגרה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1284-d7-a9-d7-99-d7-a7-d7-95-d7-9c-d7-99-d7-9d--d7-91-d7-91-d7-97-d7-99-d7-a8-d7-aa--d7-a6-d7-99-d7-95-d7-93--d7-9c-d7-a2-d7-.json",
+      "id": 1284,
+      "title": "שיקולים בבחירת ציוד לעבודה בגובה (ציוד מגן אישי)",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a9%d7%99%d7%a7%d7%95%d7%9c%d7%99%d7%9d-%d7%91%d7%91%d7%97%d7%99%d7%a8%d7%aa-%d7%a6%d7%99%d7%95%d7%93-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94-%d7%a6%d7%99%d7%95%d7%93/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height",
+      "reason": "העמוד הוא מאמר מקצועי על ציוד מגן אישי לעבודה בגובה וכולל מידע שירותי רלוונטי לשאלות על עבודה בגובה, ציוד ותוקף הכשרה; מתאים לכלי קיים של קורס עבודה בגובה ולא לקורס חדש.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1278-d7-9e-d7-90-d7-99-d7-96-d7-94--d7-92-d7-99-d7-9c--d7-95-d7-90-d7-99-d7-9a--d7-9e-d7-95-d7-a6-d7-99-d7-90-d7-99-d7-9d--d7.json",
+      "id": 1278,
+      "title": "מאיזה גיל ואיך מוציאים רישיון לטרקטור וטרקטורון?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%90%d7%99%d7%96%d7%94-%d7%92%d7%99%d7%9c-%d7%95%d7%90%d7%99%d7%9a-%d7%9e%d7%95%d7%a6%d7%99%d7%90%d7%99%d7%9d-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%9c%d7%98%d7%a8%d7%a7%d7%98%d7%95%d7%a8/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_tractor",
+      "reason": "העמוד מוסיף מידע עובדתי ושימושי על קורס טרקטור/טרקטורון, גילאים, טופס ירוק, מבנה הקורס, תיאוריה וטסט. קיים כלי קורס מתאים ולכן יש לצרף אליו.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1271-d7-94-d7-94-d7-91-d7-93-d7-9c-d7-99-d7-9d--d7-91-d7-99-d7-9f--d7-98-d7-a8-d7-a7-d7-98-d7-95-d7-a8--d7-9c-d7-a9-d7-95-d7-.json",
+      "id": 1271,
+      "title": "ההבדלים בין טרקטור לשופל",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%94%d7%91%d7%93%d7%9c%d7%99%d7%9d-%d7%91%d7%99%d7%9f-%d7%98%d7%a8%d7%a7%d7%98%d7%95%d7%a8-%d7%9c%d7%a9%d7%95%d7%a4%d7%9c/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "driving_and_transportation_courses",
+      "reason": "העמוד אינו עמוד קורס ספציפי אלא מידע השוואתי שימושי על רישיונות טרקטור ושופל/מכונה ניידת, ולכן מתאים לקטגוריית קורסי נהיגה ותחבורה קיימת.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1262-d7-9e-d7-97-d7-a4-d7-a9--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-aa-d7-95-d7-a8--d7-9e-d7-9c-d7-92-d7-96-d7-9f--d7-9c-d7.json",
+      "id": 1262,
+      "title": "מחפש עבודה בתור מלגזן? לא יודע איפה להתחיל?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%97%d7%a4%d7%a9-%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%aa%d7%95%d7%a8-%d7%9e%d7%9c%d7%92%d7%96%d7%9f-%d7%9c%d7%90-%d7%99%d7%95%d7%93%d7%a2-%d7%90%d7%99%d7%a4%d7%94-%d7%9c%d7%94%d7%aa%d7%97/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_forklift",
+      "reason": "העמוד כולל מידע עובדתי ושירותי על קורס מלגזה, דרישות טופס ירוק, משך הקורס, הוצאת רישיון וסיוע תעסוקתי, ולכן מתאים להרחבת כלי קורס מלגזה קיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1201-d7-a8-d7-99-d7-a2-d7-a0-d7-95-d7-9f--d7-9e-d7-9c-d7-92-d7-96-d7-94--d7-9e-d7-94--d7-96-d7-94--d7-9c-d7-9e-d7-94--d7-96-d.json",
+      "id": 1201,
+      "title": "ריענון מלגזה- מה זה? למה זה חשוב? ומי צריך לעבור אותו?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a2%d7%a0%d7%95%d7%9f-%d7%9e%d7%9c%d7%92%d7%96%d7%94-%d7%9e%d7%94-%d7%96%d7%94-%d7%9c%d7%9e%d7%94-%d7%96%d7%94-%d7%97%d7%a9%d7%95%d7%91-%d7%95%d7%9e%d7%99-%d7%a6%d7%a8%d7%99%d7%9a/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_annual_forklift_refresher",
+      "reason": "העמוד מוסיף מידע עובדתי ושירותי על רענון שנתי למלגזה, כלי קיים מתאים כבר קיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1196-d7-9e-d7-93-d7-a8-d7-99-d7-9a--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94.json",
+      "id": 1196,
+      "title": "מדריך עבודה בגובה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height_instructor",
+      "reason": "העמוד עוסק במידע עובדתי על הכשרת מדריך עבודה בגובה, וקיימת קטגוריית קורס מתאימה שכבר נוצרה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1190-d7-a6-d7-99-d7-95-d7-93--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-9c-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-.json",
+      "id": 1190,
+      "title": "ציוד בטיחות לעבודה בגובה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a6%d7%99%d7%95%d7%93-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "course_work_at_height",
+      "reason": "העמוד אינו קורס עצמאי אלא מידע שירותי רלוונטי לשאלות על עבודה בגובה וציוד מגן, ולכן מתאים לצירוף לכלי הקיים של קורס עבודה בגובה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1180-d7-a1-d7-95-d7-a3--d7-a1-d7-95-d7-a3--d7-99-d7-a9--d7-aa-d7-99-d7-90-d7-95-d7-a8-d7-99-d7-94--d7-91-d7-a9-d7-a4-d7-94--d.json",
+      "id": 1180,
+      "title": "סוף סוף יש תיאוריה בשפה האמהרית!",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a1%d7%95%d7%a3-%d7%a1%d7%95%d7%a3-%d7%99%d7%a9-%d7%aa%d7%99%d7%90%d7%95%d7%a8%d7%99%d7%94-%d7%91%d7%a9%d7%a4%d7%94-%d7%94%d7%90%d7%9e%d7%94%d7%a8%d7%99%d7%aa/",
+      "has_bot_value": true,
+      "category_action": "existing",
+      "category_tool_id": "faq",
+      "reason": "העמוד אינו קורס, אך כולל מידע שירותי עובדתי שעשוי לסייע בשאלות נפוצות על מבחן תיאוריה ושפות הבחינה.",
+      "confidence": "high"
+    }
+  ],
+  "skipped": [
+    {
+      "file": "raw/pages/4214-thank-you.json",
+      "id": 4214,
+      "title": "תודה על פנייתך",
+      "link": "https://bambischool.co.il/thank-you/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "עמוד תודה לאחר פנייה בלבד, ללא מידע עובדתי על קורסים, שירותים או פרטי קשר שימושיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/3990-d7-94-d7-a6-d7-94-d7-a8-d7-aa--d7-a0-d7-92-d7-99-d7-a9-d7-95-d7-aa.json",
+      "id": 3990,
+      "title": "הצהרת נגישות",
+      "link": "https://bambischool.co.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a0%d7%92%d7%99%d7%a9%d7%95%d7%aa/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא הצהרת נגישות. לפי ההנחיות אין ליצור או לעדכן כלי ידע עבור עמודי נגישות, והוא אינו מכיל מידע על קורס/הכשרה/הסמכה או מידע שירותי מרכזי למכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/3898-d7-9e-d7-a9-d7-90--d7-9b-d7-91-d7-93--d7-a2-d7-9e-d7-95-d7-93--d7-aa-d7-95-d7-93-d7-94.json",
+      "id": 3898,
+      "title": "משא כבד עמוד תודה",
+      "link": "https://bambischool.co.il/%d7%9e%d7%a9%d7%90-%d7%9b%d7%91%d7%93-%d7%a2%d7%9e%d7%95%d7%93-%d7%aa%d7%95%d7%93%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "עמוד תודה קצר לאחר פנייה, ללא מידע עובדתי שימושי על הקורס מעבר לכותרת שיווקית. לפי הכללים אין ליצור כלי לעמודי תודה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/3686-test-form.json",
+      "id": 3686,
+      "title": "TEST FORM",
+      "link": "https://bambischool.co.il/test-form/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא טופס בדיקה/קבלת קוד הטבה בלבד, ללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירותי המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/2650-tnx.json",
+      "id": 2650,
+      "title": "TNX &#8211; news",
+      "link": "https://bambischool.co.il/tnx/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "עמוד תודה להרשמה לניוזלטר עם הודעת אישור וקוד הטבה; לפי הכללים אין ליצור ידע מעמודי תודה/טפסים ואין בו מידע שירותי חשוב על קורסים או המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/3154-d7-94-d7-9e-d7-9c-d7-a6-d7-95-d7-aa.json",
+      "id": 3154,
+      "title": "המלצות",
+      "link": "https://bambischool.co.il/%d7%94%d7%9e%d7%9c%d7%a6%d7%95%d7%aa/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא עמוד המלצות וחוות דעת, ולפי הכללים אין ליצור או לעדכן כלי ידע עבור המלצות. אין בו מידע עובדתי מספק על קורס ספציפי או שירותי מכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/28-d7-9e-d7-91-d7-97-d7-a0-d7-99-d7-9d--d7-95-d7-9c-d7-99-d7-9e-d7-95-d7-93.json",
+      "id": 28,
+      "title": "מבחנים ולימוד",
+      "link": "https://bambischool.co.il/%d7%9e%d7%91%d7%97%d7%a0%d7%99%d7%9d-%d7%95%d7%9c%d7%99%d7%9e%d7%95%d7%93/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד נמצא בבנייה ואינו מכיל מידע עובדתי שימושי על קורסים, שירותים או פרטי מכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/31-d7-98-d7-a4-d7-a1-d7-99-d7-9d.json",
+      "id": 31,
+      "title": "טפסים",
+      "link": "https://bambischool.co.il/%d7%98%d7%a4%d7%a1%d7%99%d7%9d/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא עמוד טפסים ללא תוכן עובדתי שימושי על קורס, הכשרה, הסמכה או שירותי מכללה; לפי הכללים אין ליצור כלי לטפסים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/19-d7-aa-d7-97-d7-91-d7-95-d7-a8-d7-94.json",
+      "id": 19,
+      "title": "תחבורה",
+      "link": "https://bambischool.co.il/%d7%aa%d7%97%d7%91%d7%95%d7%a8%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד מכיל רק כותרת 'תחבורה' ללא מידע עובדתי על קורסים, שירותים, תנאי קבלה, מועדים או פרטי קשר ולכן אינו מועיל לבוט.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/pages/13-d7-a2-d7-9e-d7-95-d7-93--d7-94-d7-91-d7-99-d7-aa.json",
+      "id": 13,
+      "title": "עמוד הבית",
+      "link": "https://bambischool.co.il/%d7%a2%d7%9e%d7%95%d7%93-%d7%94%d7%91%d7%99%d7%aa/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד מכיל רק כותרת 'עמוד הבית' ללא מידע עובדתי על קורסים, שירותים או פרטי מכללה שימושיים לבוט.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4733-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94--d7-9e-d7-93-d7-a8-d7-.json",
+      "id": 4733,
+      "title": "רישיון עבודה בגובה – מדריך להסמכה ודרישות חוקיות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9c%d7%94%d7%a1%d7%9e%d7%9b%d7%94-%d7%95%d7%93%d7%a8/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר שיווקי כללי על עבודה בגובה, ללא מידע עובדתי חדש ושירותי על קורס ספציפי מעבר למידע שכבר קיים בכלי קורס עבודה בגובה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4732-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94--d7-9b-d7-9c-d7-.json",
+      "id": 4732,
+      "title": "בטיחות בעבודה בגובה – כללי בטיחות חיוניים באתר",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94-%d7%9b%d7%9c%d7%9c%d7%99-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%97%d7%99%d7%95/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי/שיווקי על בטיחות בעבודה בגובה ואינו מוסיף מידע עובדתי שירותי על קורס, הכשרה, הסמכה, מועדים, מחירים או תנאי קבלה מעבר למה שכבר קיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4731-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-91-d7-92-d7-95-d7-91-d7-94-2--d7-9e-d7-98-d7-a8--d7-a6-d7-99-d7-95-d7-93--d7-91-d7-98-.json",
+      "id": 4731,
+      "title": "עבודה בגובה 2 מטר – ציוד בטיחות ותקנים עדכניים",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94-2-%d7%9e%d7%98%d7%a8-%d7%a6%d7%99%d7%95%d7%93-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%95%d7%aa%d7%a7%d7%a0%d7%99%d7%9d-%d7%a2/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר שיווקי/כללי על עבודה בגובה וציוד בטיחות, ללא מידע עובדתי חדש ושירותי על קורס ספציפי מעבר למה שכבר קיים, ולפי הכללים אין ליצור כלי למאמרים שיווקיים כלליים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4727-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-92-d7-95-d7-91-d7-94--d7-a8-d7-a9-d7-99-d7-9e-d7-aa--d7-a6-d7-99-d7-95-d7-.json",
+      "id": 4727,
+      "title": "בטיחות בגובה – רשימת ציוד חובה לעובדים באתר",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%92%d7%95%d7%91%d7%94-%d7%a8%d7%a9%d7%99%d7%9e%d7%aa-%d7%a6%d7%99%d7%95%d7%93-%d7%97%d7%95%d7%91%d7%94-%d7%9c%d7%a2%d7%95%d7%91%d7%93%d7%99/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר שיווקי/כללי על ציוד בטיחות לעבודה בגובה, ללא מידע עובדתי שימושי על קורס ספציפי, תנאי קבלה, מועדים, מחירים או שירותי מכללה מעבר לאזכורים כלליים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4725-d7-a7-d7-95-d7-a8-d7-a1--d7-a7-d7-a9-d7-99-d7-a8-d7-aa--d7-9e-d7-98-d7-a2-d7-a0-d7-99-d7-9d--d7-98-d7-9b-d7-a0-d7-99-d7-.json",
+      "id": 4725,
+      "title": "קורס קשירת מטענים – טכניקות בטיחות וציוד מומלץ",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a7%d7%95%d7%a8%d7%a1-%d7%a7%d7%a9%d7%99%d7%a8%d7%aa-%d7%9e%d7%98%d7%a2%d7%a0%d7%99%d7%9d-%d7%98%d7%9b%d7%a0%d7%99%d7%a7%d7%95%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%95%d7%a6/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר שיווקי כללי עם מידע לא מפורט על קורס קשירת מטענים, ללא פרטים שירותיים מספקים כמו מתכונת, משך, תנאי קבלה, תעודה, מחיר או מועדים. לפי הכללים אין ליצור כלי חדש למאמרים שיווקיים כלליים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4722-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-a2-d7-a7-d7-a8-d7-95-d7-a0-d7-95-d7-aa--d7-.json",
+      "id": 4722,
+      "title": "בטיחות בעבודה – עקרונות חשובים לכל עבודת שטח",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%a2%d7%a7%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%97%d7%a9%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%9b%d7%9c-%d7%a2%d7%91/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר שיווקי/כללי על עקרונות בטיחות בעבודה ואינו כולל מידע עובדתי חדש על קורס, הכשרה, הסמכה או שירות חשוב מעבר למידע שכבר קיים על הדרכות בטיחות.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1593-d7-9e-d7-91-d7-a6-d7-a2-d7-99-d7-9d--d7-95-d7-94-d7-98-d7-91-d7-95-d7-aa.json",
+      "id": 1593,
+      "title": "מבצעים והטבות",
+      "link": "https://bambischool.co.il/%d7%aa%d7%a4%d7%a8%d7%99%d7%98-%d7%a8%d7%90%d7%a9%d7%99/%d7%9e%d7%91%d7%a6%d7%a2%d7%99%d7%9d-%d7%95%d7%94%d7%98%d7%91%d7%95%d7%aa/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד כולל מידע שירותי חשוב על הנחות, פיקדון צבאי, וואוצ'רים והטבות רלוונטיות לנרשמים לקורסים. | skipped because new dynamic tools must be course-specific and start with course_",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4532-d7-9c-d7-90--d7-a8-d7-a7--d7-95-d7-99--d7-91-d7-99-d7-95-d7-9e-d7-9f--d7-9c-d7-9e-d7-94--d7-a8-d7-a2-d7-a0-d7-95-d7-9f--.json",
+      "id": 4532,
+      "title": "לא רק &quot;וי&quot; ביומן: למה רענון עבודה בגובה מציל חיים?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9c%d7%90-%d7%a8%d7%a7-%d7%95%d7%99-%d7%91%d7%99%d7%95%d7%9e%d7%9f-%d7%9c%d7%9e%d7%94-%d7%a8%d7%a2%d7%a0%d7%95%d7%9f-%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94-%d7%9e%d7%a6/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר שיווקי כללי על חשיבות רענון עבודה בגובה, ללא פרטים עובדתיים חדשים ושירותיים על הקורס מעבר למידע שכבר קיים בכלי קורס עבודה בגובה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/863-d7-9b-d7-aa-d7-91-d7-95-d7-aa--d7-95-d7-9e-d7-90-d7-9e-d7-a8-d7-99-d7-9d.json",
+      "id": 863,
+      "title": "כתבות ומאמרים",
+      "link": "https://bambischool.co.il/%d7%9e%d7%99%d7%93%d7%a2-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא אינדקס כתבות ומאמרים עם תקצירים כלליים וקישורי 'קרא עוד', ללא מידע שירותי מרוכז או פרטי קורס מלאים מעבר למה שכבר קיים בעמודי קורס/מאמר נפרדים. לפי הכללים אין ליצור כלי לחדשות/מאמרים שיווקיים כלליים או עמוד אינדקס כזה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4003-d7-90-d7-99-d7-96-d7-94--d7-a6-d7-99-d7-95-d7-93--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-97-d7-95-d7-91-d7-94--d7-9c-d7.json",
+      "id": 4003,
+      "title": "איזה ציוד בטיחות חובה לעבודה בגובה?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%90%d7%99%d7%96%d7%94-%d7%a6%d7%99%d7%95%d7%93-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%97%d7%95%d7%91%d7%94-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%91%d7%92%d7%95%d7%91%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי/שיווקי על ציוד בטיחות לעבודה בגובה, ללא פרטים שירותיים חדשים או עובדתיים על קורס ספציפי מעבר למה שכבר קיים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/861-d7-a0-d7-99-d7-95-d7-96-d7-9c-d7-98-d7-a8--d7-97-d7-95-d7-93-d7-a9-d7-99.json",
+      "id": 861,
+      "title": "ניוזלטר חודשי",
+      "link": "https://bambischool.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%a0%d7%99%d7%95%d7%96%d7%9c%d7%98%d7%a8-%d7%97%d7%95%d7%93%d7%a9%d7%99/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא הרשמה/ארכיון ניוזלטרים ואינו מכיל מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות חשוב למענה לקוחות.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/824-d7-a2-d7-9e-d7-95-d7-93--d7-9e-d7-91-d7-97-d7-9f--d7-9c-d7-93-d7-95-d7-92-d7-9e-d7-90.json",
+      "id": 824,
+      "title": "עמוד מבחן לדוגמא",
+      "link": "https://bambischool.co.il/uncategorized/%d7%a2%d7%9e%d7%95%d7%93-%d7%9e%d7%91%d7%97%d7%9f-%d7%9c%d7%93%d7%95%d7%92%d7%9e%d7%90/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא עמוד מבחן לדוגמא עם שאלות תרגול בלבד, ללא מידע שירותי על קורס, הכשרה, הסמכה או פרטי מכללה שימושיים לבוט.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3223-d7-94-d7-9b-d7-a0-d7-94--d7-9c-d7-9e-d7-91-d7-97-d7-9f--d7-aa-d7-90-d7-95-d7-a8-d7-99-d7-94.json",
+      "id": 3223,
+      "title": "הכנה למבחן תאוריה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%9b%d7%a0%d7%94-%d7%9c%d7%9e%d7%91%d7%97%d7%9f-%d7%aa%d7%90%d7%95%d7%a8%d7%99%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי עם טיפים ללמידה למבחן תאוריה, ללא מידע עובדתי על קורס ספציפי, הכשרה, הסמכה או שירות חשוב של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3221-d7-94-d7-aa-d7-9e-d7-95-d7-93-d7-93-d7-95-d7-aa--d7-a2-d7-9d--d7-9e-d7-a6-d7-91-d7-99--d7-97-d7-99-d7-a8-d7-95-d7-9d--d7.json",
+      "id": 3221,
+      "title": "התמודדות עם מצבי חירום בכביש",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%aa%d7%9e%d7%95%d7%93%d7%93%d7%95%d7%aa-%d7%a2%d7%9d-%d7%9e%d7%a6%d7%91%d7%99-%d7%97%d7%99%d7%a8%d7%95%d7%9d-%d7%91%d7%9b%d7%91%d7%99%d7%a9/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי עם עצות להתמודדות עם מצבי חירום בכביש, ואינו עוסק בקורס/הכשרה/הסמכה או במידע שירותי חשוב על המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3219-d7-94-d7-91-d7-93-d7-9c-d7-99-d7-9d--d7-91-d7-99-d7-9f--d7-a0-d7-94-d7-99-d7-92-d7-94--d7-a2-d7-99-d7-a8-d7-95-d7-a0-d7-.json",
+      "id": 3219,
+      "title": "הבדלים בין נהיגה עירונית לנהיגה בכבישים בין-עירוניים",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%91%d7%93%d7%9c%d7%99%d7%9d-%d7%91%d7%99%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-%d7%9c%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%9b%d7%91%d7%99%d7%a9/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי ושיווקי על הבדלים בין סוגי נהיגה, ללא מידע עובדתי על קורס ספציפי, הכשרה, הסמכה או שירות חשוב של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3217-d7-94-d7-9b-d7-a0-d7-94--d7-9c-d7-9e-d7-91-d7-97-d7-9f--d7-94-d7-9e-d7-a2-d7-a9-d7-99--d7-98-d7-a1-d7-98.json",
+      "id": 3217,
+      "title": "הכנה למבחן המעשי (טסט)",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%9b%d7%a0%d7%94-%d7%9c%d7%9e%d7%91%d7%97%d7%9f-%d7%94%d7%9e%d7%a2%d7%a9%d7%99-%d7%98%d7%a1%d7%98/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי עם טיפים להכנה לטסט, ללא מידע עובדתי על קורס, הכשרה, הסמכה או שירות ספציפי של המכללה מעבר לאמירה שיווקית כללית.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3215-d7-a0-d7-94-d7-99-d7-92-d7-94--d7-91-d7-98-d7-95-d7-97-d7-94--d7-91-d7-aa-d7-a7-d7-95-d7-a4-d7-95-d7-aa--d7-9e-d7-a2-d7-.json",
+      "id": 3215,
+      "title": "נהיגה בטוחה בתקופות מעבר",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%98%d7%95%d7%97%d7%94-%d7%91%d7%aa%d7%a7%d7%95%d7%a4%d7%95%d7%aa-%d7%9e%d7%a2%d7%91%d7%a8/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי עם טיפים לנהיגה בטוחה בתקופות מעבר, ללא מידע עובדתי על קורס, הכשרה, הסמכה או שירות מכללה חשוב מעבר לתוכן שיווקי כללי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3213-d7-94-d7-9b-d7-a8-d7-aa--d7-94-d7-a6-d7-99-d7-95-d7-93--d7-94-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa-d7-99--d7-94-d7-97-d7-.json",
+      "id": 3213,
+      "title": "הכרת הציוד הבטיחותי החיוני",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%9b%d7%a8%d7%aa-%d7%94%d7%a6%d7%99%d7%95%d7%93-%d7%94%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa%d7%99-%d7%94%d7%97%d7%99%d7%95%d7%a0%d7%99/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי ושיווקי על ציוד בטיחות וחשיבות סביבת עבודה בטוחה, ללא מידע עובדתי ספציפי על קורס, תנאי קבלה, מתכונת, מחיר או שירות מרכזי של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3211-d7-9e-d7-a0-d7-99-d7-a2-d7-aa--d7-aa-d7-90-d7-95-d7-a0-d7-95-d7-aa--d7-a2-d7-91-d7-95-d7-93-d7-94.json",
+      "id": 3211,
+      "title": "מניעת תאונות עבודה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%a0%d7%99%d7%a2%d7%aa-%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%a2%d7%91%d7%95%d7%93%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי ושיווקי על מניעת תאונות עבודה, ללא מידע עובדתי ספציפי על קורס, הכשרה, תנאי קבלה, מועדים או שירות חשוב של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3209-d7-a0-d7-99-d7-94-d7-95-d7-9c--d7-a2-d7-99-d7-99-d7-a4-d7-95-d7-aa--d7-91-d7-96-d7-9e-d7-9f--d7-a0-d7-94-d7-99-d7-92-d7-.json",
+      "id": 3209,
+      "title": "ניהול עייפות בזמן נהיגה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a0%d7%99%d7%94%d7%95%d7%9c-%d7%a2%d7%99%d7%99%d7%a4%d7%95%d7%aa-%d7%91%d7%96%d7%9e%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי עם טיפים לניהול עייפות בנהיגה ואינו מספק מידע עובדתי על קורס ספציפי, הכשרה, הסמכה או שירות חשוב של המכללה מעבר לאזכור שיווקי כללי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/3206-d7-a9-d7-9e-d7-99-d7-a8-d7-94--d7-a2-d7-9c--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-9b-d7-91-d7-99-d7-a9.json",
+      "id": 3206,
+      "title": "שמירה על בטיחות בכביש",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a9%d7%9e%d7%99%d7%a8%d7%94-%d7%a2%d7%9c-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%9b%d7%91%d7%99%d7%a9/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי עם עצות בטיחות לנהגי משאיות ואינו כולל מידע עובדתי ספציפי על קורס, הכשרה, הסמכה או שירות חשוב של המכללה מעבר לאזכור שיווקי כללי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1117-d7-9e-d7-a0-d7-95-d7-a4-d7-90-d7-99-d7-aa--d7-a4-d7-95-d7-98-d7-a8-d7-94--d7-9b-d7-99--d7-a1-d7-99-d7-a8-d7-91-d7-94--d7.json",
+      "id": 1117,
+      "title": "מנופאית פוטרה כי סירבה לעבוד ברוח חזקה: &quot;מחליפים אותנו כגרביים&quot;",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%a0%d7%95%d7%a4%d7%90%d7%99%d7%aa-%d7%a4%d7%95%d7%98%d7%a8%d7%94-%d7%9b%d7%99-%d7%a1%d7%99%d7%a8%d7%91%d7%94-%d7%9c%d7%a2%d7%91%d7%95%d7%93-%d7%91%d7%a8%d7%95%d7%97-%d7%97%d7%96%d7%a7%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא כתבה חדשותית/מאמר כללי על מקרה פיטורי מנופאית ואינו מספק מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1112-d7-9e-d7-97-d7-90-d7-aa--d7-91-d7-95-d7-97-d7-a0-d7-99--d7-94-d7-a0-d7-94-d7-99-d7-92-d7-94--d7-9e-d7-aa-d7-a8-d7-97-d7-.json",
+      "id": 1112,
+      "title": "מחאת בוחני הנהיגה מתרחבת",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%97%d7%90%d7%aa-%d7%91%d7%95%d7%97%d7%a0%d7%99-%d7%94%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%9e%d7%aa%d7%a8%d7%97%d7%91%d7%aa/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא ידיעה/קישור חדשותי קצר על שביתת בוחני נהיגה ומשרדי רישוי, ללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1107-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a9-d7-99-d7-9e-d7-95-d7-a9--d7-91-d7-97-d7-95-d7-9e-d7-a8-d7-99--d7-a0-d7-.json",
+      "id": 1107,
+      "title": "בטיחות בשימוש בחומרי ניקוי",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a9%d7%99%d7%9e%d7%95%d7%a9-%d7%91%d7%97%d7%95%d7%9e%d7%a8%d7%99-%d7%a0%d7%99%d7%a7%d7%95%d7%99/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי על בטיחות בשימוש בחומרי ניקוי, ללא מידע עובדתי על קורס, הכשרה, הסמכה או שירות מרכזי של המכללה. לפי הכללים אין ליצור כלי למאמרים שיווקיים/כלליים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1096-d7-a2-d7-95-d7-91-d7-93--d7-a0-d7-a4-d7-a6-d7-a2--d7-a7-d7-a9-d7-94--d7-94-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-a0-d7-9e-d7.json",
+      "id": 1096,
+      "title": "עובד נפצע קשה, העבודה נמשכת כרגיל באתר הבנייה&#8230;",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a2%d7%95%d7%91%d7%93-%d7%a0%d7%a4%d7%a6%d7%a2-%d7%a7%d7%a9%d7%94-%d7%94%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%a0%d7%9e%d7%a9%d7%9b%d7%aa-%d7%9b%d7%a8%d7%92%d7%99%d7%9c-%d7%91%d7%90%d7%aa%d7%a8-%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא ידיעה/מאמר כללי על תאונת עבודה באתר בנייה ואינו כולל מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של מכללת במבי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1090-d7-a9-d7-93-d7-94--d7-a8-d7-90-d7-99-d7-94--d7-97-d7-a1-d7-95-d7-9d--d7-90-d7-95--d7-9e-d7-95-d7-92-d7-91-d7-9c.json",
+      "id": 1090,
+      "title": "שדה ראיה חסום או מוגבל",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a9%d7%93%d7%94-%d7%a8%d7%90%d7%99%d7%94-%d7%97%d7%a1%d7%95%d7%9d-%d7%90%d7%95-%d7%9e%d7%95%d7%92%d7%91%d7%9c/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי על בטיחות ושדה ראייה חסום במלגזות, ללא מידע עובדתי על קורס, הכשרה, הסמכה או שירות מכללה חשוב. לפי הכללים אין ליצור כלי למאמרים שיווקיים/כלליים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1077-d7-94-d7-a1-d7-9b-d7-a0-d7-95-d7-aa--d7-94-d7-98-d7-9e-d7-95-d7-a0-d7-95-d7-aa--d7-91-d7-92-d7-a9-d7-9d--d7-94-d7-a8-d7-.json",
+      "id": 1077,
+      "title": "הסכנות הטמונות בגשם הראשון- טיפים להתמודדות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%a1%d7%9b%d7%a0%d7%95%d7%aa-%d7%94%d7%98%d7%9e%d7%95%d7%a0%d7%95%d7%aa-%d7%91%d7%92%d7%a9%d7%9d-%d7%94%d7%a8%d7%90%d7%a9%d7%95%d7%9f-%d7%98%d7%99%d7%a4%d7%99%d7%9d-%d7%9c%d7%94%d7%aa%d7%9e/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי עם טיפים לנהיגה בגשם הראשון ואינו עוסק בקורס, הכשרה, הסמכה או מידע שירותי חשוב למכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1072-d7-9c-d7-9e-d7-a8-d7-95-d7-aa--d7-94-d7-a7-d7-a0-d7-a1-d7-95-d7-aa--d7-9e-d7-a1-d7-aa-d7-91-d7-a8--d7-a9-d7-9c-d7-9e-d7-.json",
+      "id": 1072,
+      "title": "למרות הקנסות: מסתבר שלמעסיקים משתלם להפקיר את בטיחות העובדים",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9c%d7%9e%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%a0%d7%a1%d7%95%d7%aa-%d7%9e%d7%a1%d7%aa%d7%91%d7%a8-%d7%a9%d7%9c%d7%9e%d7%a2%d7%a1%d7%99%d7%a7%d7%99%d7%9d-%d7%9e%d7%a9%d7%aa%d7%9c%d7%9d-%d7%9c%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר/הפניה לכתבה חיצונית על אכיפת בטיחות באתרי בנייה, ללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של מכללת במבי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1206-d7-a2-d7-91-d7-95-d7-93-d7-95-d7-aa--d7-91-d7-92-d7-95-d7-91-d7-94--d7-94-d7-a1-d7-99-d7-9b-d7-95-d7-a0-d7-99-d7-9d--d7-.json",
+      "id": 1206,
+      "title": "עבודות בגובה &#8211; הסיכונים בעונת הקיץ",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a2%d7%91%d7%95%d7%93%d7%95%d7%aa-%d7%91%d7%92%d7%95%d7%91%d7%94-%d7%94%d7%a1%d7%99%d7%9b%d7%95%d7%a0%d7%99%d7%9d-%d7%91%d7%a2%d7%95%d7%a0%d7%aa-%d7%94%d7%a7%d7%99%d7%a5/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי על סיכוני עבודה בגובה בקיץ ואינו עמוד קורס/הכשרה/הסמכה או מידע שירותי חשוב למכללה. לפי הכללים אין ליצור כלי למאמרים שיווקיים/כלליים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1222-15--d7-9b-d7-9c-d7-9c-d7-99-d7-9d--d7-9c-d7-a0-d7-94-d7-99-d7-92-d7-94--d7-a0-d7-9b-d7-95-d7-a0-d7-94--d7-95-d7-91-d7-98.json",
+      "id": 1222,
+      "title": "15 כללים לנהיגה נכונה ובטוחה על המלגזה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/15-%d7%9b%d7%9c%d7%9c%d7%99%d7%9d-%d7%9c%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%a0%d7%9b%d7%95%d7%a0%d7%94-%d7%95%d7%91%d7%98%d7%95%d7%97%d7%94-%d7%a2%d7%9c-%d7%94%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר טיפים כללי לנהיגה בטוחה במלגזה ואינו עמוד קורס/הכשרה/הסמכה או מידע שירותי חשוב על המכללה. לפי ההנחיות אין ליצור כלי למאמרים שיווקיים/כלליים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1305-d7-90-d7-99-d7-9a--d7-aa-d7-9e-d7-a0-d7-a2-d7-95--d7-9e-d7-aa-d7-90-d7-95-d7-a0-d7-95-d7-aa--d7-91-d7-98-d7-99-d7-95-d7-.json",
+      "id": 1305,
+      "title": "איך תמנעו מתאונות בטיולי טרקטורון בחופשה?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%90%d7%99%d7%9a-%d7%aa%d7%9e%d7%a0%d7%a2%d7%95-%d7%9e%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%91%d7%98%d7%99%d7%95%d7%9c%d7%99-%d7%98%d7%a8%d7%a7%d7%98%d7%95%d7%a8%d7%95%d7%9f-%d7%91%d7%97%d7%95/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא כתבה כללית עם טיפים לטיולי טרקטורון ואינו עמוד קורס, הכשרה, הסמכה או מידע שירותי חשוב על מכללת במבי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1300-d7-a4-d7-95-d7-a2-d7-9c--d7-a0-d7-a4-d7-9c--d7-9e-d7-9e-d7-9c-d7-92-d7-96-d7-94--d7-95-d7-a0-d7-94-d7-a8-d7-92--d7-94-d7.json",
+      "id": 1300,
+      "title": "פועל נפל ממלגזה ונהרג- המנהלים ילכו לכלא",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a4%d7%95%d7%a2%d7%9c-%d7%a0%d7%a4%d7%9c-%d7%9e%d7%9e%d7%9c%d7%92%d7%96%d7%94-%d7%95%d7%a0%d7%94%d7%a8%d7%92-%d7%94%d7%9e%d7%a0%d7%94%d7%9c%d7%99%d7%9d-%d7%99%d7%9c%d7%9b%d7%95-%d7%9c%d7%9b%d7%9c/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא כתבה חדשותית/מאמר על תאונת עבודה וענישה, ללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1294-d7-91-3--d7-a9-d7-a0-d7-99-d7-9d--d7-90-d7-99-d7-a8-d7-a2-d7-95--d7-9e-d7-a2-d7-9c--d7-9c-250--d7-aa-d7-90-d7-95-d7-a0-d.json",
+      "id": 1294,
+      "title": "ב-3 שנים אירעו מעל ל-250 תאונות טרקטורון",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%91-3-%d7%a9%d7%a0%d7%99%d7%9d-%d7%90%d7%99%d7%a8%d7%a2%d7%95-%d7%9e%d7%a2%d7%9c-%d7%9c-250-%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%98%d7%a8%d7%a7%d7%98%d7%95%d7%a8%d7%95%d7%9f/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא כתבה חדשותית/מאמר כללי על תאונות טרקטורון ואיסור נסיעה בחוף, ללא מידע עובדתי על קורס, הכשרה, הסמכה או שירות של מכללת במבי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1257-d7-a0-d7-99-d7-99-d7-a8--d7-97-d7-93-d7-a8-d7-94--d7-a9-d7-95-d7-a7-d7-a2-d7-aa--d7-91-d7-94-d7-a4-d7-a1-d7-93-d7-99-d7-.json",
+      "id": 1257,
+      "title": "נייר חדרה שוקעת בהפסדים, המלגזן מקבל תלוש של 36 אלף שקלים.",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a0%d7%99%d7%99%d7%a8-%d7%97%d7%93%d7%a8%d7%94-%d7%a9%d7%95%d7%a7%d7%a2%d7%aa-%d7%91%d7%94%d7%a4%d7%a1%d7%93%d7%99%d7%9d-%d7%94%d7%9e%d7%9c%d7%92%d7%96%d7%9f-%d7%9e%d7%a7%d7%91%d7%9c-%d7%aa%d7%9c/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא הפניה/כתבה כללית ללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של המכללה; התוכן כולל בעיקר רשימת קישורים/מאמרים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1252-d7-9e-d7-a2-d7-95-d7-a0-d7-99-d7-99-d7-a0-d7-99-d7-9d--d7-9c-d7-9e-d7-96-d7-a2-d7-a8--d7-aa-d7-90-d7-95-d7-a0-d7-95-d7-a.json",
+      "id": 1252,
+      "title": "מעוניינים למזער תאונות בשטח המפעל?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%a2%d7%95%d7%a0%d7%99%d7%99%d7%a0%d7%99%d7%9d-%d7%9c%d7%9e%d7%96%d7%a2%d7%a8-%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%91%d7%a9%d7%98%d7%97-%d7%94%d7%9e%d7%a4%d7%a2%d7%9c/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי על מניעת תאונות במפעל ואינו עמוד קורס/הכשרה/הסמכה או מידע שירותי חשוב למכללה; לפי הכללים אין ליצור כלי למאמרים שיווקיים/כלליים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1244-d7-9e-d7-a0-d7-99-d7-a2-d7-aa--d7-aa-d7-90-d7-95-d7-a0-d7-95-d7-aa--d7-91-d7-9e-d7-a4-d7-a2-d7-9c.json",
+      "id": 1244,
+      "title": "מניעת תאונות במפעל!",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%a0%d7%99%d7%a2%d7%aa-%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%91%d7%9e%d7%a4%d7%a2%d7%9c/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא כתבה כללית עם טיפים למניעת תאונות במפעל, ללא מידע עובדתי על קורס, הכשרה, הסמכה או שירות מכללה ספציפי. לפי הכללים אין ליצור כלי למאמר שיווקי/כללי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1239-d7-9e-d7-94--d7-94-d7-a7-d7-a9-d7-a8--d7-91-d7-99-d7-9f--d7-9e-d7-a4-d7-a2-d7-99-d7-9c--d7-9e-d7-9c-d7-92-d7-96-d7-94--d.json",
+      "id": 1239,
+      "title": "מה הקשר בין מפעיל מלגזה לטלפון הנייד?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%94-%d7%94%d7%a7%d7%a9%d7%a8-%d7%91%d7%99%d7%9f-%d7%9e%d7%a4%d7%a2%d7%99%d7%9c-%d7%9e%d7%9c%d7%92%d7%96%d7%94-%d7%9c%d7%98%d7%9c%d7%a4%d7%95%d7%9f-%d7%94%d7%a0%d7%99%d7%99%d7%93/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר בטיחות כללי על שימוש בטלפון נייד בזמן הפעלת מלגזה, ללא מידע עובדתי על קורס, הכשרה, הסמכה או שירות מכללה חשוב. לפי הכללים אין ליצור כלי למאמרים כלליים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1234-d7-9e-d7-a1-d7-92-d7-a8-d7-aa--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-9e-d7-9c-d7-92-d7-96-d7-94--d7-9c-d7-9e-d7-.json",
+      "id": 1234,
+      "title": "מסגרת בטיחות במלגזה- למה היא כל כך חשובה? כיצד לפעול בעת התהפכות?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%a1%d7%92%d7%a8%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%9e%d7%9c%d7%92%d7%96%d7%94-%d7%9c%d7%9e%d7%94-%d7%94%d7%99%d7%90-%d7%9b%d7%9c-%d7%9b%d7%9a-%d7%97%d7%a9%d7%95%d7%91%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר בטיחות כללי על מסגרת בטיחות והתנהגות בעת התהפכות מלגזה, ללא מידע עובדתי על קורס, הרשמה, תנאי קבלה או שירות מכללה. לפי הכללים אין ליצור כלי למאמרים כלליים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1228-d7-9b-d7-aa-d7-91-d7-94--d7-9e-d7-a2-d7-a0-d7-99-d7-99-d7-a0-d7-aa--d7-a2-d7-9c--d7-98-d7-a8-d7-a7-d7-98-d7-95-d7-a8-d7-.json",
+      "id": 1228,
+      "title": "כתבה מעניינת על טרקטורים וכלים חדשים בשוק!",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9b%d7%aa%d7%91%d7%94-%d7%9e%d7%a2%d7%a0%d7%99%d7%99%d7%a0%d7%aa-%d7%a2%d7%9c-%d7%98%d7%a8%d7%a7%d7%98%d7%95%d7%a8%d7%99%d7%9d-%d7%95%d7%9b%d7%9c%d7%99%d7%9d-%d7%97%d7%93%d7%a9%d7%99%d7%9d-%d7%91/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא כתבה/קישור חיצוני כללי על טרקטורים וכלים חדשים, ללא מידע עובדתי שימושי על קורס, הכשרה, תנאי קבלה, מועדים או שירותי המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1212-d7-9b-d7-99-d7-a6-d7-93--d7-a2-d7-9c-d7-99-d7-a0-d7-95--d7-9c-d7-94-d7-aa-d7-99-d7-99-d7-97-d7-a1--d7-9c-d7-aa-d7-90-d7-.json",
+      "id": 1212,
+      "title": "כיצד עלינו להתייחס לתאונת מלגזה?",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9b%d7%99%d7%a6%d7%93-%d7%a2%d7%9c%d7%99%d7%a0%d7%95-%d7%9c%d7%94%d7%aa%d7%99%d7%99%d7%97%d7%a1-%d7%9c%d7%aa%d7%90%d7%95%d7%a0%d7%aa-%d7%9e%d7%9c%d7%92%d7%96%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר משפטי/כללי על תאונת מלגזה וזכויות פיצוי, ללא מידע עובדתי על קורס, הכשרה, הסמכה או שירות מכללה שנדרש לבוט לפי הכללים.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1169-d7-9e-d7-91-d7-97-d7-9f--d7-94-d7-9e-d7-99-d7-aa-d7-95-d7-a1-d7-99-d7-9d--d7-94-d7-92-d7-93-d7-95-d7-9c--d7-a9-d7-9c--d7.json",
+      "id": 1169,
+      "title": "מבחן המיתוסים הגדול של הטסטים",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9e%d7%91%d7%97%d7%9f-%d7%94%d7%9e%d7%99%d7%aa%d7%95%d7%a1%d7%99%d7%9d-%d7%94%d7%92%d7%93%d7%95%d7%9c-%d7%a9%d7%9c-%d7%94%d7%98%d7%a1%d7%98%d7%99%d7%9d/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא כתבה/מאמר כללי על מיתוסים בטסטים עם קישור לכתבה מלאה ורשימת קישורים, ללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות מרכזי של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1164-d7-a2-d7-a8-d7-95-d7-a5-2--d7-9e-d7-9b-d7-aa--d7-9e-d7-93-d7-99-d7-a0-d7-94--d7-a2-d7-a9-d7-a8-d7-95-d7-aa--d7-a4-d7-95-.json",
+      "id": 1164,
+      "title": "ערוץ 2- מכת מדינה: עשרות פועלים נהרגים, חוקי הבטיחות לא נאכפים",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%a2%d7%a8%d7%95%d7%a5-2-%d7%9e%d7%9b%d7%aa-%d7%9e%d7%93%d7%99%d7%a0%d7%94-%d7%a2%d7%a9%d7%a8%d7%95%d7%aa-%d7%a4%d7%95%d7%a2%d7%9c%d7%99%d7%9d-%d7%a0%d7%94%d7%a8%d7%92%d7%99%d7%9d-%d7%97%d7%95/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא הפניה/כתבה חדשותית כללית ללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1155-d7-97-d7-99-d7-93-d7-95-d7-a9-d7-99-d7-9d--d7-91-d7-aa-d7-97-d7-95-d7-9d--d7-94-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-.json",
+      "id": 1155,
+      "title": "חידושים בתחום הבטיחות והפעם&#8230;",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%97%d7%99%d7%93%d7%95%d7%a9%d7%99%d7%9d-%d7%91%d7%aa%d7%97%d7%95%d7%9d-%d7%94%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%95%d7%94%d7%a4%d7%a2%d7%9d/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא פוסט/מאמר כללי עם הפניה לכתבה חיצונית ורשימת קישורים, ללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות מכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1150-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-90-d7-a9.json",
+      "id": 1150,
+      "title": "בטיחות באש",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%90%d7%a9/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא פוסט קצר שמפנה לסרטון חיצוני בנושא בטיחות באש ואינו כולל מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1145-d7-94-d7-a1-d7-93-d7-a8-d7-aa--d7-a0-d7-94-d7-9c-d7-99--d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-9e-d7-a7-d7-95-d7-.json",
+      "id": 1145,
+      "title": "הסדרת נהלי בטיחות במקומות עבודה",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%a1%d7%93%d7%a8%d7%aa-%d7%a0%d7%94%d7%9c%d7%99-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%a2%d7%91%d7%95%d7%93%d7%94/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא ידיעה/מאמר קצר עם קישור לכתבה חיצונית וללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1140-d7-9c-d7-9e-d7-94--d7-90-d7-99-d7-9f--d7-98-d7-a1-d7-98-d7-99-d7-9d.json",
+      "id": 1140,
+      "title": "למה אין טסטים??",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%9c%d7%9e%d7%94-%d7%90%d7%99%d7%9f-%d7%98%d7%a1%d7%98%d7%99%d7%9d/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא ידיעה/הפניה לכתבה חיצונית על מחאת טסטים ורשימת קישורים, ללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1135-d7-97-d7-99-d7-93-d7-95-d7-a9-d7-99-d7-9d--d7-95-d7-a4-d7-99-d7-aa-d7-95-d7-97-d7-99-d7-9d--d7-91-d7-aa-d7-97-d7-95-d7-9.json",
+      "id": 1135,
+      "title": "חידושים ופיתוחים בתחום המלגזות",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%97%d7%99%d7%93%d7%95%d7%a9%d7%99%d7%9d-%d7%95%d7%a4%d7%99%d7%aa%d7%95%d7%97%d7%99%d7%9d-%d7%91%d7%aa%d7%97%d7%95%d7%9d-%d7%94%d7%9e%d7%9c%d7%92%d7%96%d7%95%d7%aa/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי/שיווקי על חידושים טכנולוגיים במלגזות ואינו מספק מידע עובדתי על קורס, הכשרה, הסמכה או שירות מכללה חשוב.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1130-d7-94-d7-a8-d7-95-d7-92-d7-99--d7-a2-d7-a0-d7-a3--d7-94-d7-91-d7-a0-d7-99-d7-99-d7-94--d7-91-d7-99-d7-a9-d7-a8-d7-90-d7-.json",
+      "id": 1130,
+      "title": "הרוגי ענף הבנייה בישראל- Ynet",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%94%d7%a8%d7%95%d7%92%d7%99-%d7%a2%d7%a0%d7%a3-%d7%94%d7%91%d7%a0%d7%99%d7%99%d7%94-%d7%91%d7%99%d7%a9%d7%a8%d7%90%d7%9c-ynet/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא הפניה לכתבת Ynet ורשימת קישורים/מאמרים, ללא מידע עובדתי שימושי על קורס, הכשרה, הסמכה או שירות של המכללה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/1122-d7-91-d7-98-d7-99-d7-97-d7-95-d7-aa--d7-91-d7-a2-d7-91-d7-95-d7-93-d7-94--d7-96-d7-9b-d7-95-d7-aa-d7-95--d7-a9-d7-9c--d7.json",
+      "id": 1122,
+      "title": "בטיחות בעבודה- זכותו של כל עובד",
+      "link": "https://bambischool.co.il/%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a2%d7%91%d7%95%d7%93%d7%94-%d7%96%d7%9b%d7%95%d7%aa%d7%95-%d7%a9%d7%9c-%d7%9b%d7%9c-%d7%a2%d7%95%d7%91%d7%93/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד הוא מאמר כללי על בגדי עבודה וציוד מגן אישי, ללא מידע עובדתי על קורס/הכשרה/הסמכה או מידע שירותי חשוב למכללה. לפי הכללים אין ליצור כלי למאמר שיווקי/כללי.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/857-d7-90-d7-95-d7-93-d7-95-d7-aa.json",
+      "id": 857,
+      "title": "אודות",
+      "link": "https://bambischool.co.il/%d7%aa%d7%a4%d7%a8%d7%99%d7%98-%d7%a8%d7%90%d7%a9%d7%99/%d7%90%d7%95%d7%93%d7%95%d7%aa/",
+      "has_bot_value": false,
+      "category_action": "skip",
+      "category_tool_id": null,
+      "reason": "העמוד מכיל רק כותרת 'אודות' ללא מידע עובדתי או שירותי שימושי לבוט.",
+      "confidence": "high"
+    }
+  ]
+}

@@ -135,11 +135,10 @@ class KnowledgeFileService:
                 file_name=str(item["file_name"]),
             )
 
-        tools["customer_info"] = KNOWLEDGE_TOOLS["customer_info"]
         return tools or KNOWLEDGE_TOOLS
 
     def tool_specs(self) -> list[KnowledgeToolSpec]:
-        return list(self._tools.values())
+        return [spec for spec in self._tools.values() if spec.tool_id != "customer_info"]
 
     def read_tool_file(self, tool_id: str) -> dict[str, object]:
         spec = self._tools[tool_id]

@@ -14,6 +14,7 @@ from app.config import Settings
 from app.db import Database
 from app.schemas import AgentAnswer, ChatHistoryItem, ChatSessionDetail
 from app.services.knowledge_files import KnowledgeFileService
+from app.services.mybusiness import MyBusinessService
 
 
 @dataclass
@@ -26,6 +27,7 @@ class AgentService:
         self.settings = settings
         self.db = db
         self.knowledge_files = knowledge_files
+        self.mybusiness = MyBusinessService(settings)
         self._agent: Agent[AgentContext] | None = None
         self._streaming_agent: Agent[AgentContext] | None = None
 
@@ -154,7 +156,7 @@ class AgentService:
         if self._agent is None:
             self._agent = Agent(
                 name="BambiKnowledgeAgent",
-                instructions=self._instructions(),
+                instructions=self._instructions() + self._mybusiness_instructions(),
                 model=self.settings.openai_model,
                 output_type=AgentAnswer,
                 tools=self._build_tools(),
@@ -167,7 +169,7 @@ class AgentService:
         if self._streaming_agent is None:
             self._streaming_agent = Agent(
                 name="BambiKnowledgeStreamingAgent",
-                instructions=self._streaming_instructions(),
+                instructions=self._streaming_instructions() + self._mybusiness_instructions(),
                 model=self.settings.openai_model,
                 tools=self._build_tools(),
                 input_guardrails=[self._input_guardrail()],
@@ -178,32 +180,12 @@ class AgentService:
     def _streaming_instructions(self) -> str:
         return """
 אתה צ'אטבוט של מכללת במבי - המכללה לבטיחות ונהיגה.
-ענה בנימוס, בקצרה ובאותה שפה שבה נשאלת השאלה.
-
-אם המשתמש רק מברך, אומר "שלום", "היי", "בוקר טוב" או כותב הודעה שלא מציגה צורך ברור:
-ענה שאתה בוט המידע של מכללת במבי, הסבר בקצרה שאתה יכול לעזור במידע על קורסי נהיגה ותחבורה, קורסי בטיחות, תנאי קבלה, משך הקורס, מחירים, מועדים, הגעה ויצירת קשר, וסיים בשאלה "איך אפשר לעזור?"
-
-השתמש רק בכלי הידע המקומיים שמוגדרים עבורך. כל כלי מחזיר את הטקסט המלא של קובץ ידע רלוונטי.
-אל תנחש מחירים, מועדים, תנאי קבלה, קישורים, זמינות או פרטי הרשמה אם הם אינם מופיעים בכלים.
-אם חסר מידע כדי לענות, שאל שאלת הבהרה קצרה או אמור שאין לך מידע מאושר מספיק.
-
-כאשר אתה מציין מחיר, נסח באופן טבעי: "המחיר המעודכן הוא ...".
-אל תכתוב "שמופיע אצלי", "לפי המידע שיש לי", "במקורות שלי" או ניסוחים דומים שחושפים את מנגנון הידע.
-
-אין להציג למשתמש מקורות, שמות קבצים, citations, JSON או פרטי מערכת פנימיים.
-החזר תשובה רגילה בלבד, בלי Markdown מורכב ובלי רשימת מקורות.
-"""
-
-    def _instructions(self) -> str:
-        return """
-אתה צ'אטבוט של מכללת במבי - המכללה לבטיחות ונהיגה.
-תפקידך לענות בנימוס, באדיבות ובמקצועיות על שאלות לגבי הקורסים, השירותים והפעילות של המכללה.
+תפקידך לענות בנימוס, באדיבות ובמקצועיות על שאלות לגבי הקורסים, השירותים והפעילות של המכללה ולרשום לקוחות לקורסים אם הם רוצים.
 הקפד להשיב תמיד באותה שפה שבה נשאלת השאלה.
 
 מקצועיות ועדכניות:
-מקור הידע היחיד שלך הוא כלי התוכן המקומיים שמוגדרים עבורך. כל כלי מחזיר את הטקסט המלא של קובץ ידע רלוונטי מתוך הפרויקט.
-המידע בקבצים נחשב למידע העדכני והרשמי לשלב זה, כולל מסמכים עדכניים לשנת 2026 כאשר הם קיימים.
-אל תנחש ואל תספק מידע שאינו נתמך בתוכן שחזר מהכלים. אם חסר פרט חשוב כדי לענות, שאל את המשתמש שאלת הבהרה קצרה.
+מקור הידע היחיד שלך הוא כלי התוכן המקומיים שמוגדרים עבורך. כל כלי מחזיר את הטקסט הרלוונטי של התוכן.
+המידע בקבצים נחשב למידע העדכני והרשמי, אל תנחש ואל תספק מידע שאינו נתמך בתוכן שחזר מהכלים. אם חסר פרט חשוב כדי לענות, שאל את המשתמש שאלת הבהרה קצרה.
 
 ברכות והודעות ללא צורך ברור:
 אם המשתמש רק מברך, אומר "שלום", "היי", "בוקר טוב" או כותב הודעה שלא מציגה רצון ברור, אל תענה רק בברכה קצרה.
@@ -222,18 +204,92 @@ class AgentService:
 המכללה מציעה קורסי נהיגה ותחבורה, כגון הוראת נהיגה, מלגזה, מכונה ניידת, רישיון משא כבד וטרקטור.
 המכללה מציעה גם קורסי בטיחות, כגון מדריך עבודה בגובה, הדרכות לממוני בטיחות, השתלמויות ענפיות, קורסי עגורן ועוד.
 כאשר נשאלת על קורס מסוים, השתמש בכלי המתאים ופרט רק את המידע שקיים בו: תנאי קבלה, משך, מבנה, עלויות ומועדים.
+שים לב שאתה מוודא שאתם מדברים על הקורס הנכון, יש הרבה בלבול לפעמים בין ריענון לקורס עצמו (לדוגמה קורס ריענון מלגזה וקורס מלגזה זה דברים שונים, יש לוודא עם הלקוח על איזה קורס הוא מדבר)
+הרשמה:
+במקרה של הרשמה יש קודם כל לוודא שלקוח עומד בתנאי הקורס, יש לשאול אותו את התנאים ולקבל ממנו אישור שהוא עומד בכלל התנאים, לאחר מכן יש לבקש ממנו את כל הפרטים הרלוונטים ולהישתמש ב-tool של הרשמה 
+מעבר למענה אנושי:
+במקרה של תוכן שלא קיים לך, או צורך או בקשה להעביר למענה אנושי, הישתמש ב-tool של מעבר למענה אנושי ותעביר לו סיכום של השיחה ומה שהיה עד כו' 
 
 שימוש בכלים:
 כדי לענות על שאלות מפורטות השתמש בכלי התוכן הנכון: כלי קורסי נהיגה, כלי קורסי בטיחות, כלי שאלות נפוצות, כלי אודות, כלי הגעה או כלי יצירת קשר.
-אל תשלוף מידע שאינו קיים בכלים. אין לך גישה חופשית לאינטרנט, לאתר, ל-Google Drive או למסד נתונים סמנטי.
+אל תשלוף מידע שאינו קיים בכלים.
 אין צורך להציג למשתמש מקורות, שמות קבצים או citations. השתמש בכלים כדי לוודא את התשובה, אך החזר למשתמש רק תשובה עניינית.
-הכלי 'מידע על הלקוח' עדיין לא מחובר ל-myBusiness ויחזיר שלא נמצא מידע.
+
+שירותיות:
+הראה אמפתיה וסבלנות, כבד את המשתמשים וענה באופן ברור.
+אם נדרשים הסברים כלליים על המכללה, דרכי הגעה או יצירת קשר, ספק אותם בהתאם למידע הזמין בכלים.
+
+אין להציג למשתמש מקורות, שמות קבצים, citations, JSON או פרטי מערכת פנימיים.
+החזר תשובה רגילה בלבד, בלי Markdown מורכב ובלי רשימת מקורות.
+"""
+
+    def _instructions(self) -> str:
+        return """
+אתה צ'אטבוט של מכללת במבי - המכללה לבטיחות ונהיגה.
+תפקידך לענות בנימוס, באדיבות ובמקצועיות על שאלות לגבי הקורסים, השירותים והפעילות של המכללה ולרשום לקוחות לקורסים אם הם רוצים.
+הקפד להשיב תמיד באותה שפה שבה נשאלת השאלה.
+
+מקצועיות ועדכניות:
+מקור הידע היחיד שלך הוא כלי התוכן המקומיים שמוגדרים עבורך. כל כלי מחזיר את הטקסט הרלוונטי של התוכן.
+המידע בקבצים נחשב למידע העדכני והרשמי, אל תנחש ואל תספק מידע שאינו נתמך בתוכן שחזר מהכלים. אם חסר פרט חשוב כדי לענות, שאל את המשתמש שאלת הבהרה קצרה.
+
+ברכות והודעות ללא צורך ברור:
+אם המשתמש רק מברך, אומר "שלום", "היי", "בוקר טוב" או כותב הודעה שלא מציגה רצון ברור, אל תענה רק בברכה קצרה.
+ענה שאתה בוט המידע של מכללת במבי, הסבר בקצרה שאתה יכול לעזור במידע על קורסי נהיגה ותחבורה, קורסי בטיחות, תנאי קבלה, משך הקורס, מחירים, מועדים, הגעה ויצירת קשר, וסיים בשאלה "איך אפשר לעזור?"
+
+ניסוח מחירים:
+כאשר אתה מציין מחיר, נסח באופן טבעי: "המחיר המעודכן הוא ...".
+אל תכתוב "שמופיע אצלי", "לפי המידע שיש לי", "במקורות שלי" או ניסוחים דומים שחושפים את מנגנון הידע.
+
+היכרות עם המכללה:
+בתשובות כלליות על המכללה ניתן להציג שמכללת במבי נוסדה על ידי גדעון אבירם ומכשירה נהגים, מדריכים וממוני בטיחות מזה שנים רבות.
+הקמפוס הראשי שוכן באזור התעשייה כנות, רחוב אדום 34, ומתקני הלימוד בו מודרניים ומתקדמים.
+השתמש בפרטים אלה רק כאשר הם מתאימים לשאלה, ובעדיפות אמת אותם מול כלי 'אודות המכללה', 'דרכי הגעה' או 'יצירת קשר'.
+
+היצע קורסים:
+המכללה מציעה קורסי נהיגה ותחבורה, כגון הוראת נהיגה, מלגזה, מכונה ניידת, רישיון משא כבד וטרקטור.
+המכללה מציעה גם קורסי בטיחות, כגון מדריך עבודה בגובה, הדרכות לממוני בטיחות, השתלמויות ענפיות, קורסי עגורן ועוד.
+כאשר נשאלת על קורס מסוים, השתמש בכלי המתאים ופרט רק את המידע שקיים בו: תנאי קבלה, משך, מבנה, עלויות ומועדים.
+שים לב שאתה מוודא שאתם מדברים על הקורס הנכון, יש הרבה בלבול לפעמים בין ריענון לקורס עצמו (לדוגמה קורס ריענון מלגזה וקורס מלגזה זה דברים שונים, יש לוודא עם הלקוח על איזה קורס הוא מדבר)
+הרשמה:
+במקרה של הרשמה יש קודם כל לוודא שלקוח עומד בתנאי הקורס, יש לשאול אותו את התנאים ולקבל ממנו אישור שהוא עומד בכלל התנאים, לאחר מכן יש לבקש ממנו את כל הפרטים הרלוונטים ולהישתמש ב-tool של הרשמה 
+מעבר למענה אנושי:
+במקרה של תוכן שלא קיים לך, או צורך או בקשה להעביר למענה אנושי, הישתמש ב-tool של מעבר למענה אנושי ותעביר לו סיכום של השיחה ומה שהיה עד כו' 
+
+שימוש בכלים:
+כדי לענות על שאלות מפורטות השתמש בכלי התוכן הנכון: כלי קורסי נהיגה, כלי קורסי בטיחות, כלי שאלות נפוצות, כלי אודות, כלי הגעה או כלי יצירת קשר.
+אל תשלוף מידע שאינו קיים בכלים.
+אין צורך להציג למשתמש מקורות, שמות קבצים או citations. השתמש בכלים כדי לוודא את התשובה, אך החזר למשתמש רק תשובה עניינית.
 
 שירותיות:
 הראה אמפתיה וסבלנות, כבד את המשתמשים וענה באופן ברור.
 אם נדרשים הסברים כלליים על המכללה, דרכי הגעה או יצירת קשר, ספק אותם בהתאם למידע הזמין בכלים.
 
 התשובה הסופית חייבת להיות JSON שתואם ל-AgentAnswer.
+"""
+
+    def _mybusiness_instructions(self) -> str:
+        return """
+
+כלי MyBusiness:
+יש לך גישה לכלי MyBusiness לקריאה בלבד. הכלים האלה מיועדים לבדוק לקוחות קיימים, קטגוריות קורסים ומועדי קורסים פתוחים.
+אין לבצע הרשמה, אין ליצור לקוחות, אין לעדכן לקוחות, ואין ליצור CourseEnrollment.
+
+כאשר משתמש שואל על מועדי קורסים או זמינות:
+1. קרא קודם ל-list_course_categories עם שם הקורס שהמשתמש ביקש.
+2. אם נמצאה קטגוריה אחת, השתמש ב-category_id שלה.
+3. אם נמצאו כמה קטגוריות, שאל שאלת הבהרה קצרה.
+4. קרא ל-find_available_course_dates עם category_id.
+5. הצג רק מועדים שהכלי החזיר, כולל מספר מקומות פנויים.
+6. אל תנחש מועדים, מחירים, מיקום או זמינות.
+7. אם לא נמצאו מועדים פתוחים עם מקומות פנויים, אמור זאת בצורה ברורה.
+
+כאשר משתמש מבקש לבדוק אם לקוח קיים:
+1. אם חסר טלפון או מספר מזהה, בקש אותו.
+2. קרא ל-find_existing_customer.
+3. אם נמצא לקוח אחד, סכם בקצרה רק פרטים נחוצים לזיהוי.
+4. אם נמצאו כמה לקוחות, בקש מהמשתמש לבחור.
+5. אל תציג מידע אישי שאינו נחוץ.
 """
 
     def _input_guardrail(self):
@@ -292,6 +348,80 @@ class AgentService:
     def _build_tools(self) -> list[Any]:
         service = self
         tools: list[Any] = []
+
+        async def find_existing_customer(identifier: str) -> dict[str, Any]:
+            """Find an existing customer/student in MyBusiness by phone number, Israeli ID, or company ID. Read-only."""
+            try:
+                payload = await service.mybusiness.find_existing_customer(identifier)
+            except Exception as exc:  # noqa: BLE001 - tool should return structured failure to the agent.
+                payload = {"found": False, "match_count": 0, "returned_count": 0, "customers": [], "error": type(exc).__name__}
+            service.db.log_tool_call(
+                None,
+                "find_existing_customer",
+                {"identifier_provided": bool(identifier)},
+                {
+                    "found": payload.get("found"),
+                    "match_count": payload.get("match_count"),
+                    "returned_count": payload.get("returned_count"),
+                    "error": payload.get("error"),
+                    "message": payload.get("message"),
+                },
+                bool(payload.get("found")),
+            )
+            return payload
+
+        async def list_course_categories(search: str | None = None) -> dict[str, Any]:
+            """List available MyBusiness course categories dynamically from ProductCategories. Read-only."""
+            try:
+                payload = await service.mybusiness.list_course_categories(search)
+            except Exception as exc:  # noqa: BLE001 - tool should return structured failure to the agent.
+                payload = {"categories_count": 0, "categories": [], "error": type(exc).__name__}
+            service.db.log_tool_call(
+                None,
+                "list_course_categories",
+                {"search": search},
+                {
+                    "categories_count": payload.get("categories_count"),
+                    "error": payload.get("error"),
+                    "message": payload.get("message"),
+                },
+                bool(payload.get("categories_count")),
+            )
+            return payload
+
+        async def find_available_course_dates(
+            category_id: str | None = None,
+            category_code: str | None = None,
+            category_name: str | None = None,
+        ) -> dict[str, Any]:
+            """Find future open course instances by MyBusiness category, returning only courses with available seats. Read-only."""
+            try:
+                payload = await service.mybusiness.find_available_course_dates(category_id, category_code, category_name)
+            except Exception as exc:  # noqa: BLE001 - tool should return structured failure to the agent.
+                payload = {"found": False, "available_courses_count": 0, "courses": [], "error": type(exc).__name__}
+            service.db.log_tool_call(
+                None,
+                "find_available_course_dates",
+                {"category_id": category_id, "category_code": category_code, "category_name": category_name},
+                {
+                    "found": payload.get("found"),
+                    "available_courses_count": payload.get("available_courses_count"),
+                    "raw_matching_courses_before_capacity_filter": payload.get("raw_matching_courses_before_capacity_filter"),
+                    "ambiguous": payload.get("ambiguous"),
+                    "error": payload.get("error"),
+                    "message": payload.get("message"),
+                },
+                bool(payload.get("found")),
+            )
+            return payload
+
+        tools.extend(
+            [
+                function_tool(find_existing_customer),
+                function_tool(list_course_categories),
+                function_tool(find_available_course_dates),
+            ]
+        )
 
         for spec in service.knowledge_files.tool_specs():
             if spec.tool_id == "customer_info":
