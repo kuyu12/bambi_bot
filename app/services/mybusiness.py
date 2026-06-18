@@ -120,11 +120,22 @@ class MyBusinessService:
         categories = [map_category(row) for row in rows]
         if search:
             needle = normalize_text(search)
-            categories = [
+            canonical_needle = normalize_course_search(search)
+            exact_matches = [
                 category
                 for category in categories
-                if needle in normalize_text(category["name"]) or needle in normalize_text(category["code"])
+                if needle == normalize_text(category["code"])
+                or needle == normalize_text(category["name"])
+                or canonical_needle == normalize_course_search(category["name"])
             ]
+            if exact_matches:
+                categories = exact_matches
+            else:
+                categories = [
+                    category
+                    for category in categories
+                    if needle in normalize_text(category["name"]) or needle in normalize_text(category["code"])
+                ]
         return {"categories_count": len(categories), "categories": categories}
 
     async def find_available_course_dates(
@@ -226,6 +237,16 @@ def clean(value: Any) -> Any:
 
 def normalize_text(value: Any) -> str:
     return re.sub(r"\s+", " ", html.unescape(str(value or "")).strip().lower())
+
+
+def normalize_course_search(value: Any) -> str:
+    text = normalize_text(value)
+    text = re.sub(r"\b(course|license|training)\b", " ", text)
+    text = re.sub(r"\bקורס(?:י|ים)?\b", " ", text)
+    text = re.sub(r"\bלימוד(?:י|ים)?\b", " ", text)
+    text = re.sub(r"\bרישיון\b", " ", text)
+    text = re.sub(r"\bהיתר\b", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def normalize_identifier_variants(identifier: str) -> list[str]:

@@ -1,4 +1,4 @@
-from app.services.mybusiness import map_available_course, normalize_identifier_variants
+from app.services.mybusiness import map_available_course, normalize_course_search, normalize_identifier_variants
 
 
 def test_normalize_identifier_variants_for_israeli_mobile() -> None:
@@ -9,6 +9,11 @@ def test_normalize_identifier_variants_for_israeli_mobile() -> None:
         "972501234567",
         "+972501234567",
     ]
+
+
+def test_normalize_course_search_strips_common_prefixes() -> None:
+    assert normalize_course_search("קורס מלגזה") == "מלגזה"
+    assert normalize_course_search("רישיון מכונה ניידת") == "מכונה ניידת"
 
 
 def test_map_available_course_skips_full_course() -> None:
