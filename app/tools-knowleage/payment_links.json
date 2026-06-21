@@ -1,0 +1,177 @@
+{
+  "source": "C:/Users/kuyu1/Downloads/קישורים לתשלום.docx",
+  "updated_at": "2026-06-22",
+  "default_required_customer_details": [
+    "שם מלא",
+    "מספר טלפון",
+    "תעודת זהות",
+    "מייל"
+  ],
+  "courses": [
+    {
+      "course_key": "forklift_refresh",
+      "course_name": "ריענון מלגזה",
+      "aliases": ["רענון מלגזה", "ריענון שנתי למלגזה", "רענון שנתי מלגזה"],
+      "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
+      "amount": 339,
+      "currency": "ILS",
+      "payment_note": "המחיר הוא 339 ש\"ח + מע\"מ. בסיום התשלום יש לשלוח צילום מסך של התשלום.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=MEgpTzBxVy"
+    },
+    {
+      "course_key": "cargo_security",
+      "course_name": "אבטחת מטענים",
+      "aliases": ["קורס אבטחת מטענים"],
+      "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
+      "amount": 620,
+      "currency": "ILS",
+      "payment_note": "המחיר הוא 620 ש\"ח. בסיום התשלום יש לשלוח צילום מסך של התשלום.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=LL0n5yHFcI"
+    },
+    {
+      "course_key": "hazmat_refresh",
+      "course_name": "ריענון חומ\"ס",
+      "aliases": ["רענון חומס", "ריענון חומרים מסוכנים", "רענון הובלת חומס"],
+      "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
+      "payment_note": "בסיום התשלום יש לשלוח צילום מסך של התשלום.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=vsQQOFoAst"
+    },
+    {
+      "course_key": "forklift_instructor_refresh",
+      "course_name": "ריענון מדריך מלגזה",
+      "aliases": ["רענון מדריך מלגזה", "ריענון מדריכי מלגזה"],
+      "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
+      "payment_note": "בסיום התשלום יש לשלוח צילום מסך של התשלום.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=FjTtZGIPMk"
+    },
+    {
+      "course_key": "carrier_license",
+      "course_name": "רישיון מוביל",
+      "aliases": ["קורס רישיון מוביל", "מוביל", "רשיון מוביל"],
+      "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
+      "amount": 500,
+      "currency": "ILS",
+      "payment_note": "הרישום מותנה בתשלום מקדמה של 500 ש\"ח + מע\"מ, המתקזזת מעלות הקורס. בסיום התשלום יש לשלוח צילום מסך של התשלום.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=4m5Y8U8F8T"
+    },
+    {
+      "course_key": "hazmat_transport_manager_refresh",
+      "course_name": "ריענון אחראי שינוע חומ\"ס",
+      "aliases": ["רענון אחראי שינוע חומס", "ריענון אחראי שינוע חומרים מסוכנים"],
+      "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
+      "payment_note": "בסיום התשלום יש לשלוח צילום מסך של התשלום.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=v9QLwQ6LpR"
+    },
+    {
+      "course_key": "hazmat_course",
+      "course_name": "קורס חומ\"ס",
+      "aliases": ["קורס חומס", "קורס הובלת חומס", "קורס חומרים מסוכנים"],
+      "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
+      "payment_note": "לרישום לקורס יש להסדיר תשלום מראש. בסיום התשלום יש לשלוח צילום מסך של התשלום.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=bOeWUjnQ2m"
+    },
+    {
+      "course_key": "public_transport_vehicle",
+      "course_name": "קורס רכב ציבורי",
+      "aliases": ["רכב ציבורי", "רישיון רכב ציבורי", "רשיון רכב ציבורי"],
+      "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
+      "amount": 500,
+      "currency": "ILS",
+      "payment_note": "לרישום לקורס יש לשלם מקדמה של 500 ש\"ח. בסיום התשלום יש לשלוח צילום מסך של התשלום.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=na6oBJPJDs"
+    },
+    {
+      "course_key": "forklift_course",
+      "course_name": "קורס מלגזה",
+      "aliases": ["מלגזה", "רישיון מלגזה", "רשיון מלגזה", "לימודי מלגזה"],
+      "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
+      "payment_note": "בסיום התשלום יש לשלוח צילום מסך של התשלום.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=yL7HjY6TXW"
+    },
+    {
+      "course_key": "crane_certificate_renewal",
+      "course_name": "חידוש רישיון מנוף",
+      "aliases": ["חידוש רשיון מנוף", "חידוש רישיון עגורן", "חידוש תעודת עגורן"],
+      "required_customer_details": ["הצהרת בריאות מקוונת", "אישור תשלום"],
+      "amount": 240,
+      "currency": "ILS",
+      "payment_note": "נדרש למלא הצהרת בריאות מקוונת ולשלם אגרה. זמן טיפול בבקשה עד שבועיים מיום קבלת הצהרת הבריאות. יש ליידע את המכללה לאחר התשלום ומילוי ההצהרה.",
+      "health_declaration_link": "https://tinyurl.com/bduj4x4e",
+      "payment_link": "https://tinyurl.com/3zdk77d6"
+    },
+    {
+      "course_key": "tractor_course",
+      "course_name": "קורס טרקטור",
+      "aliases": ["טרקטור", "רישיון טרקטור", "רשיון טרקטור"],
+      "required_customer_details": [
+        "תאריך הקורס אליו רוצים להירשם",
+        "שם מלא",
+        "טלפון של התלמיד",
+        "תעודת זהות",
+        "תאריך לידה",
+        "כתובת מלאה",
+        "מייל",
+        "אם התלמיד מתחת לגיל 18: שם וטלפון של אחד ההורים"
+      ],
+      "payment_note": "טרם ההגעה לקורס יש להסדיר תשלום. ניתן לשלם באשראי בלינק עד 4 תשלומים ללא ריבית, במזומן עד יומיים לפני פתיחת הקורס או בהעברה בנקאית. בהעברה יש לרשום בהערות את שם התלמיד ותאריך הקורס ולשלוח צילום מסך.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mybusiness.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=dkXNyklFAO",
+      "bank_transfer": {
+        "beneficiary": "מכללת במבי",
+        "bank": "בנק הפועלים",
+        "branch": "540",
+        "account": "526835",
+        "company_id": "514857556"
+      }
+    },
+    {
+      "course_key": "work_at_height_instructor_refresh",
+      "course_name": "ריענון מדריכי עבודה בגובה",
+      "aliases": ["רענון מדריכי עבודה בגובה", "ריענון מדריך עבודה בגובה"],
+      "required_customer_details": [
+        "תאריך הריענון אליו רוצים להירשם",
+        "שם מלא",
+        "טלפון נייד",
+        "תעודת זהות",
+        "תאריך לידה",
+        "כתובת מלאה",
+        "מייל"
+      ],
+      "payment_note": "טרם ההגעה לקורס יש להסדיר תשלום. ניתן לשלם באשראי בלינק או בהעברה בנקאית. בהעברה יש לרשום בהערות את שם התלמיד ותאריך הקורס ולשלוח צילום מסך.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mybusiness.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=dkXNyklFAO",
+      "bank_transfer": {
+        "beneficiary": "מכללת במבי",
+        "bank": "בנק הפועלים",
+        "branch": "540",
+        "account": "526835",
+        "company_id": "514857556"
+      }
+    },
+    {
+      "course_key": "mobile_machine_course",
+      "course_name": "קורס מכונה ניידת",
+      "aliases": ["מכונה ניידת", "רישיון מכונה ניידת", "רשיון מכונה ניידת"],
+      "required_customer_details": [
+        "תאריך הקורס אליו רוצים להירשם",
+        "שם מלא",
+        "טלפון של התלמיד",
+        "תעודת זהות",
+        "תאריך לידה",
+        "דרגת רישיון",
+        "מספר רישיון",
+        "כתובת מלאה",
+        "מייל"
+      ],
+      "amount": 2800,
+      "currency": "ILS",
+      "payment_note": "כדי לשבץ לקורס יש להסדיר תשלום מראש. עלות הקורס 2800 ש\"ח כולל מע\"מ. אפשר לשלם במזומן ביום הקורס, אך כדי להבטיח מקום יש לשלם דמי רישום של 300 ש\"ח. בהעברה בנקאית יש לרשום בהערות את שם התלמיד ותאריך הקורס ולשלוח צילום מסך.",
+      "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=f601SKNIJp",
+      "bank_transfer": {
+        "beneficiary": "מכללת במבי",
+        "bank": "בנק הפועלים",
+        "branch": "540",
+        "account": "526835",
+        "company_id": "514857556"
+      }
+    }
+  ]
+}

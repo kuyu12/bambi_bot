@@ -3,6 +3,7 @@ from __future__ import annotations
 import html
 import re
 from datetime import UTC, datetime
+from http import HTTPStatus
 from typing import Any
 
 import httpx
@@ -11,6 +12,16 @@ from app.config import Settings
 
 
 ACCOUNT_MATCH_FIELDS = ("PhoneNumber", "StudentPhone", "Phone2", "Phone3", "StudentId", "IdClient", "CompanyId")
+REGISTERED_ENROLLMENT_STATUS_ID = "0BbaSYbE8x"
+TENTATIVE_COURSE_STATUS_ID = "bh0iCW38FE"
+OPEN_REGISTRATION_COURSE_STATUS_ID = "U3IMyC5c9H"
+INACTIVE_COURSE_STATUS_IDS = {"FbdRzAz07C", "d4YY2V8STP", "elArHVxiHv"}
+PAYMENT_STATUS_IDS = {
+    "PAID": "0eBXa9VeT8",
+    "PARTIAL": "qXzFm8ABt2",
+    "UNPAID": "OvqB17SOkV",
+    "COMPANY_INVOICE": "Hhz193kwFu",
+}
 
 
 class MyBusinessService:
@@ -52,6 +63,34 @@ class MyBusinessService:
                 skip += limit
 
         return results
+
+    async def _get_object(self, table_name: str, object_id: str, params: dict[str, Any] | None = None) -> dict[str, Any] | None:
+        if not self.is_configured:
+            raise RuntimeError("MyBusiness API credentials are not configured.")
+
+        async with httpx.AsyncClient(
+            base_url=self.settings.mybusiness_base_url.rstrip("/"),
+            headers=self._headers(),
+            timeout=self.settings.mybusiness_timeout_seconds,
+        ) as client:
+            response = await client.get(f"/classes/{table_name}/{object_id}", params=params or {})
+            if response.status_code == HTTPStatus.NOT_FOUND:
+                return None
+            response.raise_for_status()
+            return response.json()
+
+    async def _post_class(self, table_name: str, payload: dict[str, Any]) -> dict[str, Any]:
+        if not self.is_configured:
+            raise RuntimeError("MyBusiness API credentials are not configured.")
+
+        async with httpx.AsyncClient(
+            base_url=self.settings.mybusiness_base_url.rstrip("/"),
+            headers=self._headers(),
+            timeout=self.settings.mybusiness_timeout_seconds,
+        ) as client:
+            response = await client.post(f"/classes/{table_name}", json=payload)
+            response.raise_for_status()
+            return response.json()
 
     async def find_existing_customer(self, identifier: str) -> dict[str, Any]:
         variants = normalize_identifier_variants(identifier)
@@ -190,6 +229,181 @@ class MyBusinessService:
             "courses": courses,
         }
 
+    async def check_customer_registration_eligibility(
+        self,
+        account_id: str,
+        course_id: str,
+        sale_id: str | None = None,
+        allow_tentative_courses: bool = False,
+    ) -> dict[str, Any]:
+        if not self.is_configured:
+            return {
+                "can_register": False,
+                "blocking_reasons": ["MYBUSINESS_NOT_CONFIGURED"],
+                "existing_future_active_enrollments": [],
+                "message": "MyBusiness API is not configured.",
+            }
+
+        result: dict[str, Any] = {
+            "can_register": False,
+            "blocking_reasons": [],
+            "account": None,
+            "course": None,
+            "sale": None,
+            "existing_future_active_enrollments": [],
+        }
+
+        account = await self.get_account(account_id)
+        if account is None:
+            return {**result, "blocking_reasons": ["ACCOUNT_NOT_FOUND"]}
+        result["account"] = summarize_account(account)
+        if account.get("Delete") is True:
+            return {**result, "blocking_reasons": ["ACCOUNT_DELETED"]}
+
+        course = await self.get_course(course_id)
+        if course is None:
+            return {**result, "blocking_reasons": ["COURSE_NOT_FOUND"]}
+        result["course"] = summarize_course(course)
+
+        course_blockers = validate_course_for_registration(course, allow_tentative_courses)
+        if course_blockers:
+            return {**result, "blocking_reasons": course_blockers}
+
+        existing_enrollments = await self.get_future_active_enrollments(account_id)
+        result["existing_future_active_enrollments"] = existing_enrollments
+        if existing_enrollments:
+            return {**result, "blocking_reasons": ["CUSTOMER_ALREADY_HAS_FUTURE_ACTIVE_ENROLLMENT"]}
+
+        if sale_id:
+            sale = await self.get_sale(sale_id)
+            if sale is None:
+                return {**result, "blocking_reasons": ["SALE_NOT_FOUND"]}
+            result["sale"] = summarize_sale(sale, account_id)
+            if not sale_belongs_to_account(sale, account_id):
+                return {**result, "blocking_reasons": ["SALE_DOES_NOT_BELONG_TO_ACCOUNT"]}
+
+        result["can_register"] = True
+        return result
+
+    async def register_customer_to_course(
+        self,
+        account_id: str,
+        course_id: str,
+        sale_id: str,
+        payment_status: str,
+        amount_paid: float = 0,
+        comment: str | None = None,
+        allow_tentative_courses: bool = False,
+        dry_run: bool = False,
+        payment_verified: bool = False,
+    ) -> dict[str, Any]:
+        payment_status = payment_status.strip().upper()
+        if payment_status not in PAYMENT_STATUS_IDS:
+            return {
+                "created": False,
+                "dry_run": dry_run,
+                "eligibility": {"can_register": False, "blocking_reasons": ["INVALID_PAYMENT_STATUS"]},
+            }
+        if not dry_run and not payment_verified:
+            return {
+                "created": False,
+                "dry_run": False,
+                "eligibility": {"can_register": False, "blocking_reasons": ["PAYMENT_NOT_VERIFIED_BY_SYSTEM"]},
+            }
+
+        eligibility = await self.check_customer_registration_eligibility(
+            account_id=account_id,
+            course_id=course_id,
+            sale_id=sale_id,
+            allow_tentative_courses=allow_tentative_courses,
+        )
+        if not eligibility.get("can_register"):
+            return {"created": False, "dry_run": dry_run, "eligibility": eligibility}
+
+        latest_course = await self.get_course(course_id)
+        if latest_course is None:
+            eligibility = {**eligibility, "can_register": False, "blocking_reasons": ["COURSE_NOT_FOUND"]}
+            return {"created": False, "dry_run": dry_run, "eligibility": eligibility}
+
+        latest_blockers = validate_course_for_registration(latest_course, allow_tentative_courses)
+        if latest_blockers:
+            eligibility = {**eligibility, "can_register": False, "blocking_reasons": latest_blockers}
+            return {"created": False, "dry_run": dry_run, "eligibility": eligibility}
+
+        payload = build_course_enrollment_payload(
+            account_id=account_id,
+            course=latest_course,
+            sale_id=sale_id,
+            payment_status=payment_status,
+            amount_paid=amount_paid,
+            comment=comment,
+        )
+        if dry_run:
+            return {
+                "created": False,
+                "dry_run": True,
+                "eligibility": eligibility,
+                "would_create_payload": payload,
+            }
+
+        created = await self.create_course_enrollment(payload)
+        enrollment_id = created.get("objectId")
+        created_enrollment = await self.read_course_enrollment(enrollment_id) if enrollment_id else None
+        return {
+            "created": bool(enrollment_id),
+            "dry_run": False,
+            "eligibility": eligibility,
+            "created_enrollment": summarize_enrollment(created_enrollment or created),
+        }
+
+    async def get_account(self, account_id: str) -> dict[str, Any] | None:
+        return await self._get_object("Accounts", account_id)
+
+    async def get_course(self, course_id: str) -> dict[str, Any] | None:
+        return await self._get_object(
+            "Courses",
+            course_id,
+            {
+                "include": "StatusId,ProductCategory,ProductId,FacilityId,MainLecturerId,MainClassId",
+                "keys": (
+                    "objectId,Name,StartDate,EndDate,FirstClass,StatusId,ProductCategory,ProductId,FacilityId,"
+                    "MainLecturerId,MainClassId,MaxCapacity,RegisteredStudents,AllowOverBooking,NumberOfLessons"
+                ),
+            },
+        )
+
+    async def get_sale(self, sale_id: str) -> dict[str, Any] | None:
+        return await self._get_object("Sales", sale_id, {"include": "AccountId,SaleStatusId"})
+
+    async def get_future_active_enrollments(self, account_id: str) -> list[dict[str, Any]]:
+        rows = await self._get_class(
+            "CourseEnrollment",
+            {
+                "where": json_dumps({"AccountId": pointer("Accounts", account_id)}),
+                "limit": 1000,
+                "include": "CourseId,CourseId.StatusId,CourseId.ProductCategory,CourseId.ProductId,SaleId,CourseEnrollmentStatusId,PayingStatus",
+                "keys": (
+                    "objectId,AccountId,CourseId,SaleId,CourseEnrollmentStatusId,PayingStatus,"
+                    "CourseId.objectId,CourseId.Name,CourseId.StartDate,CourseId.StatusId"
+                ),
+            },
+        )
+        enrollments = []
+        for row in rows:
+            if is_future_active_enrollment(row):
+                enrollments.append(summarize_existing_enrollment(row))
+        return enrollments
+
+    async def create_course_enrollment(self, payload: dict[str, Any]) -> dict[str, Any]:
+        return await self._post_class("CourseEnrollment", payload)
+
+    async def read_course_enrollment(self, enrollment_id: str) -> dict[str, Any] | None:
+        return await self._get_object(
+            "CourseEnrollment",
+            enrollment_id,
+            {"include": "AccountId,CourseId,CourseId.StatusId,SaleId,CourseEnrollmentStatusId,PayingStatus"},
+        )
+
     async def _resolve_category(self, category_id: str | None, category_code: str | None, category_name: str | None) -> dict[str, Any]:
         categories = (await self.list_course_categories()).get("categories", [])
         if category_id:
@@ -279,14 +493,14 @@ def map_customer(row: dict[str, Any]) -> dict[str, Any]:
         "name": clean(row.get("Name")),
         "first_name": clean(row.get("F_name")),
         "last_name": clean(row.get("L_name")),
-        "email": clean(row.get("Email")),
-        "phone_number": clean(row.get("PhoneNumber")),
-        "student_phone": clean(row.get("StudentPhone")),
-        "phone2": clean(row.get("Phone2")),
-        "phone3": clean(row.get("Phone3")),
-        "student_id": clean(row.get("StudentId")),
-        "id_client": clean(row.get("IdClient")),
-        "company_id": clean(row.get("CompanyId")),
+        "email": mask_email(clean(row.get("Email"))),
+        "phone_number": mask_phone(clean(row.get("PhoneNumber"))),
+        "student_phone": mask_phone(clean(row.get("StudentPhone"))),
+        "phone2": mask_phone(clean(row.get("Phone2"))),
+        "phone3": mask_phone(clean(row.get("Phone3"))),
+        "student_id": mask_identifier(clean(row.get("StudentId"))),
+        "id_client": mask_identifier(clean(row.get("IdClient"))),
+        "company_id": mask_identifier(clean(row.get("CompanyId"))),
         "is_student": row.get("isStudent"),
         "is_account": row.get("IsAccount"),
         "deleted": row.get("Delete"),
@@ -356,3 +570,202 @@ def parse_date(value: Any) -> str | None:
     if isinstance(value, str):
         return value
     return None
+
+
+def parse_datetime(value: Any) -> datetime | None:
+    iso = parse_date(value)
+    if not iso:
+        return None
+    normalized = iso.replace("Z", "+00:00")
+    try:
+        parsed = datetime.fromisoformat(normalized)
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        return parsed.replace(tzinfo=UTC)
+    return parsed.astimezone(UTC)
+
+
+def calculate_available_seats(course: dict[str, Any]) -> int | None:
+    max_capacity = course.get("MaxCapacity")
+    if max_capacity is None:
+        return None
+    try:
+        return int(max_capacity) - int(course.get("RegisteredStudents") or 0)
+    except (TypeError, ValueError):
+        return None
+
+
+def validate_course_for_registration(course: dict[str, Any], allow_tentative_courses: bool = False) -> list[str]:
+    blockers: list[str] = []
+    start_date = parse_datetime(course.get("StartDate"))
+    status = course.get("StatusId") if isinstance(course.get("StatusId"), dict) else {}
+    status_id = status.get("objectId")
+    available_seats = calculate_available_seats(course)
+
+    if start_date is None or start_date <= datetime.now(UTC):
+        blockers.append("COURSE_ALREADY_STARTED_OR_PASSED")
+    if not status_id or not status.get("IsOpen"):
+        blockers.append("COURSE_NOT_OPEN_FOR_REGISTRATION")
+    if status_id == TENTATIVE_COURSE_STATUS_ID and not allow_tentative_courses:
+        blockers.append("COURSE_IS_TENTATIVE")
+    if available_seats is None or available_seats <= 0:
+        blockers.append("COURSE_FULL")
+
+    return blockers
+
+
+def is_future_active_enrollment(enrollment: dict[str, Any]) -> bool:
+    enrollment_status = enrollment.get("CourseEnrollmentStatusId") or {}
+    course = enrollment.get("CourseId") or {}
+    course_status = course.get("StatusId") or {}
+    course_status_id = course_status.get("objectId")
+    start_date = parse_datetime(course.get("StartDate"))
+    return (
+        isinstance(enrollment_status, dict)
+        and enrollment_status.get("objectId") == REGISTERED_ENROLLMENT_STATUS_ID
+        and start_date is not None
+        and start_date > datetime.now(UTC)
+        and isinstance(course_status, dict)
+        and course_status.get("IsOpen") is True
+        and course_status_id not in INACTIVE_COURSE_STATUS_IDS
+    )
+
+
+def sale_belongs_to_account(sale: dict[str, Any], account_id: str) -> bool:
+    account = sale.get("AccountId")
+    return isinstance(account, dict) and account.get("objectId") == account_id
+
+
+def summarize_account(account: dict[str, Any]) -> dict[str, Any]:
+    name = clean(account.get("Name")) or " ".join(
+        item for item in [clean(account.get("F_name")), clean(account.get("L_name"))] if item
+    )
+    return {"account_id": account.get("objectId"), "name": name or None}
+
+
+def summarize_course(course: dict[str, Any]) -> dict[str, Any]:
+    status = course.get("StatusId") if isinstance(course.get("StatusId"), dict) else {}
+    category = course.get("ProductCategory") if isinstance(course.get("ProductCategory"), dict) else {}
+    return {
+        "course_id": course.get("objectId"),
+        "course_name": clean(course.get("Name")),
+        "start_date": parse_date(course.get("StartDate")),
+        "status": clean(status.get("Name")),
+        "status_id": status.get("objectId"),
+        "is_open": status.get("IsOpen"),
+        "available_seats": calculate_available_seats(course),
+        "category_id": category.get("objectId"),
+        "category_name": clean(category.get("Name")),
+        "category_code": clean(category.get("Code")),
+    }
+
+
+def summarize_sale(sale: dict[str, Any], account_id: str) -> dict[str, Any]:
+    status = sale.get("SaleStatusId") if isinstance(sale.get("SaleStatusId"), dict) else {}
+    return {
+        "sale_id": sale.get("objectId"),
+        "status": clean(status.get("Name")),
+        "status_id": status.get("objectId"),
+        "belongs_to_account": sale_belongs_to_account(sale, account_id),
+    }
+
+
+def summarize_existing_enrollment(enrollment: dict[str, Any]) -> dict[str, Any]:
+    course = enrollment.get("CourseId") if isinstance(enrollment.get("CourseId"), dict) else {}
+    course_status = course.get("StatusId") if isinstance(course.get("StatusId"), dict) else {}
+    paying_status = enrollment.get("PayingStatus") if isinstance(enrollment.get("PayingStatus"), dict) else {}
+    return {
+        "enrollment_id": enrollment.get("objectId"),
+        "course_id": course.get("objectId"),
+        "course_name": clean(course.get("Name")),
+        "course_start_date": parse_date(course.get("StartDate")),
+        "start_date": parse_date(course.get("StartDate")),
+        "course_status": clean(course_status.get("Name")),
+        "status": clean(course_status.get("Name")),
+        "paying_status": clean(paying_status.get("Name")),
+    }
+
+
+def build_course_enrollment_payload(
+    account_id: str,
+    course: dict[str, Any],
+    sale_id: str,
+    payment_status: str,
+    amount_paid: float = 0,
+    comment: str | None = None,
+) -> dict[str, Any]:
+    now_iso = datetime.now(UTC).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+    course_date = parse_date(course.get("StartDate")) or now_iso
+    return {
+        "AccountId": pointer("Accounts", account_id),
+        "AccountMainId": pointer("Accounts", account_id),
+        "CourseId": pointer("Courses", course["objectId"]),
+        "SaleId": pointer("Sales", sale_id),
+        "Date": date_value(now_iso),
+        "CourseDate": date_value(course_date),
+        "FirstClass": date_value(course_date),
+        "AmountPaid": amount_paid,
+        "Comment": comment or "Created by course registration agent",
+        "CourseEnrollmentStatusId": pointer("CourseEnrollmentStatus", REGISTERED_ENROLLMENT_STATUS_ID),
+        "PayingStatus": pointer("PayingStatusList", PAYMENT_STATUS_IDS[payment_status]),
+        "Files": False,
+        "Exam": False,
+        "SignedFIle": False,
+        "allowWithoutSigned": True,
+    }
+
+
+def summarize_enrollment(enrollment: dict[str, Any]) -> dict[str, Any]:
+    account = enrollment.get("AccountId") if isinstance(enrollment.get("AccountId"), dict) else {}
+    course = enrollment.get("CourseId") if isinstance(enrollment.get("CourseId"), dict) else {}
+    sale = enrollment.get("SaleId") if isinstance(enrollment.get("SaleId"), dict) else {}
+    enrollment_status = (
+        enrollment.get("CourseEnrollmentStatusId") if isinstance(enrollment.get("CourseEnrollmentStatusId"), dict) else {}
+    )
+    paying_status = enrollment.get("PayingStatus") if isinstance(enrollment.get("PayingStatus"), dict) else {}
+    return {
+        "enrollment_id": enrollment.get("objectId"),
+        "account_id": account.get("objectId"),
+        "course_id": course.get("objectId"),
+        "sale_id": sale.get("objectId"),
+        "course_enrollment_status": clean(enrollment_status.get("Name")),
+        "paying_status": clean(paying_status.get("Name")),
+        "amount_paid": enrollment.get("AmountPaid"),
+    }
+
+
+def date_value(iso: str) -> dict[str, str]:
+    return {"__type": "Date", "iso": iso}
+
+
+def mask_phone(value: Any) -> str | None:
+    text = clean(value)
+    if not text:
+        return None
+    digits = re.sub(r"\D+", "", str(text))
+    if len(digits) < 4:
+        return "***"
+    return f"***{digits[-4:]}"
+
+
+def mask_identifier(value: Any) -> str | None:
+    text = clean(value)
+    if not text:
+        return None
+    digits = re.sub(r"\D+", "", str(text))
+    if len(digits) < 4:
+        return "***"
+    return f"***{digits[-4:]}"
+
+
+def mask_email(value: Any) -> str | None:
+    text = clean(value)
+    if not text:
+        return None
+    email = str(text)
+    if "@" not in email:
+        return "***"
+    local, domain = email.split("@", 1)
+    visible = local[:2] if len(local) > 2 else local[:1]
+    return f"{visible}***@{domain}"

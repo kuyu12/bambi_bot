@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import uuid
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -15,6 +16,7 @@ from app.db import Database
 from app.schemas import AgentAnswer, ChatHistoryItem, ChatSessionDetail
 from app.services.knowledge_files import KnowledgeFileService
 from app.services.mybusiness import MyBusinessService
+from app.services.payment_links import PaymentLinkService
 
 
 @dataclass
@@ -28,6 +30,7 @@ class AgentService:
         self.db = db
         self.knowledge_files = knowledge_files
         self.mybusiness = MyBusinessService(settings)
+        self.payment_links = PaymentLinkService()
         self._agent: Agent[AgentContext] | None = None
         self._streaming_agent: Agent[AgentContext] | None = None
 
@@ -156,7 +159,7 @@ class AgentService:
         if self._agent is None:
             self._agent = Agent(
                 name="BambiKnowledgeAgent",
-                instructions=self._instructions() + self._mybusiness_instructions(),
+                instructions=self._instructions() + self._mybusiness_instructions() + self._sales_flow_instructions(),
                 model=self.settings.openai_model,
                 output_type=AgentAnswer,
                 tools=self._build_tools(),
@@ -169,7 +172,7 @@ class AgentService:
         if self._streaming_agent is None:
             self._streaming_agent = Agent(
                 name="BambiKnowledgeStreamingAgent",
-                instructions=self._streaming_instructions() + self._mybusiness_instructions(),
+                instructions=self._streaming_instructions() + self._mybusiness_instructions() + self._sales_flow_instructions(),
                 model=self.settings.openai_model,
                 tools=self._build_tools(),
                 input_guardrails=[self._input_guardrail()],
@@ -272,8 +275,9 @@ class AgentService:
         return """
 
 כלי MyBusiness:
-יש לך גישה לכלי MyBusiness לקריאה בלבד. הכלים האלה מיועדים לבדוק לקוחות קיימים, קטגוריות קורסים ומועדי קורסים פתוחים.
-אין לבצע הרשמה, אין ליצור לקוחות, אין לעדכן לקוחות, ואין ליצור CourseEnrollment.
+יש לך גישה לכלי MyBusiness לבדיקת לקוחות קיימים, קטגוריות קורסים, מועדי קורסים פתוחים, בדיקת זכאות לרישום, ורישום לקוח קיים לקורס.
+רוב הכלים הם לקריאה בלבד. הכלי היחיד שמותר לו ליצור רשומה הוא register_customer_to_course, והוא יוצר CourseEnrollment רק אחרי בדיקת זכאות מלאה.
+אל תיצור לקוחות, אל תעדכן לקוחות, אל תעדכן קורסים ואל תשתמש בכלי כללי לשינוי נתונים.
 
 כאשר משתמש שואל על מועדי קורסים או זמינות:
 1. קרא קודם ל-list_course_categories עם שם הקורס שהמשתמש ביקש.
@@ -290,14 +294,102 @@ class AgentService:
 3. אם נמצא לקוח אחד, סכם בקצרה רק פרטים נחוצים לזיהוי.
 4. אם נמצאו כמה לקוחות, בקש מהמשתמש לבחור.
 5. אל תציג מידע אישי שאינו נחוץ.
+
+כאשר משתמש מבקש להירשם לקורס:
+1. ודא שיש לקוח קיים ב-MyBusiness באמצעות find_existing_customer. אם אין לקוח קיים, בקש מעבר למענה אנושי.
+2. ודא שהקורס והמועד המבוקש ברורים. עבור מועדים השתמש ב-list_course_categories ואז find_available_course_dates.
+3. לפני רישום, השתמש ב-check_customer_registration_eligibility עם account_id ו-course_id. אם יש sale_id, העבר גם אותו.
+4. אם חסר sale_id או payment_status, בקש אותם או הסבר שנדרש טיפול אנושי. אל תנחש sale_id ואל תנחש סטטוס תשלום.
+5. payment_status חייב להיות אחד מהערכים: PAID, PARTIAL, UNPAID, COMPANY_INVOICE.
+6. ברירת המחדל לרישום היא dry_run=true. הצג למפעיל שהבדיקה עברה ומה היה נרשם. בצע dry_run=false רק אם המשתמש ביקש במפורש לבצע רישום אמיתי ויש את כל הפרטים.
+7. אם הכלי מחזיר blocking_reasons, אל תעקוף אותם ואל תנסה להירשם שוב ללא שינוי בפרטים.
+8. לעולם אל תציג למשתמש payload פנימי, מזהי מערכת לא נחוצים, מפתחות API או פלט גולמי של הכלים.
+"""
+
+    def _sales_flow_instructions(self) -> str:
+        return """
+
+תהליך מכירה והרשמה מחייב:
+כאשר לקוח רוצה להירשם לקורס, פעל אך ורק לפי הסדר הבא. אל תדלג על שלבים ואל תרשום לקוח לפני תשלום מאומת.
+
+1. בדיקת דרישות הקורס:
+השתמש בכלי הידע של הקורס כדי לבדוק תנאי קבלה, מסמכים נדרשים, גיל, רישיון קודם, טופס ירוק, בדיקות או כל דרישה אחרת.
+אם קיימות דרישות, שאל את הלקוח עליהן וקבל ממנו אישור ברור שהוא עומד בהן ומכיר אותן.
+אם הלקוח לא עומד בדרישות, לא בטוח, או חסר מידע חשוב - עצור והעבר לנציג.
+
+2. בחירת מועד:
+השתמש ב-list_course_categories ואז find_available_course_dates כדי להציג את המועדים הקרובים עם מקומות פנויים.
+שאל את הלקוח איזה מועד מתאים לו. אל תמשיך לתשלום בלי מועד מוסכם כאשר הקורס דורש בחירת מועד.
+
+3. פרטים ולינק תשלום:
+לאחר שיש קורס ומועד מוסכמים, קרא ל-get_course_payment_instructions עם שם הקורס.
+בקש מהלקוח את כל הפרטים שהכלי החזיר כ-required_customer_details.
+שלח ללקוח את לינק התשלום שהכלי החזיר, יחד עם הערת התשלום אם קיימת.
+אם אין לינק תשלום לקורס או שיש התאמה לא חד-משמעית, אל תמציא לינק ואל תשתמש בלינק של קורס אחר - העבר לנציג.
+
+4. לאחר תשלום:
+בקש מהלקוח לעדכן כשהתשלום הסתיים. אם הלקוח אומר שהוא שילם, חובה לבדוק מול MyBusiness לפני רישום.
+אין להסתמך רק על אמירה של הלקוח או צילום מסך כראיית תשלום סופית.
+אם אין דרך לאמת במערכת שהתשלום בוצע או שאין sale_id מתאים שמשויך ללקוח, העבר לנציג.
+
+5. רישום לקורס:
+רק לאחר שיש לקוח קיים, קורס ומועד מוסכמים, עמידה בדרישות, תשלום מאומת, sale_id מתאים ו-payment_status מפורש - השתמש ב-check_customer_registration_eligibility.
+אם הזכאות תקינה, השתמש ב-register_customer_to_course.
+ברירת המחדל היא dry_run=true. dry_run=false מותר רק אם התשלום אומת ויש בקשה מפורשת לבצע רישום אמיתי.
+
+6. טיפול בבעיות:
+אם יש blocking_reasons, חוסר התאמה, קורס מלא, קורס לא פתוח, לקוח שכבר רשום למועד עתידי, בעיית תשלום או חוסר פרטים - אל תנסה לעקוף. העבר לנציג וסכם בקצרה את מצב השיחה.
+אל תציג למשתמש JSON, payload פנימי, מזהי מערכת לא נחוצים, פלט גולמי של כלים או מקורות.
 """
 
     def _input_guardrail(self):
+        service = self
+
         @input_guardrail(name="bambi_input_guardrail", run_in_parallel=False)
         async def guardrail(_ctx, _agent, user_input):
             text = user_input if isinstance(user_input, str) else json.dumps(user_input, ensure_ascii=False)
-            lowered = text.lower()
-            blocked_terms = ["ignore previous", "system prompt", "api key", "secret", "password", "token"]
+            lowered = service._normalize_security_text(text)
+            blocked_terms = [
+                "ignore previous",
+                "ignore all previous",
+                "forget previous",
+                "disregard instructions",
+                "developer message",
+                "system prompt",
+                "reveal prompt",
+                "show prompt",
+                "api key",
+                "secret",
+                "password",
+                "token",
+                "master key",
+                "bypass",
+                "override policy",
+                "do not use tools",
+                "dont use tools",
+                "skip validation",
+                "skip eligibility",
+                "register without payment",
+                "fake payment",
+                "invent payment link",
+                "use another payment link",
+                "תתעלם מההוראות",
+                "התעלם מההוראות",
+                "תעקוף",
+                "עקוף",
+                "בלי להשתמש בכלים",
+                "אל תשתמש בכלים",
+                "תמציא לינק",
+                "לינק אחר",
+                "בלי לשלם",
+                "תרשום בלי תשלום",
+                "דלג על הבדיקה",
+                "תדלג על הבדיקה",
+                "הצג את הפרומפט",
+                "סיסטם פרומפט",
+                "מפתח api",
+                "סיסמה",
+            ]
             off_topic_terms = ["math homework", "recipe", "bitcoin"]
             tripwire = any(term in lowered for term in blocked_terms) or any(term in lowered for term in off_topic_terms)
             return GuardrailFunctionOutput(output_info={"matched": tripwire}, tripwire_triggered=tripwire)
@@ -305,6 +397,8 @@ class AgentService:
         return guardrail
 
     def _output_guardrail(self):
+        service = self
+
         @output_guardrail(name="bambi_output_guardrail")
         async def guardrail(_ctx, _agent, output: AgentAnswer):
             unsupported_claim = any(token in output.answer for token in ["לדעתי", "נראה לי", "כנראה"])
@@ -312,14 +406,21 @@ class AgentService:
                 token in output.answer
                 for token in ["שמופיע אצלי", "לפי המידע שיש לי", "במקורות שלי", "בכלים שלי"]
             )
+            unapproved_payment_url = service._has_unapproved_payment_url(output.answer)
             return GuardrailFunctionOutput(
-                output_info={"unsupported_claim": unsupported_claim, "internal_wording": internal_wording},
-                tripwire_triggered=unsupported_claim or internal_wording,
+                output_info={
+                    "unsupported_claim": unsupported_claim,
+                    "internal_wording": internal_wording,
+                    "unapproved_payment_url": unapproved_payment_url,
+                },
+                tripwire_triggered=unsupported_claim or internal_wording or unapproved_payment_url,
             )
 
         return guardrail
 
     def _stream_output_guardrail(self):
+        service = self
+
         @output_guardrail(name="bambi_stream_output_guardrail")
         async def guardrail(_ctx, _agent, output: str):
             lowered = str(output).lower()
@@ -329,16 +430,34 @@ class AgentService:
                 token in str(output)
                 for token in ["שמופיע אצלי", "לפי המידע שיש לי", "במקורות שלי", "בכלים שלי"]
             )
+            unapproved_payment_url = service._has_unapproved_payment_url(str(output))
             return GuardrailFunctionOutput(
                 output_info={
                     "unsupported_claim": unsupported_claim,
                     "leaks_sources": leaks_sources,
                     "internal_wording": internal_wording,
+                    "unapproved_payment_url": unapproved_payment_url,
                 },
-                tripwire_triggered=unsupported_claim or leaks_sources or internal_wording,
+                tripwire_triggered=unsupported_claim or leaks_sources or internal_wording or unapproved_payment_url,
             )
 
         return guardrail
+
+    def _normalize_security_text(self, text: str) -> str:
+        return re.sub(r"\s+", " ", text.lower().replace("׳", "'").replace("״", '"')).strip()
+
+    def _has_unapproved_payment_url(self, text: str) -> bool:
+        urls = re.findall(r"https?://[^\s)>\]\"']+", text)
+        if not urls:
+            return False
+
+        allowed_urls = self.payment_links.allowed_payment_urls()
+        for url in urls:
+            cleaned = url.rstrip(".,;:!?")
+            is_payment_url = "payment-btn-page" in cleaned or "mybooks" in cleaned or cleaned == "https://tinyurl.com/3zdk77d6"
+            if is_payment_url and cleaned not in allowed_urls:
+                return True
+        return False
 
     def _read_knowledge_tool(self, tool_id: str) -> dict[str, Any]:
         payload = self.knowledge_files.read_tool_file(tool_id)
@@ -415,11 +534,117 @@ class AgentService:
             )
             return payload
 
+        async def check_customer_registration_eligibility(
+            account_id: str,
+            course_id: str,
+            sale_id: str | None = None,
+            allow_tentative_courses: bool = False,
+        ) -> dict[str, Any]:
+            """Check if an existing MyBusiness customer can be registered to a specific course. Read-only."""
+            try:
+                payload = await service.mybusiness.check_customer_registration_eligibility(
+                    account_id=account_id,
+                    course_id=course_id,
+                    sale_id=sale_id,
+                    allow_tentative_courses=allow_tentative_courses,
+                )
+            except Exception as exc:  # noqa: BLE001 - tool should return structured failure to the agent.
+                payload = {"can_register": False, "blocking_reasons": [type(exc).__name__]}
+            service.db.log_tool_call(
+                None,
+                "check_customer_registration_eligibility",
+                {"account_id": account_id, "course_id": course_id, "sale_id": sale_id, "allow_tentative_courses": allow_tentative_courses},
+                {
+                    "can_register": payload.get("can_register"),
+                    "blocking_reasons": payload.get("blocking_reasons"),
+                    "existing_future_active_enrollments_count": len(payload.get("existing_future_active_enrollments") or []),
+                },
+                bool(payload.get("can_register")),
+            )
+            return payload
+
+        async def register_customer_to_course(
+            account_id: str,
+            course_id: str,
+            sale_id: str,
+            payment_status: str,
+            amount_paid: float = 0,
+            comment: str | None = None,
+            allow_tentative_courses: bool = False,
+            dry_run: bool = True,
+        ) -> dict[str, Any]:
+            """Register an existing MyBusiness customer to a course after full eligibility checks. Defaults to dry_run."""
+            try:
+                payload = await service.mybusiness.register_customer_to_course(
+                    account_id=account_id,
+                    course_id=course_id,
+                    sale_id=sale_id,
+                    payment_status=payment_status,
+                    amount_paid=amount_paid,
+                    comment=comment,
+                    allow_tentative_courses=allow_tentative_courses,
+                    dry_run=dry_run,
+                )
+            except Exception as exc:  # noqa: BLE001 - tool should return structured failure to the agent.
+                payload = {
+                    "created": False,
+                    "dry_run": dry_run,
+                    "eligibility": {"can_register": False, "blocking_reasons": [type(exc).__name__]},
+                }
+            service.db.log_tool_call(
+                None,
+                "register_customer_to_course",
+                {
+                    "account_id": account_id,
+                    "course_id": course_id,
+                    "sale_id": sale_id,
+                    "payment_status": payment_status,
+                    "amount_paid": amount_paid,
+                    "comment_provided": bool(comment),
+                    "allow_tentative_courses": allow_tentative_courses,
+                    "dry_run": dry_run,
+                },
+                {
+                    "created": payload.get("created"),
+                    "dry_run": payload.get("dry_run"),
+                    "eligibility": payload.get("eligibility"),
+                },
+                bool(payload.get("created") or payload.get("dry_run")),
+            )
+            return payload
+
+        async def get_course_payment_instructions(course_name: str) -> dict[str, Any]:
+            """Return required registration details and the approved payment link for a specific Bambi course."""
+            try:
+                payload = service.payment_links.find_payment_instructions(course_name)
+            except Exception as exc:  # noqa: BLE001 - tool should return structured failure to the agent.
+                payload = {"found": False, "matches_count": 0, "matches": [], "error": type(exc).__name__}
+            course = payload.get("course") or {}
+            service.db.log_tool_call(
+                None,
+                "get_course_payment_instructions",
+                {"course_name": course_name},
+                {
+                    "found": payload.get("found"),
+                    "ambiguous": payload.get("ambiguous"),
+                    "matches_count": payload.get("matches_count"),
+                    "course_key": course.get("course_key"),
+                    "has_payment_link": bool(course.get("payment_link")),
+                    "error": payload.get("error"),
+                    "message": payload.get("message"),
+                },
+                bool(payload.get("found")),
+            )
+            return payload
+
         tools.extend(
             [
                 function_tool(find_existing_customer),
                 function_tool(list_course_categories),
                 function_tool(find_available_course_dates),
+                function_tool(check_customer_registration_eligibility),
+                function_tool(register_customer_to_course),
+                function_tool(get_course_payment_instructions),
             ]
         )
 
