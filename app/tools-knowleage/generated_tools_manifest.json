@@ -439,6 +439,16 @@
       ]
     },
     {
+      "tool_id": "course_hazmat_transport_manager_refresh",
+      "display_name": "ריענון אחראי שינוע חומ\"ס",
+      "description": "יש להשתמש בכלי זה רק כאשר משתמש שואל על ריענון אחראי שינוע חומרים מסוכנים / אחראי שינוע חומ\"ס. אין להשתמש בו עבור רענון הובלת חומ\"ס, ריענון מוביל חומ\"ס או ריענון נהג חומ\"ס.",
+      "file_name": "generated/course_hazmat_transport_manager_refresh.txt",
+      "source_count": 1,
+      "source_files": [
+        "manual/hazmat_transport_manager_refresh"
+      ]
+    },
+    {
       "tool_id": "course_foreign_workers_driving",
       "display_name": "קורסי נהיגה לעובדים זרים",
       "description": "יש להשתמש בכלי זה כאשר משתמש שואל על קורסי נהיגה לעובדים זרים במכללת במבי, כולל הליך הוצאת מספר ישראלי, טופס ירוק, דרישות ויזה, שפות, בחינות, שוברים.",

@@ -31,7 +31,7 @@
     {
       "course_key": "hazmat_refresh",
       "course_name": "ריענון חומ\"ס",
-      "aliases": ["רענון חומס", "ריענון חומרים מסוכנים", "רענון הובלת חומס"],
+      "aliases": ["רענון חומס", "ריענון חומרים מסוכנים", "רענון הובלת חומס", "ריענון חומס", "ריענון הובלת חומס", "רענון מוביל חומס", "ריענון מוביל חומס"],
       "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
       "payment_note": "בסיום התשלום יש לשלוח צילום מסך של התשלום.",
       "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=vsQQOFoAst"
@@ -57,7 +57,7 @@
     {
       "course_key": "hazmat_transport_manager_refresh",
       "course_name": "ריענון אחראי שינוע חומ\"ס",
-      "aliases": ["רענון אחראי שינוע חומס", "ריענון אחראי שינוע חומרים מסוכנים"],
+      "aliases": ["רענון אחראי שינוע חומס", "ריענון אחראי שינוע חומרים מסוכנים", "ריענון אחראי שינוע חומס", "רענון אחראי שינוע חומרים מסוכנים"],
       "required_customer_details": ["שם מלא", "מספר טלפון", "תעודת זהות", "מייל"],
       "payment_note": "בסיום התשלום יש לשלוח צילום מסך של התשלום.",
       "payment_link": "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=v9QLwQ6LpR"
