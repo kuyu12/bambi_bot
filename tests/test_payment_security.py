@@ -1,10 +1,17 @@
-from app.services.payment_links import PaymentLinkService
+from app.services.payment_links import is_approved_dynamic_payment_url
 
 
-def test_allowed_payment_urls_contains_configured_payment_links() -> None:
-    service = PaymentLinkService()
+def test_allows_dynamic_mbapps_payment_url() -> None:
+    assert (
+        is_approved_dynamic_payment_url(
+            "https://6a09b3ab-e66c-64a7-7dbc-06c797b56505.mbapps.co.il/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=abc123"
+        )
+        is True
+    )
 
-    allowed_urls = service.allowed_payment_urls()
 
-    assert "https://tinyurl.com/3zdk77d6" in allowed_urls
-    assert any("payment-btn-page" in url for url in allowed_urls)
+def test_blocks_unapproved_payment_url() -> None:
+    assert (
+        is_approved_dynamic_payment_url("https://evil.example.com/apps/mybooks/payment-btn-page?cls=PaymentBtns&oid=abc123")
+        is False
+    )

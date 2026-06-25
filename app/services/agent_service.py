@@ -17,7 +17,7 @@ from app.schemas import AgentAnswer, ChatHistoryItem, ChatSessionDetail
 from app.services.contact_channels import ContactChannelService
 from app.services.knowledge_files import KnowledgeFileService
 from app.services.mybusiness import MyBusinessService
-from app.services.payment_links import PaymentLinkService
+from app.services.payment_links import PaymentLinkService, is_approved_dynamic_payment_url
 
 
 @dataclass
@@ -31,7 +31,7 @@ class AgentService:
         self.db = db
         self.knowledge_files = knowledge_files
         self.mybusiness = MyBusinessService(settings)
-        self.payment_links = PaymentLinkService()
+        self.payment_links = PaymentLinkService(self.mybusiness)
         self.contact_channels = ContactChannelService()
         self._agent: Agent[AgentContext] | None = None
         self._streaming_agent: Agent[AgentContext] | None = None
@@ -217,7 +217,7 @@ class AgentService:
 הרשמה:
 כאשר לקוח רוצה להירשם, אל תפנה אותו להרשמה בטלפון, בוואטסאפ או ביצירת קשר כללית כל עוד אפשר לבצע את התהליך בצ'אט.
 הסבר שאתה יכול לעזור בתהליך ההרשמה כאן, ולאחר מכן פעל לפי תהליך המכירה וההרשמה המחייב: בדיקת תנאי הקורס, הצגת מועדים מהכלים, בחירת מועד, בקשת פרטים, שליחת לינק תשלום מאושר, אימות תשלום מול המערכת ורק אז שימוש בכלי ההרשמה.
-מותר להפנות לנציג או לטלפון רק כאשר אחד הכלים מחזיר חסימה, חסר מידע שלא ניתן להשלים בצ'אט, אין לינק תשלום מאושר, אין דרך לאמת תשלום, אין לקוח קיים במערכת או שהמשתמש מבקש במפורש לדבר עם נציג.
+מותר להפנות לנציג או לטלפון רק כאשר אחד הכלים מחזיר חסימה, חסר מידע שלא ניתן להשלים בצ'אט, אין לינק תשלום מאושר, אין דרך לאמת תשלום או שהמשתמש מבקש במפורש לדבר עם נציג. אין להפנות לנציג רק בגלל שהלקוח לא נמצא במערכת לפני התשלום.
 מעבר למענה אנושי:
 במקרה של תוכן שלא קיים לך, או צורך או בקשה להעביר למענה אנושי, אם השיחה עוסקת בקורס ספציפי חובה לקרוא קודם ל-get_course_contact_channel עם שם הקורס ולתת את מספר הוואטסאפ הייעודי למשפחת הקורס.
 מספר המשרד הכללי מיועד רק לשאלות כלליות או כאשר get_course_contact_channel לא מצא משפחת קורס ברורה.
@@ -270,7 +270,7 @@ class AgentService:
 הרשמה:
 כאשר לקוח רוצה להירשם, אל תפנה אותו להרשמה בטלפון, בוואטסאפ או ביצירת קשר כללית כל עוד אפשר לבצע את התהליך בצ'אט.
 הסבר שאתה יכול לעזור בתהליך ההרשמה כאן, ולאחר מכן פעל לפי תהליך המכירה וההרשמה המחייב: בדיקת תנאי הקורס, הצגת מועדים מהכלים, בחירת מועד, בקשת פרטים, שליחת לינק תשלום מאושר, אימות תשלום מול המערכת ורק אז שימוש בכלי ההרשמה.
-מותר להפנות לנציג או לטלפון רק כאשר אחד הכלים מחזיר חסימה, חסר מידע שלא ניתן להשלים בצ'אט, אין לינק תשלום מאושר, אין דרך לאמת תשלום, אין לקוח קיים במערכת או שהמשתמש מבקש במפורש לדבר עם נציג.
+מותר להפנות לנציג או לטלפון רק כאשר אחד הכלים מחזיר חסימה, חסר מידע שלא ניתן להשלים בצ'אט, אין לינק תשלום מאושר, אין דרך לאמת תשלום או שהמשתמש מבקש במפורש לדבר עם נציג. אין להפנות לנציג רק בגלל שהלקוח לא נמצא במערכת לפני התשלום.
 מעבר למענה אנושי:
 במקרה של תוכן שלא קיים לך, או צורך או בקשה להעביר למענה אנושי, אם השיחה עוסקת בקורס ספציפי חובה לקרוא קודם ל-get_course_contact_channel עם שם הקורס ולתת את מספר הוואטסאפ הייעודי למשפחת הקורס.
 מספר המשרד הכללי מיועד רק לשאלות כלליות או כאשר get_course_contact_channel לא מצא משפחת קורס ברורה.
@@ -291,7 +291,7 @@ class AgentService:
         return """
 
 כלי MyBusiness:
-יש לך גישה לכלי MyBusiness לבדיקת לקוחות קיימים, קטגוריות קורסים, מועדי קורסים פתוחים, בדיקת זכאות לרישום, ורישום לקוח קיים לקורס.
+יש לך גישה לכלי MyBusiness לבדיקת לקוחות קיימים לפי בקשה מפורשת, קטגוריות קורסים, מועדי קורסים פתוחים, לינקי תשלום דינמיים, בדיקת זכאות לרישום פנימי, ורישום לקוח קיים לקורס לאחר תשלום מאומת.
 רוב הכלים הם לקריאה בלבד. הכלי היחיד שמותר לו ליצור רשומה הוא register_customer_to_course, והוא יוצר CourseEnrollment רק אחרי בדיקת זכאות מלאה.
 אל תיצור לקוחות, אל תעדכן לקוחות, אל תעדכן קורסים ואל תשתמש בכלי כללי לשינוי נתונים.
 
@@ -312,12 +312,12 @@ class AgentService:
 5. אל תציג מידע אישי שאינו נחוץ.
 
 כאשר משתמש מבקש להירשם לקורס:
-1. ודא שיש לקוח קיים ב-MyBusiness באמצעות find_existing_customer. אם אין לקוח קיים, בקש מעבר למענה אנושי.
+1. אל תחפש לקוח קיים ואל תחסום את ההרשמה בגלל שהלקוח לא קיים במערכת. לינק התשלום מיועד לאפשר גם ללקוח חדש להשאיר פרטים ולהיכנס לתהליך.
 2. ודא שהקורס והמועד המבוקש ברורים. עבור מועדים השתמש ב-list_course_categories ואז find_available_course_dates.
-3. לפני רישום, השתמש ב-check_customer_registration_eligibility עם account_id ו-course_id. אם יש sale_id, העבר גם אותו.
-4. אם חסר sale_id או payment_status, בקש אותם או הסבר שנדרש טיפול אנושי. אל תנחש sale_id ואל תנחש סטטוס תשלום.
-5. payment_status חייב להיות אחד מהערכים: PAID, PARTIAL, UNPAID, COMPANY_INVOICE.
-6. ברירת המחדל לרישום היא dry_run=true. הצג למפעיל שהבדיקה עברה ומה היה נרשם. בצע dry_run=false רק אם המשתמש ביקש במפורש לבצע רישום אמיתי ויש את כל הפרטים.
+3. בקש מהלקוח את הפרטים הנדרשים לתשלום/רישום: שם מלא, מספר טלפון, תעודת זהות ומייל.
+4. השתמש ב-get_course_payment_links כדי להביא לינק/אפשרויות תשלום. אם יש כמה אפשרויות, שאל את הלקוח איזו מתאימה לו.
+5. לאחר שהלקוח אומר ששילם, יש לבדוק תשלום מול המערכת. אין להסתמך רק על אמירה או צילום מסך.
+6. רק אם בשלב שאחרי התשלום יש account_id ו-sale_id מאומתים ממקור מערכת, ניתן להשתמש בכלי check_customer_registration_eligibility ו-register_customer_to_course. אם אין אותם, העבר לנציג להשלמת רישום פנימי, אבל אל תגיד שההרשמה הראשונית או התשלום נחסמו בגלל שאין לקוח קיים.
 7. אם הכלי מחזיר blocking_reasons, אל תעקוף אותם ואל תנסה להירשם שוב ללא שינוי בפרטים.
 8. לעולם אל תציג למשתמש payload פנימי, מזהי מערכת לא נחוצים, מפתחות API או פלט גולמי של הכלים.
 """
@@ -329,7 +329,7 @@ class AgentService:
 כאשר לקוח רוצה להירשם לקורס, פעל אך ורק לפי הסדר הבא. אל תדלג על שלבים ואל תרשום לקוח לפני תשלום מאומת.
 אם כלי ידע כלשהו כולל טקסט ישן כמו "להרשמה התקשרו", "פנו בוואטסאפ", "צרו קשר להרשמה" או ניסוח דומה, אל תציג אותו כהנחיית הרשמה ואל תפנה את הלקוח לשם כברירת מחדל.
 המידע בקבצי הידע משמש להבנת הקורס בלבד. תהליך הרשמה, תשלום ובחירת מועדים מתבצע רק דרך כלי MyBusiness וכלי התשלום שהוגדרו לך.
-הפניה לטלפון, וואטסאפ או נציג מותרת רק כחריג: חסימה מהכלים, חוסר מידע קריטי, תשלום שלא ניתן לאמת, לקוח שלא נמצא במערכת, קורס ללא לינק תשלום מאושר, או בקשה מפורשת של המשתמש לדבר עם נציג.
+הפניה לטלפון, וואטסאפ או נציג מותרת רק כחריג: חסימה מהכלים, חוסר מידע קריטי, תשלום שלא ניתן לאמת, קורס ללא לינק תשלום מאושר, או בקשה מפורשת של המשתמש לדבר עם נציג. אל תפנה לנציג רק כי הלקוח עדיין לא קיים במערכת לפני התשלום.
 לפני תחילת התהליך ודא ששם הקורס חד-משמעי. אם המשתמש ביקש קורס ממשפחה שיש בה כמה מסלולים דומים, עצור ושאל הבהרה. אין להשתמש בלינק תשלום או במועד של מסלול דומה.
 כאשר צריך להפנות לנציג לגבי קורס ספציפי, אל תשתמש אוטומטית בטלפון המשרד. קרא ל-get_course_contact_channel והחזר את מספר הוואטסאפ הייעודי שהכלי מצא. אם הכלי מחזיר כמה התאמות, שאל לאיזה קורס/משפחה הכוונה. אם אין התאמה, רק אז השתמש בפרטי המשרד הכלליים מכלי יצירת הקשר.
 
@@ -343,18 +343,23 @@ class AgentService:
 שאל את הלקוח איזה מועד מתאים לו. אל תמשיך לתשלום בלי מועד מוסכם כאשר הקורס דורש בחירת מועד.
 
 3. פרטים ולינק תשלום:
-לאחר שיש קורס ומועד מוסכמים, קרא ל-get_course_payment_instructions עם שם הקורס.
-בקש מהלקוח את כל הפרטים שהכלי החזיר כ-required_customer_details.
-שלח ללקוח את לינק התשלום שהכלי החזיר, יחד עם הערת התשלום אם קיימת.
-אם אין לינק תשלום לקורס או שיש התאמה לא חד-משמעית, אל תמציא לינק ואל תשתמש בלינק של קורס אחר - העבר לנציג.
+לאחר שיש קורס ומועד מוסכמים, קרא ל-get_course_payment_links עם category_id, category_code או category_name. אם יש product_id מהמועד שנבחר, העבר אותו כדי לדייק.
+לפני שליחת לינק תשלום חובה לבקש מהלקוח את הפרטים הבאים לצורך רישום לאחר התשלום: שם מלא, מספר טלפון, תעודת זהות ומייל.
+אין צורך לבדוק לפני כן אם הלקוח כבר קיים במערכת. לקוח חדש יכול להמשיך לתשלום והרשמה ראשונית דרך לינק התשלום.
+אם הכלי מחזיר payment_links אחד בלבד, מותר לשלוח אותו ללקוח ולהסביר שהלינק הוא דף תשלום כללי ואינו שומר מקום עד אימות תשלום והרשמה במערכת.
+אם הכלי מחזיר כמה payment_links, בדוק את description_for_bot, name, title ו-row_price. אם אין התאמה חד-משמעית לבקשת הלקוח, שאל את הלקוח איזו אפשרות תשלום מתאימה לו. אל תבחר לבד.
+אם הכלי מחזיר requires_representative=true או restricted_links_summary בלבד, אל תציג שום לינק תשלום והעבר לנציג.
+לעולם אל תציג או תציע לינקים של הנחה. אם לקוח מבקש הנחה, הסבר שהנחות דורשות טיפול נציג.
+אם אין לינק תשלום לקורס או שיש התאמה לא חד-משמעית שלא ניתן לברר עם הלקוח, אל תמציא לינק ואל תשתמש בלינק של קורס אחר - העבר לנציג.
 
 4. לאחר תשלום:
 בקש מהלקוח לעדכן כשהתשלום הסתיים. אם הלקוח אומר שהוא שילם, חובה לבדוק מול MyBusiness לפני רישום.
 אין להסתמך רק על אמירה של הלקוח או צילום מסך כראיית תשלום סופית.
-אם אין דרך לאמת במערכת שהתשלום בוצע או שאין sale_id מתאים שמשויך ללקוח, העבר לנציג.
+אם אין דרך לאמת במערכת שהתשלום בוצע או שאין sale_id/account_id מתאים ממקור מערכת אחרי התשלום, העבר לנציג להשלמת הרישום הפנימי. אל תציג זאת כחסימה בגלל שהלקוח לא היה קיים לפני התשלום.
 
 5. רישום לקורס:
-רק לאחר שיש לקוח קיים, קורס ומועד מוסכמים, עמידה בדרישות, תשלום מאומת, sale_id מתאים ו-payment_status מפורש - השתמש ב-check_customer_registration_eligibility.
+רישום פנימי לקורס דרך register_customer_to_course מתבצע רק אחרי תשלום מאומת ורק אם יש account_id ו-sale_id ממקור מערכת. אין לבצע או לדרוש בדיקת לקוח קיים לפני שליחת לינק התשלום.
+רק לאחר שיש account_id ממקור מערכת, קורס ומועד מוסכמים, עמידה בדרישות, תשלום מאומת, sale_id מתאים ו-payment_status מפורש - השתמש ב-check_customer_registration_eligibility.
 אם הזכאות תקינה, השתמש ב-register_customer_to_course.
 ברירת המחדל היא dry_run=true. dry_run=false מותר רק אם התשלום אומת ויש בקשה מפורשת לבצע רישום אמיתי.
 
@@ -476,7 +481,8 @@ class AgentService:
         for url in urls:
             cleaned = url.rstrip(".,;:!?")
             is_payment_url = "payment-btn-page" in cleaned or "mybooks" in cleaned or cleaned == "https://tinyurl.com/3zdk77d6"
-            if is_payment_url and cleaned not in allowed_urls:
+            is_dynamic_mbapps_payment = is_approved_dynamic_payment_url(cleaned)
+            if is_payment_url and cleaned not in allowed_urls and not is_dynamic_mbapps_payment:
                 return True
         return False
 
@@ -634,25 +640,46 @@ class AgentService:
             )
             return payload
 
-        async def get_course_payment_instructions(course_name: str) -> dict[str, Any]:
-            """Return required registration details and the approved payment link for a specific Bambi course."""
+        async def get_course_payment_links(
+            category_id: str | None = None,
+            category_code: str | None = None,
+            category_name: str | None = None,
+            product_id: str | None = None,
+            payment_intent: str | None = None,
+            include_restricted: bool = False,
+        ) -> dict[str, Any]:
+            """Return read-only MyBusiness payment page links for a course category/product. Discount links are restricted."""
             try:
-                payload = service.payment_links.find_payment_instructions(course_name)
+                payload = await service.payment_links.get_course_payment_links(
+                    category_id=category_id,
+                    category_code=category_code,
+                    category_name=category_name,
+                    product_id=product_id,
+                    payment_intent=payment_intent,
+                    include_restricted=include_restricted,
+                )
             except Exception as exc:  # noqa: BLE001 - tool should return structured failure to the agent.
-                payload = {"found": False, "matches_count": 0, "matches": [], "error": type(exc).__name__}
-            course = payload.get("course") or {}
+                payload = {"found": False, "payment_links": [], "restricted_links_summary": [], "error": type(exc).__name__}
             service.db.log_tool_call(
                 None,
-                "get_course_payment_instructions",
-                {"course_name": course_name},
+                "get_course_payment_links",
+                {
+                    "category_id": category_id,
+                    "category_code": category_code,
+                    "category_name": category_name,
+                    "product_id": product_id,
+                    "payment_intent": payment_intent,
+                    "include_restricted": include_restricted,
+                },
                 {
                     "found": payload.get("found"),
-                    "ambiguous": payload.get("ambiguous"),
-                    "matches_count": payload.get("matches_count"),
-                    "course_key": course.get("course_key"),
-                    "has_payment_link": bool(course.get("payment_link")),
+                    "requires_user_choice": payload.get("requires_user_choice"),
+                    "requires_representative": payload.get("requires_representative"),
+                    "payment_links_count": len(payload.get("payment_links") or []),
+                    "restricted_links_count": len(payload.get("restricted_links_summary") or []),
+                    "ambiguous_category": payload.get("ambiguous_category"),
                     "error": payload.get("error"),
-                    "message": payload.get("message"),
+                    "reason": payload.get("reason"),
                 },
                 bool(payload.get("found")),
             )
@@ -695,7 +722,7 @@ class AgentService:
                 function_tool(find_available_course_dates),
                 function_tool(check_customer_registration_eligibility),
                 function_tool(register_customer_to_course),
-                function_tool(get_course_payment_instructions),
+                function_tool(get_course_payment_links),
                 function_tool(get_course_contact_channel),
             ]
         )
