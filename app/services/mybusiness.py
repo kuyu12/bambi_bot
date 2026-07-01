@@ -16,6 +16,31 @@ REGISTERED_ENROLLMENT_STATUS_ID = "0BbaSYbE8x"
 TENTATIVE_COURSE_STATUS_ID = "bh0iCW38FE"
 OPEN_REGISTRATION_COURSE_STATUS_ID = "U3IMyC5c9H"
 INACTIVE_COURSE_STATUS_IDS = {"FbdRzAz07C", "d4YY2V8STP", "elArHVxiHv"}
+MIN_COURSE_KEYWORD_LENGTH = 3
+COURSE_SEARCH_STOPWORDS = {
+    "course",
+    "license",
+    "training",
+    "קורס",
+    "קורסי",
+    "קורסים",
+    "לימוד",
+    "לימודי",
+    "לימודים",
+    "רישיון",
+    "רשיון",
+    "היתר",
+    "השתלמות",
+    "הכשרה",
+    "של",
+    "על",
+    "עם",
+    "את",
+    "אל",
+    "לקורס",
+    "בקורס",
+    "קציני",
+}
 PAYMENT_STATUS_IDS = {
     "PAID": "0eBXa9VeT8",
     "PARTIAL": "qXzFm8ABt2",
@@ -158,23 +183,7 @@ class MyBusinessService:
         )
         categories = [map_category(row) for row in rows]
         if search:
-            needle = normalize_text(search)
-            canonical_needle = normalize_course_search(search)
-            exact_matches = [
-                category
-                for category in categories
-                if needle == normalize_text(category["code"])
-                or needle == normalize_text(category["name"])
-                or canonical_needle == normalize_course_search(category["name"])
-            ]
-            if exact_matches:
-                categories = exact_matches
-            else:
-                categories = [
-                    category
-                    for category in categories
-                    if needle in normalize_text(category["name"]) or needle in normalize_text(category["code"])
-                ]
+            categories = match_categories(categories, search)
         return {"categories_count": len(categories), "categories": categories}
 
     async def find_available_course_dates(
@@ -193,7 +202,13 @@ class MyBusinessService:
         category = category_result["category"]
         open_statuses = await self._get_open_statuses()
         if not open_statuses:
-            return {"found": False, "category": category, "available_courses_count": 0, "courses": []}
+            return {
+                "found": False,
+                "requires_representative": True,
+                "category": category,
+                "available_courses_count": 0,
+                "courses": [],
+            }
 
         now_iso = datetime.now(UTC).isoformat(timespec="milliseconds").replace("+00:00", "Z")
         where = {
@@ -223,6 +238,7 @@ class MyBusinessService:
 
         return {
             "found": bool(courses),
+            "requires_representative": not bool(courses),
             "category": category,
             "available_courses_count": len(courses),
             "raw_matching_courses_before_capacity_filter": len(rows),
@@ -412,8 +428,7 @@ class MyBusinessService:
             normalized_code = normalize_text(category_code)
             matches = [category for category in categories if normalize_text(category["code"]) == normalized_code]
         elif category_name:
-            needle = normalize_text(category_name)
-            matches = [category for category in categories if needle and needle in normalize_text(category["name"])]
+            matches = match_categories(categories, category_name)
         else:
             return {"found": False, "message": "Missing category_id, category_code, or category_name."}
 
@@ -421,7 +436,12 @@ class MyBusinessService:
             return {"found": True, "category": matches[0]}
         if len(matches) > 1:
             return {"found": False, "ambiguous": True, "matches": matches, "courses": []}
-        return {"found": False, "message": "No matching course category found.", "matches": []}
+        return {
+            "found": False,
+            "requires_representative": True,
+            "message": "No matching course category found after exact, partial, and keyword search.",
+            "matches": [],
+        }
 
     async def _get_open_statuses(self) -> list[dict[str, Any]]:
         rows = await self._get_class(
@@ -461,6 +481,62 @@ def normalize_course_search(value: Any) -> str:
     text = re.sub(r"\bרישיון\b", " ", text)
     text = re.sub(r"\bהיתר\b", " ", text)
     return re.sub(r"\s+", " ", text).strip()
+
+
+def course_search_keywords(value: Any) -> list[str]:
+    normalized = normalize_course_search(value)
+    normalized = re.sub(r"[/|,;:()\[\]{}\-–—]+", " ", normalized)
+    tokens = normalized.split()
+    keywords: list[str] = []
+    for token in tokens:
+        token = token.strip('"׳״`').strip()
+        if len(token) < MIN_COURSE_KEYWORD_LENGTH or token in COURSE_SEARCH_STOPWORDS:
+            continue
+        if token not in keywords:
+            keywords.append(token)
+    return keywords
+
+
+def match_categories(categories: list[dict[str, Any]], search: str) -> list[dict[str, Any]]:
+    needle = normalize_text(search)
+    canonical_needle = normalize_course_search(search)
+    if not needle:
+        return []
+
+    exact_matches = [
+        category
+        for category in categories
+        if needle == normalize_text(category["code"])
+        or needle == normalize_text(category["name"])
+        or canonical_needle == normalize_course_search(category["name"])
+    ]
+    if exact_matches:
+        return exact_matches
+
+    keywords = course_search_keywords(search)
+    partial_matches = [
+        category
+        for category in categories
+        if keywords and (needle in normalize_text(category["name"]) or needle in normalize_text(category["code"]))
+    ]
+    if partial_matches:
+        return partial_matches
+
+    if not keywords:
+        return []
+    scored_matches = []
+    for category in categories:
+        searchable = f"{normalize_course_search(category['name'])} {normalize_text(category['code'])}"
+        matched_keywords = [keyword for keyword in keywords if keyword in searchable]
+        if matched_keywords:
+            scored_matches.append((len(matched_keywords), category))
+
+    if not scored_matches:
+        return []
+    max_score = max(score for score, _category in scored_matches)
+    if max_score < min(2, len(keywords)):
+        return []
+    return [category for score, category in scored_matches if score == max_score]
 
 
 def normalize_identifier_variants(identifier: str) -> list[str]:
