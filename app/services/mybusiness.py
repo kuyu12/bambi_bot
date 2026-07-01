@@ -197,6 +197,8 @@ class MyBusinessService:
 
         category_result = await self._resolve_category(category_id, category_code, category_name)
         if category_result.get("ambiguous") or not category_result.get("category"):
+            if category_name and not category_result.get("ambiguous"):
+                return await self._find_available_courses_by_name(category_name)
             return {**category_result, "found": False, "courses": []}
 
         category = category_result["category"]
@@ -212,7 +214,7 @@ class MyBusinessService:
 
         now_iso = datetime.now(UTC).isoformat(timespec="milliseconds").replace("+00:00", "Z")
         where = {
-            "StartDate": {"$gt": {"__type": "Date", "iso": now_iso}},
+            "StartDate": future_course_start_date_filter(now_iso),
             "StatusId": {"$in": [pointer("CourseStatuses", status["status_id"]) for status in open_statuses]},
             "ProductCategory": pointer("ProductCategories", category["category_id"]),
         }
@@ -242,6 +244,50 @@ class MyBusinessService:
             "category": category,
             "available_courses_count": len(courses),
             "raw_matching_courses_before_capacity_filter": len(rows),
+            "courses": courses,
+        }
+
+    async def _find_available_courses_by_name(self, course_name: str) -> dict[str, Any]:
+        open_statuses = await self._get_open_statuses()
+        if not open_statuses:
+            return {"found": False, "requires_representative": True, "available_courses_count": 0, "courses": []}
+
+        now_iso = datetime.now(UTC).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+        where = {
+            "StartDate": future_course_start_date_filter(now_iso),
+            "StatusId": {"$in": [pointer("CourseStatuses", status["status_id"]) for status in open_statuses]},
+        }
+        rows = await self._get_class(
+            "Courses",
+            {
+                "where": json_dumps(where),
+                "limit": 1000,
+                "order": "StartDate",
+                "include": "StatusId,ProductCategory,ProductId,FacilityId,MainLecturerId,MainClassId",
+                "keys": (
+                    "objectId,Name,StartDate,EndDate,FirstClass,StatusId,ProductCategory,ProductId,FacilityId,"
+                    "MainLecturerId,MainClassId,MaxCapacity,RegisteredStudents,AllowOverBooking,NumberOfLessons"
+                ),
+            },
+        )
+
+        matched_rows = [row for row in rows if course_row_matches_search(row, course_name)]
+        courses = []
+        for row in matched_rows:
+            category = map_category(row.get("ProductCategory") or {}) if isinstance(row.get("ProductCategory"), dict) else None
+            if not category:
+                continue
+            course = map_available_course(row, category)
+            if course is not None:
+                courses.append(course)
+
+        return {
+            "found": bool(courses),
+            "requires_representative": not bool(courses),
+            "matched_by": "course_name_keywords",
+            "search": course_name,
+            "available_courses_count": len(courses),
+            "raw_matching_courses_before_capacity_filter": len(matched_rows),
             "courses": courses,
         }
 
@@ -465,6 +511,10 @@ def pointer(class_name: str, object_id: str) -> dict[str, str]:
     return {"__type": "Pointer", "className": class_name, "objectId": object_id}
 
 
+def future_course_start_date_filter(now_iso: str) -> dict[str, Any]:
+    return {"$gt": {"__type": "Date", "iso": now_iso}}
+
+
 def clean(value: Any) -> Any:
     return html.unescape(value) if isinstance(value, str) else value
 
@@ -537,6 +587,30 @@ def match_categories(categories: list[dict[str, Any]], search: str) -> list[dict
     if max_score < min(2, len(keywords)):
         return []
     return [category for score, category in scored_matches if score == max_score]
+
+
+def course_row_matches_search(row: dict[str, Any], search: str) -> bool:
+    keywords = course_search_keywords(search)
+    if not keywords:
+        return False
+
+    category = row.get("ProductCategory") if isinstance(row.get("ProductCategory"), dict) else {}
+    product = row.get("ProductId") if isinstance(row.get("ProductId"), dict) else {}
+    searchable = " ".join(
+        [
+            normalize_course_search(row.get("Name")),
+            normalize_course_search(product.get("Name")),
+            normalize_course_search(category.get("Name")),
+            normalize_text(category.get("Code")),
+        ]
+    )
+    matched_keywords = [keyword for keyword in keywords if keyword in searchable]
+    if not matched_keywords:
+        return False
+    if len(matched_keywords) >= 2:
+        return True
+    # A single distinctive keyword is enough for course-name fallback. Generic terms are removed by course_search_keywords.
+    return len(keywords) <= 2
 
 
 def normalize_identifier_variants(identifier: str) -> list[str]:

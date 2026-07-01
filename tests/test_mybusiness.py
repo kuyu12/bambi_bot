@@ -1,10 +1,18 @@
 from app.services.mybusiness import (
+    future_course_start_date_filter,
+    course_row_matches_search,
     course_search_keywords,
     map_available_course,
     match_categories,
     normalize_course_search,
     normalize_identifier_variants,
 )
+
+
+def test_future_course_start_date_filter_requires_course_not_started() -> None:
+    now = "2026-07-01T12:00:00.000Z"
+
+    assert future_course_start_date_filter(now) == {"$gt": {"__type": "Date", "iso": now}}
 
 
 def test_normalize_identifier_variants_for_israeli_mobile() -> None:
@@ -41,6 +49,28 @@ def test_course_keyword_matching_does_not_match_single_weak_keyword() -> None:
     categories = [{"category_id": "cat1", "name": tachograph_course, "code": ""}]
 
     assert match_categories(categories, query) == []
+
+
+def test_course_row_matching_finds_tachograph_even_without_digital_in_course_name() -> None:
+    query = "\u05d8\u05db\u05d5\u05d2\u05e8\u05e3 \u05d3\u05d9\u05d2\u05d9\u05d8\u05dc\u05d9"
+    row = {
+        "Name": "\u05d4\u05e9\u05ea\u05dc\u05de\u05d5\u05ea \u05d8\u05db\u05d5\u05d2\u05e8\u05e3 \u05dc\u05e7\u05e6\u05d9\u05e0\u05d9 \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea 12.7.26",
+        "ProductCategory": {"Name": "\u05d9\u05d5\u05dd \u05e2\u05d9\u05d5\u05df \u05dc\u05e7\u05e6\u05d1\u05ea", "Code": "80049"},
+        "ProductId": {"Name": "\u05d9\u05d5\u05dd \u05e2\u05d9\u05d5\u05df \u05dc\u05e7\u05e6\u05d9\u05e0\u05d9 \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea"},
+    }
+
+    assert course_row_matches_search(row, query) is True
+
+
+def test_course_row_matching_does_not_mix_other_safety_officer_study_days() -> None:
+    query = "\u05d8\u05db\u05d5\u05d2\u05e8\u05e3 \u05d3\u05d9\u05d2\u05d9\u05d8\u05dc\u05d9"
+    row = {
+        "Name": "8.9.26 \u05d9\u05d5\u05dd \u05e2\u05d9\u05d5\u05df \u05dc\u05e7\u05e6\u05d9\u05e0\u05d9 \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u05d1\u05e0\u05d5\u05e9\u05d0 \u05de\u05e2\u05e8\u05db\u05d5\u05ea \u05e2\u05d6\u05e8 ADAS",
+        "ProductCategory": {"Name": "\u05d9\u05d5\u05dd \u05e2\u05d9\u05d5\u05df \u05dc\u05e7\u05e6\u05d1\u05ea", "Code": "80049"},
+        "ProductId": {"Name": "\u05d9\u05d5\u05dd \u05e2\u05d9\u05d5\u05df \u05dc\u05e7\u05e6\u05d9\u05e0\u05d9 \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea"},
+    }
+
+    assert course_row_matches_search(row, query) is False
 
 
 def test_map_available_course_skips_full_course() -> None:
