@@ -23,6 +23,7 @@ DEFAULT_RAW_DIR = Path("data/website_raw")
 DEFAULT_TOOLS_DIR = Path("app/tools-knowleage")
 GENERATED_DIR_NAME = "generated"
 GENERATED_MANIFEST_NAME = "generated_tools_manifest.json"
+CHANGED_FILES_MANIFEST_NAME = "changed_files.json"
 MAX_CATEGORY_SNAPSHOT_CHARS = 1_200
 MAX_PAGE_TEXT_CHARS = 10_000
 MAX_SUMMARY_OUTPUT_TOKENS = 3_500
@@ -158,8 +159,12 @@ def is_allowed_tool_id(tool_id: str) -> bool:
     return tool_id in SEED_TOOL_IDS or tool_id.startswith(NEW_COURSE_TOOL_PREFIX)
 
 
-def load_manifest(raw_dir: Path) -> list[dict]:
-    manifest = json.loads((raw_dir / "manifest.json").read_text(encoding="utf-8"))
+def load_manifest(raw_dir: Path, *, only_changed: bool = False) -> list[dict]:
+    manifest_name = CHANGED_FILES_MANIFEST_NAME if only_changed else "manifest.json"
+    manifest_path = raw_dir / manifest_name
+    if only_changed and not manifest_path.exists():
+        raise FileNotFoundError(f"{manifest_name} not found under {raw_dir}. Run export_wordpress_raw.py first.")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     return [item for item in manifest["files"] if item.get("type") in {"pages", "posts"}]
 
 
@@ -169,6 +174,13 @@ def load_raw_record(raw_dir: Path, item: dict) -> dict:
 
 def raw_record_exists(raw_dir: Path, item: dict) -> bool:
     return (raw_dir / item["file"]).exists()
+
+
+def completion_key(item: dict, *, include_hash: bool = False) -> str:
+    file_name = str(item.get("file"))
+    if not include_hash:
+        return file_name
+    return f"{file_name}::{item.get('content_hash') or item.get('modified_gmt') or ''}"
 
 
 def seed_categories() -> dict[str, CategoryState]:
@@ -403,13 +415,20 @@ def main() -> None:
     parser.add_argument("--max-documents", type=int, default=0, help="Limit documents for testing. 0 means all.")
     parser.add_argument("--checkpoint-every", type=int, default=1, help="Write generated tool files every N processed documents.")
     parser.add_argument("--resume", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument(
+        "--only-changed",
+        action="store_true",
+        help=f"Process only files listed in {CHANGED_FILES_MANIFEST_NAME} from the selected raw export.",
+    )
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
     load_dotenv()
     raw_dir = latest_raw_dir(Path(args.raw_dir))
     tools_dir = Path(args.tools_dir)
-    items = load_manifest(raw_dir)
+    items = load_manifest(raw_dir, only_changed=args.only_changed)
+    if args.only_changed:
+        print(f"Processing only changed/new raw files from {raw_dir / CHANGED_FILES_MANIFEST_NAME}: {len(items)} documents", flush=True)
     if args.max_documents:
         items = items[: args.max_documents]
 
@@ -419,18 +438,19 @@ def main() -> None:
         categories = seed_categories()
         processed = []
         skipped = []
-    completed_files = {str(item.get("file")) for item in processed + skipped}
+    completed_files = {completion_key(item, include_hash=args.only_changed) for item in processed + skipped}
 
     client = OpenAI()
     for index, item in enumerate(items, start=1):
-        if str(item.get("file")) in completed_files:
+        item_completion_key = completion_key(item, include_hash=args.only_changed)
+        if item_completion_key in completed_files:
             print(f"[{index}/{len(items)}] resume skip already done {item.get('file')}", flush=True)
             continue
 
         if not raw_record_exists(raw_dir, item):
             record = {"file": item.get("file"), "reason": "raw file missing"}
             skipped.append(record)
-            completed_files.add(str(item.get("file")))
+            completed_files.add(item_completion_key)
             print(f"[{index}/{len(items)}] skip missing {item.get('file')}", flush=True)
             continue
 
@@ -438,6 +458,7 @@ def main() -> None:
         page_text = extract_page_text(raw)
         if not page_text.strip():
             skipped.append({"file": item.get("file"), "reason": "empty extracted page text"})
+            completed_files.add(item_completion_key)
             continue
 
         first_prompt = build_prompt(item, page_text, categories)
@@ -459,7 +480,7 @@ def main() -> None:
                 "reason": f"llm_error: {type(exc).__name__}: {exc}",
             }
             skipped.append(record)
-            completed_files.add(str(item.get("file")))
+            completed_files.add(item_completion_key)
             if not args.dry_run:
                 write_outputs(categories, tools_dir, raw_dir, processed, skipped)
             continue
@@ -474,6 +495,8 @@ def main() -> None:
             "id": item.get("id"),
             "title": item.get("title"),
             "link": item.get("link"),
+            "content_hash": item.get("content_hash"),
+            "change_status": item.get("change_status"),
             "has_bot_value": decision.has_bot_value,
             "category_action": decision.category_action,
             "category_tool_id": decision.category_tool_id,
@@ -484,7 +507,7 @@ def main() -> None:
             processed.append(record)
         else:
             skipped.append(record)
-        completed_files.add(str(item.get("file")))
+        completed_files.add(item_completion_key)
 
         if not args.dry_run and args.checkpoint_every > 0 and (len(processed) + len(skipped)) % args.checkpoint_every == 0:
             write_outputs(categories, tools_dir, raw_dir, processed, skipped)

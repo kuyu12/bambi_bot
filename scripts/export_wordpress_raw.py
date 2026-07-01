@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import time
@@ -14,6 +15,9 @@ from typing import Any
 
 USER_AGENT = "BambiKnowledgeBot/1.0"
 DEFAULT_TYPES = ("pages", "posts")
+CHANGE_STATUS_NEW = "new"
+CHANGE_STATUS_CHANGED = "changed"
+CHANGE_STATUS_UNCHANGED = "unchanged"
 
 
 def utc_stamp() -> str:
@@ -23,6 +27,61 @@ def utc_stamp() -> str:
 def safe_name(value: str, fallback: str) -> str:
     value = re.sub(r"[^\w\-.]+", "-", value.strip(), flags=re.UNICODE).strip("-")
     return value[:120] or fallback
+
+
+def canonical_json_hash(payload: Any) -> str:
+    """Stable hash for deciding whether a WordPress record changed."""
+    encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def latest_manifest_dir(base_dir: Path, exclude: Path | None = None) -> Path | None:
+    if not base_dir.exists():
+        return None
+
+    if (base_dir / "manifest.json").exists():
+        candidate = base_dir.resolve()
+        if exclude is None or candidate != exclude.resolve():
+            return candidate
+
+    candidates = []
+    for path in base_dir.iterdir():
+        if path.is_dir() and (path / "manifest.json").exists():
+            resolved = path.resolve()
+            if exclude is not None and resolved == exclude.resolve():
+                continue
+            candidates.append(path)
+    return sorted(candidates)[-1] if candidates else None
+
+
+def load_previous_index(previous_dir: Path | None) -> dict[tuple[str, str], dict[str, Any]]:
+    if previous_dir is None:
+        return {}
+    manifest_path = previous_dir / "manifest.json"
+    if not manifest_path.exists():
+        return {}
+
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    index: dict[tuple[str, str], dict[str, Any]] = {}
+    for item in manifest.get("files", []):
+        route = str(item.get("type") or "")
+        item_id = str(item.get("id") or "")
+        if route and item_id:
+            index[(route, item_id)] = item
+    return index
+
+
+def change_status(item_hash: str, previous_item: dict[str, Any] | None, modified_gmt: Any) -> str:
+    if previous_item is None:
+        return CHANGE_STATUS_NEW
+    previous_hash = previous_item.get("content_hash")
+    if previous_hash and previous_hash == item_hash:
+        return CHANGE_STATUS_UNCHANGED
+    if previous_hash:
+        return CHANGE_STATUS_CHANGED
+    if str(previous_item.get("modified_gmt") or "") == str(modified_gmt or ""):
+        return CHANGE_STATUS_UNCHANGED
+    return CHANGE_STATUS_CHANGED
 
 
 def fetch_json(url: str, timeout: int) -> tuple[Any, dict[str, str]]:
@@ -59,6 +118,7 @@ def export_collection(
     per_page: int,
     sleep_seconds: float,
     timeout: int,
+    previous_index: dict[tuple[str, str], dict[str, Any]],
 ) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
     files: list[dict[str, Any]] = []
     errors: list[dict[str, str]] = []
@@ -101,6 +161,9 @@ def export_collection(
             item_id = str(item.get("id", "unknown"))
             slug = safe_name(str(item.get("slug") or ""), f"{route}-{item_id}")
             file_path = out_dir / "raw" / route / f"{item_id}-{slug}.json"
+            item_hash = canonical_json_hash(item)
+            previous_item = previous_index.get((route, item_id))
+            status = change_status(item_hash, previous_item, item.get("modified_gmt"))
             write_json(file_path, item)
             title = item.get("title", {}).get("rendered") if isinstance(item.get("title"), dict) else ""
             files.append(
@@ -112,6 +175,10 @@ def export_collection(
                     "link": item.get("link"),
                     "date_gmt": item.get("date_gmt"),
                     "modified_gmt": item.get("modified_gmt"),
+                    "content_hash": item_hash,
+                    "change_status": status,
+                    "previous_file": previous_item.get("file") if previous_item else None,
+                    "previous_modified_gmt": previous_item.get("modified_gmt") if previous_item else None,
                     "file": str(file_path.relative_to(out_dir)).replace("\\", "/"),
                 }
             )
@@ -154,10 +221,17 @@ def main() -> None:
     parser.add_argument("--per-page", type=int, default=25)
     parser.add_argument("--sleep", type=float, default=1.5)
     parser.add_argument("--timeout", type=int, default=30)
+    parser.add_argument(
+        "--previous-dir",
+        default="",
+        help="Previous raw export dir for delta detection. Defaults to latest sibling export under the out-dir parent.",
+    )
     args = parser.parse_args()
 
     out_dir = Path(args.out_dir).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
+    previous_dir = Path(args.previous_dir).resolve() if args.previous_dir else latest_manifest_dir(out_dir.parent, exclude=out_dir)
+    previous_index = load_previous_index(previous_dir)
 
     started_at = datetime.now(UTC).isoformat()
     routes = [item.strip() for item in args.types.split(",") if item.strip()]
@@ -168,6 +242,7 @@ def main() -> None:
         "per_page": args.per_page,
         "sleep_seconds": args.sleep,
         "routes": routes,
+        "previous_raw_dir": str(previous_dir) if previous_dir else None,
         "files": [],
         "auxiliary": [],
         "errors": [],
@@ -183,14 +258,37 @@ def main() -> None:
             per_page=args.per_page,
             sleep_seconds=args.sleep,
             timeout=args.timeout,
+            previous_index=previous_index,
         )
         manifest["files"].extend(files)
         manifest["errors"].extend(errors)
         time.sleep(args.sleep)
 
+    changed_files = [
+        item
+        for item in manifest["files"]
+        if item.get("change_status") in {CHANGE_STATUS_NEW, CHANGE_STATUS_CHANGED}
+    ]
+    manifest["changes"] = {
+        "new": sum(1 for item in manifest["files"] if item.get("change_status") == CHANGE_STATUS_NEW),
+        "changed": sum(1 for item in manifest["files"] if item.get("change_status") == CHANGE_STATUS_CHANGED),
+        "unchanged": sum(1 for item in manifest["files"] if item.get("change_status") == CHANGE_STATUS_UNCHANGED),
+        "total_delta": len(changed_files),
+    }
     manifest["finished_at"] = datetime.now(UTC).isoformat()
     manifest["total_files"] = len(manifest["files"])
     write_json(out_dir / "manifest.json", manifest)
+    write_json(
+        out_dir / "changed_files.json",
+        {
+            "generated_at": manifest["finished_at"],
+            "base_url": args.base_url,
+            "raw_dir": str(out_dir),
+            "previous_raw_dir": str(previous_dir) if previous_dir else None,
+            "total_files": len(changed_files),
+            "files": changed_files,
+        },
+    )
 
     index_path = out_dir / "index.jsonl"
     with index_path.open("w", encoding="utf-8") as handle:
@@ -198,6 +296,13 @@ def main() -> None:
             handle.write(json.dumps(item, ensure_ascii=False) + "\n")
 
     print(f"Exported {manifest['total_files']} raw WordPress records to {out_dir}", flush=True)
+    print(
+        "Delta: "
+        f"new={manifest['changes']['new']} "
+        f"changed={manifest['changes']['changed']} "
+        f"unchanged={manifest['changes']['unchanged']}",
+        flush=True,
+    )
     if manifest["errors"]:
         print(f"Completed with {len(manifest['errors'])} errors. See manifest.json.", flush=True)
 

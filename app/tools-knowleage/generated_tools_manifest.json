@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-18T23:15:35.847797+00:00",
-  "raw_dir": "data\\website_raw\\20260618T214803Z",
+  "generated_at": "2026-07-01T14:41:18.320830+00:00",
+  "raw_dir": "data\\website_raw\\20260701T143921Z",
   "generator": "scripts/build_knowledge_tools.py",
   "tools": [
     {
@@ -566,6 +566,16 @@
       "source_count": 1,
       "source_files": [
         "raw/posts/2828-d7-a8-d7-99-d7-a9-d7-99-d7-95-d7-9f--d7-9c-d7-9e-d7-95-d7-a0-d7-99-d7-aa.json"
+      ]
+    },
+    {
+      "tool_id": "course_digital_tachograph_safety_officers",
+      "display_name": "השתלמות טכוגרף דיגיטלי לקציני בטיחות",
+      "description": "יש להשתמש בכלי זה כאשר משתמש שואל על השתלמות טכוגרף דיגיטלי לקציני בטיחות במכללת במבי, כולל מטרת ההשתלמות, תנאי קבלה, מתכונת, נושאי לימוד, מבחן, תעודה, מיקום ופרטי קשר.",
+      "file_name": "generated/course_digital_tachograph_safety_officers.txt",
+      "source_count": 1,
+      "source_files": [
+        "raw/posts/4909-d7-94-d7-a9-d7-aa-d7-9c-d7-9e-d7-95-d7-aa--d7-98-d7-9b-d7-95-d7-92-d7-a8-d7-a3--d7-93-d7-99-d7-92-d7-99-d7-98-d7-9c-d7-9.json"
       ]
     }
   ],
@@ -2020,6 +2030,19 @@
       "category_action": "existing",
       "category_tool_id": "faq",
       "reason": "העמוד אינו קורס, אך כולל מידע שירותי עובדתי שעשוי לסייע בשאלות נפוצות על מבחן תיאוריה ושפות הבחינה.",
+      "confidence": "high"
+    },
+    {
+      "file": "raw/posts/4909-d7-94-d7-a9-d7-aa-d7-9c-d7-9e-d7-95-d7-aa--d7-98-d7-9b-d7-95-d7-92-d7-a8-d7-a3--d7-93-d7-99-d7-92-d7-99-d7-98-d7-9c-d7-9.json",
+      "id": 4909,
+      "title": "השתלמות טכוגרף דיגיטלי לקציני בטיחות",
+      "link": "https://bambischool.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94/%d7%94%d7%a9%d7%aa%d7%9c%d7%9e%d7%95%d7%aa-%d7%98%d7%9b%d7%95%d7%92%d7%a8%d7%a3-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c%d7%99-%d7%9c%d7%a7%d7%a6%d7%99%d7%a0%d7%99-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa/",
+      "content_hash": "d7e9641c6dfddbbd35049b51b12cc7373fd1de27bbe365314948306cbc047dfc",
+      "change_status": "new",
+      "has_bot_value": true,
+      "category_action": "new",
+      "category_tool_id": "course_digital_tachograph_safety_officers",
+      "reason": "העמוד עוסק בהשתלמות ספציפית עם תנאי קבלה, מתכונת, נושאים, תעודה ופרטי קשר ולכן יש ליצור כלי קורס חדש.",
       "confidence": "high"
     }
   ],
